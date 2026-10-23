@@ -1,0 +1,153 @@
+<header class="st-top">
+  <div class="st-wrap st-top__in">
+    <span class="brand"><span class="brand__mark" aria-hidden="true"></span><span>Muster</span></span>
+    <a class="st-top__link" href="https://musteryourskills.com">musteryourskills.com<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5.5 10.5 10.5 5.5M6.5 5.5h4v4" /></svg></a>
+  </div>
+</header>
+
+<main class="st-main">
+  <!-- The intro: you're in, what Muster is, what it costs you -->
+  <section class="st-wrap st-intro" aria-labelledby="steps-title">
+    <p class="eyebrow" data-enter style="--i: 0">You’re in<span id="steps-name" hidden>, <span data-steps-name></span></span></p>
+    <h1 class="st-h1" id="steps-title" data-enter style="--i: 1">Three steps to sorted skills.</h1>
+    <p class="st-lede" data-enter style="--i: 2">You’re off the waitlist, and Muster is ready for you. It organises the skills Claude Code has on your Mac: it finds them, shows them in one place, and checks them for duplicates and conflicts.</p>
+    <ul class="st-facts" data-enter style="--i: 3">
+      <li>A 23 MB download</li>
+      <li>No account</li>
+      <li>Nothing leaves your Mac</li>
+    </ul>
+  </section>
+
+  <ol class="st-wrap steps">
+    <!-- 1. Install: the one line, big and primary -->
+    <li class="step" data-step="1" data-enter style="--i: 4">
+      <div class="step__copy">
+        <div class="st-step__head">
+          <span class="step__n"><span class="st-n">1</span></span>
+          <span class="st-next">Up next</span>
+        </div>
+        <h2 class="step__title" id="steps-install">Install it with one line</h2>
+        <p class="step__text">Paste it into Terminal. It downloads Muster for your Mac, checks it against its checksum and puts <code>muster</code> in <code>~/.local/bin</code>. No admin password.</p>
+        <div class="st-install">
+          <code class="st-install__code"><span>curl -fsSL</span> <span>https://muster.is/install.sh</span> <span>| bash</span></code>
+          <div class="st-install__foot">
+            <p class="st-install__hint">macOS, Apple silicon or Intel</p>
+            <button class="btn btn--primary st-copy" type="button" data-copy="curl -fsSL https://muster.is/install.sh | bash" aria-label="Copy the install command">
+              <span class="st-copy__ico" aria-hidden="true">
+                <svg class="st-copy__i st-copy__i--copy" viewBox="0 0 16 16"><rect x="5.25" y="5.25" width="8" height="8" rx="2" /><path d="M10.75 5.25V4.5a1.75 1.75 0 0 0-1.75-1.75H4.5A1.75 1.75 0 0 0 2.75 4.5V9a1.75 1.75 0 0 0 1.75 1.75h.75" /></svg>
+                <svg class="st-copy__i st-copy__i--done" viewBox="0 0 16 16"><path pathLength="1" d="M3.25 8.5 6.5 11.5 12.75 4.75" /></svg>
+              </span>
+              <span class="st-copy__label copy-swap copy-swap--center" aria-hidden="true"><span>Copy</span><span>Copied</span></span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="step__art canvas" aria-hidden="true">
+        <div class="shell">
+          <div class="shell__bar"><span class="shell__lights"><i></i><i></i><i></i></span><span class="shell__title">zsh</span></div>
+          <div class="shell__body">
+            <p><span class="t-dir">~</span> <span class="t-dim">%</span> curl -fsSL https://muster.is/install.sh | bash</p>
+            <p class="t-dim">Downloading Muster <span data-release="version">0.45.0</span> for arm64 Macs…</p>
+            <p class="shell__gap t-strong">Muster <span data-release="version">0.45.0</span> is installed.</p>
+            <p class="shell__gap">Start here:</p>
+            <p>  <span class="t-next">muster open</span><span class="st-desc t-dim">      see your skills on a page in your browser</span></p>
+            <p>  muster<span class="st-desc t-dim">           list them here in the terminal</span></p>
+            <p>  muster --help<span class="st-desc t-dim">    everything else Muster can do</span></p>
+            <p class="shell__gap"><span class="t-dir">~</span> <span class="t-dim">%</span> <i class="shell__cursor"></i></p>
+          </div>
+        </div>
+      </div>
+    </li>
+
+    <!-- 2. Open: the first run, in the browser, on 127.0.0.1 -->
+    <li class="step" data-step="2">
+      <div class="step__copy">
+        <div class="st-step__head">
+          <span class="step__n"><span class="st-n">2</span></span>
+          <span class="st-next">Up next</span>
+        </div>
+        <h2 class="step__title" id="steps-open">Sort them in your browser</h2>
+        <p class="step__text">Muster puts your skills on one page in your browser. Your Claude Code suggests up to eight folders, then Autosort files the skills into them. The files never move, and the page never goes online.</p>
+        <div class="st-cmd">
+          <code class="st-cmd__code">muster open</code>
+          <button class="btn btn--soft st-copy" type="button" data-copy="muster open" aria-label="Copy the command muster open">
+            <span class="st-copy__ico" aria-hidden="true">
+              <svg class="st-copy__i st-copy__i--copy" viewBox="0 0 16 16"><rect x="5.25" y="5.25" width="8" height="8" rx="2" /><path d="M10.75 5.25V4.5a1.75 1.75 0 0 0-1.75-1.75H4.5A1.75 1.75 0 0 0 2.75 4.5V9a1.75 1.75 0 0 0 1.75 1.75h.75" /></svg>
+              <svg class="st-copy__i st-copy__i--done" viewBox="0 0 16 16"><path pathLength="1" d="M3.25 8.5 6.5 11.5 12.75 4.75" /></svg>
+            </span>
+            <span class="st-copy__label copy-swap copy-swap--center" aria-hidden="true"><span>Copy</span><span>Copied</span></span>
+          </button>
+        </div>
+      </div>
+      <div class="step__art canvas" aria-hidden="true">
+        <div class="st-win">
+          <div class="st-win__bar"><span class="shell__lights"><i></i><i></i><i></i></span><span class="st-win__url">127.0.0.1</span></div>
+          <div class="st-win__stage">
+            <span class="st-pill st-pill--1">code-review</span>
+            <span class="st-pill st-pill--2">brand-fonts<em>Plugin</em></span>
+            <span class="st-pill st-pill--3 st-pill--far">commit-message</span>
+            <span class="st-pill st-pill--4 st-pill--far">pr-review</span>
+            <span class="st-pill st-pill--5">frontend-design</span>
+            <span class="st-pill st-pill--6 st-pill--far">ui-taste</span>
+            <div class="st-count">
+              <span class="st-count__n">98</span>
+              <span class="st-count__l">skills on this Mac</span>
+              <span class="st-count__btn">Muster your skills</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </li>
+
+    <!-- 3. Check: your own Claude Code finds conflicts and duplicates -->
+    <li class="step" data-step="3">
+      <div class="step__copy">
+        <div class="st-step__head">
+          <span class="step__n"><span class="st-n">3</span></span>
+          <span class="st-next">Up next</span>
+        </div>
+        <h2 class="step__title" id="steps-check">Check them with Claude Code</h2>
+        <p class="step__text">Your own Claude Code reads your skills and finds the ones that conflict or repeat each other. It runs on your plan: no API key, no account. Nothing changes until you say so.</p>
+        <div class="st-cmd">
+          <code class="st-cmd__code">muster check</code>
+          <button class="btn btn--soft st-copy" type="button" data-copy="muster check" aria-label="Copy the command muster check">
+            <span class="st-copy__ico" aria-hidden="true">
+              <svg class="st-copy__i st-copy__i--copy" viewBox="0 0 16 16"><rect x="5.25" y="5.25" width="8" height="8" rx="2" /><path d="M10.75 5.25V4.5a1.75 1.75 0 0 0-1.75-1.75H4.5A1.75 1.75 0 0 0 2.75 4.5V9a1.75 1.75 0 0 0 1.75 1.75h.75" /></svg>
+              <svg class="st-copy__i st-copy__i--done" viewBox="0 0 16 16"><path pathLength="1" d="M3.25 8.5 6.5 11.5 12.75 4.75" /></svg>
+            </span>
+            <span class="st-copy__label copy-swap copy-swap--center" aria-hidden="true"><span>Copy</span><span>Copied</span></span>
+          </button>
+        </div>
+        <p class="st-fine">With a lot of skills, it can take a few minutes.</p>
+      </div>
+      <div class="step__art canvas" aria-hidden="true">
+        <div class="shell shell--report">
+          <div class="shell__bar"><span class="shell__lights"><i></i><i></i><i></i></span><span class="shell__title">zsh</span></div>
+          <div class="shell__body">
+            <p><span class="t-dir">~</span> <span class="t-dim">%</span> muster check</p>
+            <div class="st-report">
+              <p class="st-row">Checked 98 skills with Claude Code.</p>
+              <p class="st-row">Found 2 conflicts and 6 duplicates:</p>
+              <p class="st-row"><i class="warn warn--red"></i>Conflict  commit-message ↔ conventional-commits</p>
+              <p class="st-row"><i class="warn"></i>Duplicate pr-review ↔ code-review</p>
+              <p class="st-row st-row--sub t-dim">and 6 more</p>
+            </div>
+            <p class="shell__gap"><span class="t-dir">~</span> <span class="t-dim">%</span> <i class="shell__cursor"></i></p>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ol>
+</main>
+
+<footer class="st-foot">
+  <div class="st-wrap">
+    <ul class="st-foot__row">
+      <li>Needs a Mac and Claude Code</li>
+      <li>Update with <code>muster update</code></li>
+      <li>Muster <span data-release="version">0.45.0</span>, <time data-release="date" datetime="2026-10-23">23 October 2026</time></li>
+      <li><a data-release="url" href="https://github.com/musteryourskills/releases/releases">Release notes</a></li>
+      <li>Reply to your invite email</li>
+    </ul>
+  </div>
+</footer>

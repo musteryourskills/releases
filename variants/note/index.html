@@ -1,0 +1,44 @@
+<main class="note canvas">
+  <article class="note__card" aria-labelledby="note-title">
+    <div class="note__letter">
+      <p class="brand note__brand"><span class="brand__mark" aria-hidden="true"></span>Muster</p>
+      <h1 class="note__title" id="note-title"><span class="note__who" data-note-who hidden></span><span data-note-rest>You’re in.</span></h1>
+      <div class="note__body">
+        <p>Thanks for waiting. We’ve let you in off the waitlist, and Muster is ready for your Mac.</p>
+        <p>Muster organises the skills Claude Code has on your Mac. It finds them, shows them in one place, and checks them for duplicates and conflicts.</p>
+      </div>
+      <div class="note__sign">
+        <p>Reply to your invite email and tell us how it goes.</p>
+        <p class="note__from">— The Muster team</p>
+      </div>
+    </div>
+
+    <section class="note__stub" aria-labelledby="note-install">
+      <span class="note__perf" aria-hidden="true"></span>
+      <h2 class="note__label" id="note-install">Paste this into Terminal</h2>
+      <div class="note__cmd">
+        <code class="note__code"><span class="note__prompt" aria-hidden="true">% </span><span class="note__line"><span class="note__nb">curl -fsSL</span> <span>https://<wbr />muster.is/install.sh</span> <span class="note__nb">| bash</span></span></code>
+        <button class="btn btn--primary note__copy" type="button" data-copy="curl -fsSL https://muster.is/install.sh | bash" aria-label="Copy the install command">
+          <span class="note__icons" aria-hidden="true">
+            <svg class="note__icon-copy" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5.5" y="5.5" width="9" height="9" rx="2" /><path d="M3.5 10.5H3A1.5 1.5 0 0 1 1.5 9V3A1.5 1.5 0 0 1 3 1.5h6A1.5 1.5 0 0 1 10.5 3v.5" /></svg>
+            <svg class="note__icon-check" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M2.75 8.75 6.25 12.25 13.25 4.25" pathLength="1" /></svg>
+          </span>
+          <span class="note__labels copy-swap copy-swap--center" aria-hidden="true"><span>Copy</span><span>Copied</span></span>
+        </button>
+      </div>
+      <p class="note__next">Then run <code>muster open</code> to see your skills on a page in your browser.</p>
+    </section>
+  </article>
+
+  <footer class="note__fine">
+    <ul>
+      <li>Needs a Mac and Claude Code</li>
+      <li>Nothing leaves your Mac</li>
+    </ul>
+    <ul>
+      <li>Muster <span data-release="version">0.45.0</span>, <time data-release="date" datetime="2026-10-23">23 October 2026</time></li>
+      <li><a data-release="url" href="https://github.com/musteryourskills/releases/releases">Release notes</a></li>
+      <li><a href="https://musteryourskills.com">musteryourskills.com</a></li>
+    </ul>
+  </footer>
+</main>

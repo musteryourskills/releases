@@ -1,0 +1,168 @@
+<header class="mn-head" id="manual-top">
+  <div class="mn-wrap mn-head__in">
+    <a class="brand mn-brand" href="#manual-top"><span class="brand__mark" aria-hidden="true"></span><span>Muster</span></a>
+    <div class="mn-head__bar">
+      <p class="mn-release"><span class="mn-release__dot" aria-hidden="true"></span><span class="sr-only">Latest release: </span><span data-release="version">0.45.0</span><span class="mn-release__date"><span class="mn-release__sep" aria-hidden="true">·</span><time data-release="date" datetime="2026-10-23">23 October 2026</time></span></p>
+      <nav class="mn-head__nav" aria-label="Elsewhere">
+        <a href="https://github.com/musteryourskills/releases/releases">Release notes<svg class="mn-arrow" viewBox="0 0 12 12" aria-hidden="true"><path d="M4 3h5v5M9 3 3 9"/></svg></a>
+        <a href="https://musteryourskills.com">musteryourskills.com<svg class="mn-arrow" viewBox="0 0 12 12" aria-hidden="true"><path d="M4 3h5v5M9 3 3 9"/></svg></a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<main class="mn-wrap mn-layout">
+  <nav class="mn-toc" aria-label="On this page">
+    <p class="mn-toc__label">On this page</p>
+    <div class="mn-toc__list">
+      <ol>
+        <li><a href="#manual-install"><span class="mn-toc__n" aria-hidden="true">01</span>Install</a></li>
+        <li><a href="#manual-start"><span class="mn-toc__n" aria-hidden="true">02</span>Start here</a></li>
+        <li><a href="#manual-commands"><span class="mn-toc__n" aria-hidden="true">03</span>Commands</a></li>
+        <li><a href="#manual-local"><span class="mn-toc__n" aria-hidden="true">04</span>What stays on your Mac</a></li>
+        <li><a href="#manual-needs"><span class="mn-toc__n" aria-hidden="true">05</span>Requirements</a></li>
+        <li><a href="#manual-update"><span class="mn-toc__n" aria-hidden="true">06</span>Update and remove</a></li>
+        <li><a href="#manual-help"><span class="mn-toc__n" aria-hidden="true">07</span>Help</a></li>
+      </ol>
+      <span class="mn-toc__mark" aria-hidden="true"></span>
+    </div>
+  </nav>
+
+  <div class="mn-body">
+    <section class="mn-sec mn-sec--intro" id="manual-install" aria-labelledby="manual-title">
+      <p class="eyebrow">You’re in</p>
+      <h1 class="mn-title" id="manual-title">Welcome to Muster<span data-manual-name></span>.</h1>
+      <p class="mn-lede">You’ve been let in off the waitlist, so Muster is yours to try. It organises the skills Claude Code has on your Mac: it finds them, shows them in one place, and checks them for duplicates and conflicts.</p>
+
+      <div class="mn-install">
+        <div class="mn-install__head">
+          <h2 class="mn-label" id="manual-install-h">Install</h2>
+          <p class="mn-label__aside">Paste it into Terminal on your Mac</p>
+        </div>
+        <div class="mn-cmd">
+          <code class="mn-cmd__code"><span class="mn-nw"><span class="mn-c-bin">curl</span> <span class="mn-c-dim">-fsSL</span></span> <span class="mn-nw">https://muster.is/install.sh</span> <span class="mn-nw"><span class="mn-c-dim">|</span> <span class="mn-c-bin">bash</span></span></code>
+          <button type="button" class="btn btn--primary mn-cmd__copy" data-copy="curl -fsSL https://muster.is/install.sh | bash" aria-label="Copy the install command">
+            <span class="mn-ico" aria-hidden="true"><svg viewBox="0 0 16 16"><rect x="5.25" y="5.25" width="8" height="8" rx="2"/><path d="M10.75 5.25v-1a1.5 1.5 0 0 0-1.5-1.5h-5a1.5 1.5 0 0 0-1.5 1.5v5a1.5 1.5 0 0 0 1.5 1.5h1"/></svg><svg viewBox="0 0 16 16"><path d="m3.5 8.5 3 3 6-7"/></svg></span>
+            <span class="mn-cmd__labels copy-swap" aria-hidden="true"><span>Copy</span><span>Copied</span></span>
+          </button>
+        </div>
+        <dl class="mn-spec mn-spec--install">
+          <div><dt>Downloads</dt><dd>Muster for your Mac’s chip, about 23&nbsp;MB</dd></div>
+          <div><dt>Checks</dt><dd>The download against its checksum</dd></div>
+          <div><dt>Puts it in</dt><dd><code>~/.local/bin/muster</code></dd></div>
+          <div><dt>PATH</dt><dd>Adds <code>~/.local/bin</code> to it</dd></div>
+          <div><dt>Asks for</dt><dd>Nothing. No admin password, no Gatekeeper prompt.</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="mn-sec" id="manual-start" aria-labelledby="manual-start-h">
+      <h2 class="mn-h2" id="manual-start-h"><span class="mn-n" aria-hidden="true">02</span>Start here</h2>
+      <p class="mn-p">The installer ends with these three. Run them in Terminal.</p>
+      <ul class="mn-rows">
+        <li class="mn-row">
+          <code class="mn-row__cmd">muster open</code>
+          <p class="mn-row__desc">See your skills on a page in your browser</p>
+          <button type="button" class="mn-copy" data-copy="muster open" aria-label="Copy muster open"><span class="mn-ico" aria-hidden="true"><svg viewBox="0 0 16 16"><rect x="5.25" y="5.25" width="8" height="8" rx="2"/><path d="M10.75 5.25v-1a1.5 1.5 0 0 0-1.5-1.5h-5a1.5 1.5 0 0 0-1.5 1.5v5a1.5 1.5 0 0 0 1.5 1.5h1"/></svg><svg viewBox="0 0 16 16"><path d="m3.5 8.5 3 3 6-7"/></svg></span></button>
+        </li>
+        <li class="mn-row">
+          <code class="mn-row__cmd">muster</code>
+          <p class="mn-row__desc">List them here in the terminal</p>
+          <button type="button" class="mn-copy" data-copy="muster" aria-label="Copy muster"><span class="mn-ico" aria-hidden="true"><svg viewBox="0 0 16 16"><rect x="5.25" y="5.25" width="8" height="8" rx="2"/><path d="M10.75 5.25v-1a1.5 1.5 0 0 0-1.5-1.5h-5a1.5 1.5 0 0 0-1.5 1.5v5a1.5 1.5 0 0 0 1.5 1.5h1"/></svg><svg viewBox="0 0 16 16"><path d="m3.5 8.5 3 3 6-7"/></svg></span></button>
+        </li>
+        <li class="mn-row">
+          <code class="mn-row__cmd">muster --help</code>
+          <p class="mn-row__desc">Everything else Muster can do</p>
+          <button type="button" class="mn-copy" data-copy="muster --help" aria-label="Copy muster --help"><span class="mn-ico" aria-hidden="true"><svg viewBox="0 0 16 16"><rect x="5.25" y="5.25" width="8" height="8" rx="2"/><path d="M10.75 5.25v-1a1.5 1.5 0 0 0-1.5-1.5h-5a1.5 1.5 0 0 0-1.5 1.5v5a1.5 1.5 0 0 0 1.5 1.5h1"/></svg><svg viewBox="0 0 16 16"><path d="m3.5 8.5 3 3 6-7"/></svg></span></button>
+        </li>
+      </ul>
+      <dl class="mn-spec">
+        <div><dt>First run</dt><dd>The first <code>muster open</code> counts your skills. Your Claude Code suggests up to eight folders, and Autosort files the skills into them: 137 skills take about 7–15 seconds. Then press Get started.</dd></div>
+        <div><dt>Command not found</dt><dd>This window may not know <code>muster</code> yet. Use <code>~/.local/bin/muster open</code> here. In new terminal windows, plain <code>muster</code> works too.</dd></div>
+      </dl>
+    </section>
+
+    <section class="mn-sec" id="manual-commands" aria-labelledby="manual-commands-h">
+      <h2 class="mn-h2" id="manual-commands-h"><span class="mn-n" aria-hidden="true">03</span>Commands</h2>
+      <p class="mn-p">Everything else. <code>muster --help</code> lists them too.</p>
+      <table class="mn-table">
+        <thead><tr><th scope="col">Command</th><th scope="col">What it does</th></tr></thead>
+        <tbody>
+          <tr><td><code>muster check</code></td><td>Check for conflicts and duplicates, found by your Claude Code</td></tr>
+          <tr><td><code>muster show <span class="mn-ph">&lt;<var>skill</var>&gt;</span></code></td><td>Show one skill</td></tr>
+          <tr><td><code>muster move <span class="mn-ph">&lt;<var>skill</var>&gt;…</span> <span class="mn-ph">&lt;<var>folder</var>&gt;</span></code></td><td>Put skills in a folder. The files don’t move.</td></tr>
+          <tr><td><code>muster label <span class="mn-ph">&lt;<var>skill</var>&gt;</span> <span class="mn-ph">&lt;<var>label</var>&gt;…</span></code></td><td>Give a skill one or more labels</td></tr>
+          <tr><td><code>muster discover <span class="mn-ph">[<var>words</var>]</span></code></td><td>Find public skills on skills.sh</td></tr>
+          <tr><td><code>muster add <span class="mn-ph">&lt;<var>owner/repo/skill</var>&gt;</span></code></td><td>Add a public skill</td></tr>
+          <tr><td><code>muster --project <span class="mn-ph">&lt;<var>dir</var>&gt;</span></code></td><td>Include the skills in a project’s <code>.claude/skills</code></td></tr>
+          <tr><td><code>muster --json</code></td><td>Print the output as JSON</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="mn-sec" id="manual-local" aria-labelledby="manual-local-h">
+      <h2 class="mn-h2" id="manual-local-h"><span class="mn-n" aria-hidden="true">04</span>What stays on your Mac</h2>
+      <p class="mn-p">All of it. Nothing leaves your Mac.</p>
+      <dl class="mn-spec">
+        <div><dt>Account</dt><dd>None. There are no Muster servers.</dd></div>
+        <div><dt>The check</dt><dd>Runs through your own Claude Code, <code>claude -p</code>, on your subscription. No API key.</dd></div>
+        <div><dt>The page</dt><dd><code>muster open</code> serves it on <code>127.0.0.1</code>. It’s never online.</dd></div>
+        <div><dt>Folders and labels</dt><dd>Muster’s own, kept in <code>~/.muster/</code></dd></div>
+        <div><dt>Skill files</dt><dd>Never move</dd></div>
+      </dl>
+    </section>
+
+    <section class="mn-sec" id="manual-needs" aria-labelledby="manual-needs-h">
+      <h2 class="mn-h2" id="manual-needs-h"><span class="mn-n" aria-hidden="true">05</span>Requirements</h2>
+      <dl class="mn-spec">
+        <div><dt>Mac</dt><dd>macOS, on Apple silicon or Intel</dd></div>
+        <div><dt><span class="mn-claude" aria-hidden="true"></span>Claude Code</dt><dd>Installed. Muster uses it for the check and Autosort.</dd></div>
+      </dl>
+    </section>
+
+    <section class="mn-sec" id="manual-update" aria-labelledby="manual-update-h">
+      <h2 class="mn-h2" id="manual-update-h"><span class="mn-n" aria-hidden="true">06</span>Update and remove</h2>
+      <ul class="mn-rows">
+        <li class="mn-row">
+          <code class="mn-row__cmd">muster update</code>
+          <p class="mn-row__desc">Install the latest version</p>
+          <button type="button" class="mn-copy" data-copy="muster update" aria-label="Copy muster update"><span class="mn-ico" aria-hidden="true"><svg viewBox="0 0 16 16"><rect x="5.25" y="5.25" width="8" height="8" rx="2"/><path d="M10.75 5.25v-1a1.5 1.5 0 0 0-1.5-1.5h-5a1.5 1.5 0 0 0-1.5 1.5v5a1.5 1.5 0 0 0 1.5 1.5h1"/></svg><svg viewBox="0 0 16 16"><path d="m3.5 8.5 3 3 6-7"/></svg></span></button>
+        </li>
+        <li class="mn-row">
+          <code class="mn-row__cmd">muster --version</code>
+          <p class="mn-row__desc">Your version, and whether a new one is out</p>
+          <button type="button" class="mn-copy" data-copy="muster --version" aria-label="Copy muster --version"><span class="mn-ico" aria-hidden="true"><svg viewBox="0 0 16 16"><rect x="5.25" y="5.25" width="8" height="8" rx="2"/><path d="M10.75 5.25v-1a1.5 1.5 0 0 0-1.5-1.5h-5a1.5 1.5 0 0 0-1.5 1.5v5a1.5 1.5 0 0 0 1.5 1.5h1"/></svg><svg viewBox="0 0 16 16"><path d="m3.5 8.5 3 3 6-7"/></svg></span></button>
+        </li>
+        <li class="mn-row mn-row--wide">
+          <code class="mn-row__cmd"><span class="mn-nw">rm -rf</span> <span class="mn-nw">~/.local/bin/muster</span> <span class="mn-nw">~/.local/share/muster</span> <span class="mn-nw">~/.muster</span></code>
+          <p class="mn-row__desc">Remove Muster and all it keeps in <code>~/.muster</code>: folders, labels, and any skills you archived. Restore those first. Skill files in use stay where they are.</p>
+          <button type="button" class="mn-copy" data-copy="rm -rf ~/.local/bin/muster ~/.local/share/muster ~/.muster" aria-label="Copy the remove command"><span class="mn-ico" aria-hidden="true"><svg viewBox="0 0 16 16"><rect x="5.25" y="5.25" width="8" height="8" rx="2"/><path d="M10.75 5.25v-1a1.5 1.5 0 0 0-1.5-1.5h-5a1.5 1.5 0 0 0-1.5 1.5v5a1.5 1.5 0 0 0 1.5 1.5h1"/></svg><svg viewBox="0 0 16 16"><path d="m3.5 8.5 3 3 6-7"/></svg></span></button>
+        </li>
+      </ul>
+      <p class="mn-meta">Latest release: <span data-release="version">0.45.0</span>, <time data-release="date" datetime="2026-10-23">23 October 2026</time>. <a class="mn-link" data-release="url" href="https://github.com/musteryourskills/releases/releases">What’s new<svg class="mn-arrow" viewBox="0 0 12 12" aria-hidden="true"><path d="M4 3h5v5M9 3 3 9"/></svg></a></p>
+    </section>
+
+    <section class="mn-sec" id="manual-help" aria-labelledby="manual-help-h">
+      <h2 class="mn-h2" id="manual-help-h"><span class="mn-n" aria-hidden="true">07</span>Help</h2>
+      <dl class="mn-spec">
+        <div><dt>Questions</dt><dd>Reply to your invite email</dd></div>
+        <div><dt>Release notes</dt><dd><a class="mn-link" href="https://github.com/musteryourskills/releases/releases">Every version, on GitHub<svg class="mn-arrow" viewBox="0 0 12 12" aria-hidden="true"><path d="M4 3h5v5M9 3 3 9"/></svg></a></dd></div>
+        <div><dt>Website</dt><dd><a class="mn-link" href="https://musteryourskills.com">musteryourskills.com<svg class="mn-arrow" viewBox="0 0 12 12" aria-hidden="true"><path d="M4 3h5v5M9 3 3 9"/></svg></a></dd></div>
+      </dl>
+    </section>
+  </div>
+</main>
+
+<footer class="mn-foot">
+  <div class="mn-wrap mn-foot__in">
+    <a class="brand mn-brand" href="#manual-top"><span class="brand__mark" aria-hidden="true"></span><span>Muster</span></a>
+    <div class="mn-foot__bar">
+      <nav class="mn-foot__links" aria-label="Footer">
+        <a href="https://github.com/musteryourskills/releases/releases">Release notes</a>
+        <a href="https://musteryourskills.com">musteryourskills.com</a>
+        <a href="#manual-top">Back to top</a>
+      </nav>
+      <p class="mn-foot__small">© 2026 Muster</p>
+    </div>
+  </div>
+</footer>

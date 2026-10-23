@@ -1,0 +1,285 @@
+/* ==========================================================================
+   Manual: the reference page someone bookmarks. A Swiss spec sheet in the
+   CLI's voice: Geist 500 at 12–15px, neutral greys, hairlines, tabular
+   numbers, Plex Condensed for the few headings. One yellow action (copy the
+   install line). One moment: the contents rail that follows your reading.
+   Spacing is on a 4px scale; every key column (dt, command, table) shares
+   --mn-key so descriptions start on one vertical line down the page.
+   ========================================================================== */
+
+html[data-variant="manual"] {
+  --mn-toc: 200px;
+  --mn-gap: 56px;
+  --mn-key: 256px;
+  --mn-pad: 40px;
+  scroll-behavior: smooth;
+  scroll-padding-top: 24px;
+}
+html[data-variant="manual"] body { font-weight: 500; font-size: 14px; line-height: 20px; }
+
+html[data-variant="manual"] .mn-wrap { width: 100%; max-width: calc(1040px + 2 * var(--mn-pad)); margin: 0 auto; padding: 0 var(--mn-pad); }
+
+/* ── header ─────────────────────────────────────────────────────── */
+html[data-variant="manual"] .mn-head { border-bottom: 1px solid var(--line); }
+html[data-variant="manual"] .mn-head__in { display: flex; align-items: center; gap: 16px; height: 64px; }
+html[data-variant="manual"] .mn-brand { height: 40px; text-decoration: none; }
+html[data-variant="manual"] .mn-head__bar { display: flex; align-items: center; gap: 16px; flex: 1; min-width: 0; }
+
+/* the release, live from GitHub: a quiet status pill, like the landing's .hero__works */
+html[data-variant="manual"] .mn-release {
+  display: inline-flex; align-items: center; gap: 8px; flex: none;
+  height: 28px; margin: 0; padding: 0 12px 0 10px; border-radius: 999px;
+  background: var(--surface); box-shadow: inset 0 0 0 1px var(--line);
+  font: 500 12px/1 var(--f-body); color: var(--ink);
+  font-variant-numeric: tabular-nums; white-space: nowrap;
+}
+html[data-variant="manual"] .mn-release__dot { width: 6px; height: 6px; border-radius: 50%; background: var(--term-ok); box-shadow: 0 0 0 3px rgb(84 197 106 / .18); }
+html[data-variant="manual"] .mn-release__date { display: inline-flex; align-items: center; gap: 8px; color: var(--muted); }
+html[data-variant="manual"] .mn-release__sep { color: var(--muted-2); }
+
+html[data-variant="manual"] .mn-head__nav { display: none; align-items: center; gap: 4px; margin: 0 -8px 0 auto; }
+html[data-variant="manual"] .mn-head__nav a,
+html[data-variant="manual"] .mn-foot__links a {
+  display: inline-flex; align-items: center; gap: 4px; height: 40px; padding: 0 8px; border-radius: 8px;
+  font-size: 13px; color: var(--muted); text-decoration: none; transition: color .15s ease;
+}
+html[data-variant="manual"] .mn-arrow { width: 10px; height: 10px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; opacity: .7; }
+
+/* ── layout ─────────────────────────────────────────────────────── */
+html[data-variant="manual"] .mn-layout { padding-top: 64px; }
+html[data-variant="manual"] .mn-body { min-width: 0; }
+
+/* contents: a hairline rail with one ink mark that glides to the section you're reading */
+html[data-variant="manual"] .mn-toc { display: none; }
+html[data-variant="manual"] .mn-toc__label { margin: 0 0 8px; font: 500 12px/22px var(--f-body); color: var(--muted); }
+html[data-variant="manual"] .mn-toc__list { position: relative; }
+html[data-variant="manual"] .mn-toc__list::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 1px; background: var(--line); }
+html[data-variant="manual"] .mn-toc ol { list-style: none; margin: 0; padding: 0; }
+html[data-variant="manual"] .mn-toc a {
+  display: flex; align-items: center; gap: 12px; min-height: 40px; padding: 0 0 0 16px;
+  font-size: 13px; line-height: 20px; color: var(--muted); text-decoration: none;
+  transition: color .15s ease;
+}
+html[data-variant="manual"] .mn-toc a:focus-visible { outline-offset: -2px; }
+html[data-variant="manual"] .mn-toc__n { flex: none; font: 500 11px/20px var(--f-mono); font-variant-numeric: tabular-nums; color: var(--muted); transition: color .15s ease; }
+html[data-variant="manual"] .mn-toc a[aria-current] { color: var(--ink); }
+html[data-variant="manual"] .mn-toc a[aria-current] .mn-toc__n { color: var(--ink); }
+html[data-variant="manual"] .mn-toc__mark {
+  position: absolute; left: -.5px; top: 0; width: 2px; height: 20px; border-radius: 2px;
+  background: var(--ink); opacity: 0; pointer-events: none;
+  transform: translateY(var(--mn-y, 0px));
+  transition: opacity .2s ease;
+}
+html[data-variant="manual"] .mn-toc[data-ready] .mn-toc__mark { opacity: 1; }
+html[data-variant="manual"] .mn-toc[data-ready="glide"] .mn-toc__mark { transition: opacity .2s ease, transform .32s var(--ease-out); }
+
+/* ── sections ───────────────────────────────────────────────────── */
+html[data-variant="manual"] .mn-sec { padding: 48px 0; border-top: 1px solid var(--line); }
+html[data-variant="manual"] .mn-sec--intro { padding-top: 0; border-top: 0; }
+
+html[data-variant="manual"] .eyebrow {
+  display: block; width: fit-content; margin: 0 0 20px; padding: 5px 7px; border-radius: 5px;
+  font: 500 12px/1 var(--f-body); background: var(--accent); color: var(--accent-ink);
+}
+html[data-variant="manual"] .mn-title {
+  margin: 0; font: 400 44px/48px var(--f-display); letter-spacing: -.035em; text-wrap: balance;
+}
+html[data-variant="manual"] .mn-lede { margin: 16px 0 0; max-width: 560px; font-size: 15px; line-height: 24px; color: var(--muted); text-wrap: pretty; }
+
+html[data-variant="manual"] .mn-h2 {
+  display: flex; align-items: baseline; gap: 12px; margin: 0;
+  font: 500 24px/28px var(--f-display); letter-spacing: -.02em; text-wrap: balance;
+}
+html[data-variant="manual"] .mn-n { flex: none; font: 500 12px/16px var(--f-mono); letter-spacing: 0; font-variant-numeric: tabular-nums; color: var(--muted); }
+html[data-variant="manual"] .mn-p { margin: 12px 0 0; max-width: 560px; color: var(--muted); text-wrap: pretty; }
+
+/* inline commands: the landing's .sub code chip */
+html[data-variant="manual"] .mn-body :is(p, dd, td:last-child) code:not([class]) {
+  font: 500 .88em/1 var(--f-mono); padding: 2px 5px; border-radius: 4px;
+  background: var(--surface-2); color: var(--ink);
+}
+html[data-variant="manual"] .mn-link {
+  display: inline-flex; align-items: center; gap: 4px; color: var(--ink);
+  text-decoration: underline; text-decoration-color: var(--line-2); text-decoration-thickness: 1px; text-underline-offset: 3px;
+  transition: text-decoration-color .15s ease;
+}
+
+/* ── install ────────────────────────────────────────────────────── */
+html[data-variant="manual"] .mn-install { margin-top: 40px; }
+html[data-variant="manual"] .mn-install__head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 12px; }
+html[data-variant="manual"] .mn-label { margin: 0; font: 500 12px/16px var(--f-body); color: var(--ink); }
+html[data-variant="manual"] .mn-label__aside { margin: 0; font-size: 12px; line-height: 16px; color: var(--muted); text-align: right; }
+
+/* the code panel: the landing's terminal black, pill-shaped so the pill button sits concentric (28 = 22 + 6) */
+html[data-variant="manual"] .mn-cmd {
+  display: flex; align-items: center; gap: 16px;
+  padding: 6px 6px 6px 24px; border-radius: 28px;
+  background: var(--term-bg); color: var(--term-text);
+  box-shadow: 0 1px 2px rgb(0 0 0 / .16), 0 24px 48px -24px rgb(0 0 0 / .45);
+}
+html[data-variant="manual"] .mn-cmd__code { flex: 1; min-width: 0; font: 500 14px/20px var(--f-mono); overflow-wrap: anywhere; }
+html[data-variant="manual"] .mn-nw { white-space: nowrap; }
+html[data-variant="manual"] .mn-c-bin { color: #fff; }
+html[data-variant="manual"] .mn-c-dim { color: var(--term-dim); }
+
+html[data-variant="manual"] .mn-cmd__copy { flex: none; height: 44px; padding: 0 20px 0 16px; }
+html[data-variant="manual"] .mn-cmd__copy:focus-visible { box-shadow: var(--ring), 0 0 0 2px var(--term-bg), 0 0 0 4px var(--accent); }
+
+/* the copy icon morphs into a check; both share one 16px cell, so nothing moves */
+html[data-variant="manual"] .mn-ico { display: grid; width: 16px; height: 16px; flex: none; }
+html[data-variant="manual"] .mn-ico svg {
+  grid-area: 1 / 1; width: 16px; height: 16px;
+  fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round;
+  transition: opacity .15s ease, transform .25s var(--ease-out);
+}
+html[data-variant="manual"] .mn-ico svg:last-child { stroke-width: 1.75; opacity: 0; transform: scale(.5); }
+html[data-variant="manual"] [data-copied] .mn-ico svg:first-child { opacity: 0; transform: scale(.5); }
+html[data-variant="manual"] [data-copied] .mn-ico svg:last-child { opacity: 1; transform: none; }
+
+/* ── spec lists ─────────────────────────────────────────────────── */
+html[data-variant="manual"] .mn-spec { margin: 24px 0 0; border-top: 1px solid var(--line); }
+html[data-variant="manual"] .mn-spec > div {
+  display: grid; grid-template-columns: var(--mn-key) minmax(0, 1fr); align-items: baseline;
+  padding: 12px 0; border-bottom: 1px solid var(--line);
+}
+html[data-variant="manual"] .mn-spec dt { display: flex; align-items: baseline; gap: 8px; padding-right: 24px; font-size: 13px; line-height: 20px; color: var(--muted); }
+html[data-variant="manual"] .mn-spec dd { margin: 0; line-height: 20px; color: var(--ink); text-wrap: pretty; overflow-wrap: break-word; }
+html[data-variant="manual"] .mn-claude {
+  align-self: center; width: 13px; height: 13px; flex: none; background: #d97757;
+  -webkit-mask: url(../../assets/claude.svg) center / contain no-repeat; mask: url(../../assets/claude.svg) center / contain no-repeat;
+}
+
+/* ── command rows: copy appears on hover or focus ───────────────── */
+html[data-variant="manual"] .mn-rows { list-style: none; margin: 24px 0 0; padding: 0; border-top: 1px solid var(--line); }
+html[data-variant="manual"] .mn-row {
+  display: grid; grid-template-columns: var(--mn-key) minmax(0, 1fr) 40px;
+  grid-template-areas: "cmd desc copy"; align-items: baseline;
+  padding: 4px 0; border-bottom: 1px solid var(--line);
+}
+html[data-variant="manual"] .mn-row__cmd { grid-area: cmd; padding: 10px 24px 10px 0; font: 500 13px/20px var(--f-mono); color: var(--ink); white-space: nowrap; }
+html[data-variant="manual"] .mn-row__desc { grid-area: desc; margin: 0; padding: 10px 12px 10px 0; color: var(--muted); text-wrap: pretty; }
+html[data-variant="manual"] .mn-row--wide { grid-template-columns: minmax(0, 1fr) 40px; grid-template-areas: "cmd copy" "desc copy"; }
+html[data-variant="manual"] .mn-row--wide .mn-row__cmd { padding-bottom: 0; white-space: normal; }
+html[data-variant="manual"] .mn-row--wide .mn-row__desc { padding-top: 4px; }
+
+html[data-variant="manual"] .mn-copy {
+  grid-area: copy; align-self: start; justify-self: end; position: relative;
+  display: grid; place-items: center; width: 40px; height: 40px; padding: 0; border: 0; border-radius: 10px;
+  background: transparent; color: var(--muted); cursor: pointer; -webkit-tap-highlight-color: transparent;
+  transition: opacity .15s ease, transform .15s var(--ease-out), background-color .15s ease, color .15s ease;
+}
+html[data-variant="manual"] .mn-row--wide .mn-copy { align-self: center; }
+html[data-variant="manual"] .mn-copy:focus-visible { outline-offset: -2px; border-radius: 10px; }
+html[data-variant="manual"] .mn-copy:active { transform: scale(.94); }
+html[data-variant="manual"] .mn-copy[data-copied] { color: var(--ink); }
+/* "Copied", as a small ink tag beside the button: absolutely placed, so no layout shift */
+html[data-variant="manual"] .mn-copy::after {
+  content: "Copied"; position: absolute; right: 100%; top: 50%; margin-right: 4px;
+  padding: 4px 7px; border-radius: 6px; background: var(--ink); color: #fff;
+  font: 500 12px/16px var(--f-body); white-space: nowrap; pointer-events: none;
+  opacity: 0; transform: translate(4px, -50%); transition: opacity .15s ease, transform .2s var(--ease-out);
+}
+html[data-variant="manual"] .mn-copy[data-copied]::after { opacity: 1; transform: translate(0, -50%); }
+
+/* ── commands table ─────────────────────────────────────────────── */
+html[data-variant="manual"] .mn-table { width: 100%; margin-top: 24px; border-collapse: collapse; table-layout: fixed; }
+html[data-variant="manual"] .mn-table th { padding: 0 0 8px; border-bottom: 1px solid var(--line); text-align: left; font: 500 12px/16px var(--f-body); color: var(--muted); }
+html[data-variant="manual"] .mn-table th:first-child { width: var(--mn-key); }
+html[data-variant="manual"] .mn-table td { padding: 12px 0; border-bottom: 1px solid var(--line); vertical-align: baseline; color: var(--muted); text-wrap: pretty; }
+html[data-variant="manual"] .mn-table td:first-child { padding-right: 24px; white-space: nowrap; }
+html[data-variant="manual"] .mn-table td:first-child > code { font: 500 13px/20px var(--f-mono); color: var(--ink); }
+html[data-variant="manual"] .mn-ph { color: var(--muted); }
+html[data-variant="manual"] .mn-ph var { font-style: normal; }
+
+html[data-variant="manual"] .mn-meta { margin: 16px 0 0; font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; }
+html[data-variant="manual"] .mn-meta .mn-link { margin-left: 4px; }
+
+/* ── footer ─────────────────────────────────────────────────────── */
+html[data-variant="manual"] .mn-foot { border-top: 1px solid var(--line); }
+html[data-variant="manual"] .mn-foot__in { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; padding-top: 24px; padding-bottom: 128px; }
+html[data-variant="manual"] .mn-foot__bar { display: flex; flex-wrap: wrap; align-items: center; gap: 0 16px; flex: 1; min-width: 0; }
+html[data-variant="manual"] .mn-foot__links { display: flex; flex-wrap: wrap; margin-left: -8px; }
+html[data-variant="manual"] .mn-foot__small { margin: 0 0 0 auto; font-size: 12px; color: var(--muted); }
+
+/* ── hover, only where there's a pointer to hover with ──────────── */
+@media (hover: hover) and (pointer: fine) {
+  html[data-variant="manual"] .mn-head__nav a:hover,
+  html[data-variant="manual"] .mn-foot__links a:hover,
+  html[data-variant="manual"] .mn-toc a:hover,
+  html[data-variant="manual"] .mn-toc a:hover .mn-toc__n { color: var(--ink); }
+  html[data-variant="manual"] .mn-link:hover { text-decoration-color: currentColor; }
+  html[data-variant="manual"] .mn-copy { opacity: 0; transform: scale(.9); }
+  html[data-variant="manual"] .mn-row:hover .mn-copy,
+  html[data-variant="manual"] .mn-copy:focus-visible,
+  html[data-variant="manual"] .mn-copy[data-copied] { opacity: 1; transform: none; }
+  html[data-variant="manual"] .mn-copy:hover { background: var(--surface-2); color: var(--ink); }
+  html[data-variant="manual"] .mn-copy:active { transform: scale(.94); }
+}
+
+/* ── widths ─────────────────────────────────────────────────────── */
+@media (min-width: 720px) {
+  html[data-variant="manual"] .mn-head__nav { display: flex; }
+}
+@media (min-width: 880px) {
+  html[data-variant="manual"] .mn-head__in,
+  html[data-variant="manual"] .mn-layout,
+  html[data-variant="manual"] .mn-foot__in { display: grid; grid-template-columns: var(--mn-toc) minmax(0, 1fr); column-gap: var(--mn-gap); }
+  html[data-variant="manual"] .mn-layout { align-items: start; }
+  html[data-variant="manual"] .mn-toc { display: block; position: sticky; top: 24px; }
+}
+@media (max-width: 879px) {
+  html[data-variant="manual"] { --mn-pad: 32px; }
+  html[data-variant="manual"] .mn-body { max-width: 720px; }
+  html[data-variant="manual"] .mn-cmd__code { font-size: 13px; }
+}
+@media (max-width: 599px) {
+  html[data-variant="manual"] { --mn-pad: 20px; }
+  html[data-variant="manual"] .mn-layout { padding-top: 40px; }
+  html[data-variant="manual"] .mn-title { font-size: 34px; line-height: 40px; letter-spacing: -.03em; }
+  html[data-variant="manual"] .mn-h2 { font-size: 22px; line-height: 28px; }
+  html[data-variant="manual"] .mn-sec { padding: 40px 0; }
+  html[data-variant="manual"] .mn-sec--intro { padding-top: 0; }
+
+  /* the install panel stacks: command on top, a full-width pill below (still 28 = 22 + 6) */
+  html[data-variant="manual"] .mn-install__head { flex-wrap: wrap; row-gap: 4px; }
+  html[data-variant="manual"] .mn-label__aside { text-align: left; }
+  html[data-variant="manual"] .mn-cmd { flex-direction: column; align-items: stretch; gap: 16px; padding: 20px 6px 6px; }
+  html[data-variant="manual"] .mn-cmd__code { padding: 0 14px; font-size: 13px; }
+  html[data-variant="manual"] .mn-cmd__copy { width: 100%; }
+
+  /* key columns become a label above the value */
+  html[data-variant="manual"] .mn-spec > div { grid-template-columns: minmax(0, 1fr); row-gap: 2px; }
+  html[data-variant="manual"] .mn-spec dt { padding-right: 0; font-size: 12px; line-height: 16px; }
+
+  html[data-variant="manual"] .mn-row { grid-template-columns: minmax(0, 1fr) 40px; grid-template-areas: "cmd copy" "desc copy"; padding: 8px 0; }
+  html[data-variant="manual"] .mn-row__cmd { padding: 0; white-space: normal; }
+  html[data-variant="manual"] .mn-row__desc { padding: 2px 12px 0 0; }
+  html[data-variant="manual"] .mn-row--wide .mn-row__desc { padding-top: 4px; }
+  html[data-variant="manual"] .mn-copy { align-self: center; }
+
+  html[data-variant="manual"] .mn-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  html[data-variant="manual"] .mn-table,
+  html[data-variant="manual"] .mn-table tbody,
+  html[data-variant="manual"] .mn-table tr,
+  html[data-variant="manual"] .mn-table td { display: block; }
+  html[data-variant="manual"] .mn-table tbody { border-top: 1px solid var(--line); }
+  html[data-variant="manual"] .mn-table tr { padding: 12px 0; border-bottom: 1px solid var(--line); }
+  html[data-variant="manual"] .mn-table td { padding: 0; border: 0; }
+  html[data-variant="manual"] .mn-table td:first-child { padding: 0 0 2px; white-space: normal; }
+
+  html[data-variant="manual"] .mn-foot__small { margin-left: 0; flex-basis: 100%; }
+}
+@media (max-width: 379px) {
+  html[data-variant="manual"] .mn-release__date { display: none; }
+}
+
+/* reduced motion: the brand guard makes transitions instant; drop the small movements outright too */
+@media (prefers-reduced-motion: reduce) {
+  html[data-variant="manual"] { scroll-behavior: auto; }
+  html[data-variant="manual"] .mn-ico svg,
+  html[data-variant="manual"] .mn-copy,
+  html[data-variant="manual"] .mn-copy:active,
+  html[data-variant="manual"] .mn-copy[data-copied] { transform: none; }
+  html[data-variant="manual"] .mn-copy::after,
+  html[data-variant="manual"] .mn-copy[data-copied]::after { transform: translate(0, -50%); }
+}

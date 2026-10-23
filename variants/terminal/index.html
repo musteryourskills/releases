@@ -1,0 +1,70 @@
+<div class="tm">
+  <header class="tm-wrap tm-top">
+    <a class="brand" href="https://musteryourskills.com"><span class="brand__mark" aria-hidden="true"></span><span>Muster</span></a>
+  </header>
+
+  <main class="tm-main">
+    <div class="tm-wrap tm-intro">
+      <span class="tm-eyebrow">Early access</span>
+      <h1 class="tm-title">You’re in<span data-tm-name></span>.</h1>
+      <p class="tm-lede">One line installs Muster. Paste it into Terminal.</p>
+    </div>
+
+    <section class="tm-wrap tm-stage" aria-label="Install Muster in Terminal">
+      <div class="tm-shell" data-tm-shell>
+        <div class="tm-bar">
+          <span class="tm-lights" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span class="tm-bar__title" aria-hidden="true">zsh</span>
+          <button class="tm-copy" type="button" data-copy="curl -fsSL https://muster.is/install.sh | bash" aria-label="Copy the install command">
+            <svg class="tm-ico" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><g class="tm-ico__copy"><rect x="5.5" y="5.5" width="8" height="8" rx="1.5"/><path d="M10.5 5.5V4A1.5 1.5 0 0 0 9 2.5H4A1.5 1.5 0 0 0 2.5 4v5A1.5 1.5 0 0 0 4 10.5h1.5"/></g><path class="tm-ico__check" d="M3.5 8.5l3 3 6-7" pathLength="1"/></svg>
+            <span class="tm-swap copy-swap"><span class="tm-swap__idle">Copy</span><span class="tm-swap__done">Copied</span></span>
+          </button>
+        </div>
+
+        <div class="tm-body">
+          <p class="tm-line"><span class="t-dir">~</span> <span class="t-dim">%</span> <code class="tm-install">curl -fsSL https://muster.is/install.sh | bash</code><i class="tm-cursor tm-cursor--cmd" aria-hidden="true"></i></p>
+          <p class="tm-line tm-dl" data-at="720">Downloading Muster <span data-release="version">0.45.0</span> for arm64 Macs… <span class="tm-status" aria-hidden="true"><span class="tm-spin t-dim" data-tm-spinner>⠋</span><span class="tm-done t-ok">✓</span></span></p>
+          <p class="tm-line tm-gap t-strong" data-at="2200">Muster <span data-release="version">0.45.0</span> is installed.</p>
+          <p class="tm-line tm-gap" data-at="2200">Muster finds the skills Claude Code has on this Mac, shows them in one place,<br class="tm-br"> and checks them for duplicates and conflicts. Nothing leaves your Mac.</p>
+          <p class="tm-line tm-gap" data-at="2560">Start here:</p>
+          <ul class="tm-start" role="list" data-at="2560">
+            <li><button class="tm-run" type="button" data-copy="muster open" aria-label="Copy muster open"><code>muster open</code></button><span class="tm-run__what">see your skills on a page in your browser</span></li>
+            <li><button class="tm-run" type="button" data-copy="muster" aria-label="Copy muster"><code>muster</code></button><span class="tm-run__what">list them here in the terminal</span></li>
+            <li><button class="tm-run" type="button" data-copy="muster --help" aria-label="Copy muster --help"><code>muster --help</code></button><span class="tm-run__what">everything else Muster can do</span></li>
+          </ul>
+          <p class="tm-line tm-gap" data-at="2560"><span class="t-dir">~</span> <span class="t-dim">%</span> <i class="tm-cursor" aria-hidden="true"></i></p>
+        </div>
+
+        <button class="tm-replay" type="button" data-tm-replay data-state="hidden" aria-label="Replay the install" hidden>
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.75 8a5.25 5.25 0 1 0 1.54-3.71"/><path d="M2.5 2.5v2.75h2.75"/></svg>
+          <span>Replay</span>
+        </button>
+      </div>
+
+      <div class="tm-actions">
+        <button class="btn btn--primary btn--lg tm-cta" type="button" data-copy="curl -fsSL https://muster.is/install.sh | bash">
+          <svg class="tm-ico" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><g class="tm-ico__copy"><rect x="5.5" y="5.5" width="8" height="8" rx="1.5"/><path d="M10.5 5.5V4A1.5 1.5 0 0 0 9 2.5H4A1.5 1.5 0 0 0 2.5 4v5A1.5 1.5 0 0 0 4 10.5h1.5"/></g><path class="tm-ico__check" d="M3.5 8.5l3 3 6-7" pathLength="1"/></svg>
+          <span class="tm-swap tm-swap--center copy-swap copy-swap--center"><span class="tm-swap__idle">Copy install command</span><span class="tm-swap__done">Copied</span></span>
+        </button>
+        <p class="tm-note">About 23 MB. No admin password.</p>
+      </div>
+
+      <ul class="tm-facts" role="list">
+        <li>macOS, Apple silicon or Intel</li>
+        <li>Uses your own Claude Code</li>
+        <li>Nothing leaves your Mac</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="tm-wrap tm-foot">
+    <div class="tm-foot__in">
+      <p class="tm-foot__rel">Muster <span data-release="version">0.45.0</span> <span aria-hidden="true">·</span> <time data-release="date" datetime="2026-10-23">23 October 2026</time></p>
+      <ul class="tm-foot__links" role="list">
+        <li><a data-release="url" href="https://github.com/musteryourskills/releases/releases">Release notes</a></li>
+        <li><a href="https://musteryourskills.com">musteryourskills.com</a></li>
+      </ul>
+      <p class="tm-foot__fb">Feedback? Reply to your invite email.</p>
+    </div>
+  </footer>
+</div>

@@ -1,0 +1,147 @@
+/* ==========================================================================
+   muster.is — the brand, shared by every variant.
+   Tokens come from the landing page (musteryourskills.com, styles.css :root)
+   and the CLI's page (cli/src/lib/ui/app.css): neutral greys, the electric
+   yellow accent, Geist for text, Geist Mono for commands, IBM Plex Sans
+   Condensed for display. One art surface: the dotted canvas.
+   ========================================================================== */
+
+:root {
+  --accent: #f4f83b;
+  --accent-hi: #f3f76f;
+  --accent-mid: #edf12f;
+  --accent-lo: #e7ec24;
+  --accent-deep: #e0e709;
+  --accent-muted: #a9ad00;
+  --accent-ink: #202020;
+  --accent-edge: 110 105 0;
+  --green: #76ef6b;
+  --amber: #ff9d2e;
+  --red: #ff5263;
+
+  --ink: #202020;
+  --ink-2: #252525;
+  --muted: #6c6c6c;
+  --muted-2: #969696;
+  --line: rgb(0 0 0 / .08);
+  --line-2: rgb(0 0 0 / .12);
+  --surface: #fafafa;
+  --surface-2: #f0f0f0;
+  --surface-3: #dedede;
+  --canvas: #f5f5f5;
+  --dot: rgb(0 0 0 / .14);
+  --bg: #ffffff;
+  --dark: #1c1c1c;
+
+  /* the terminal, as the landing draws it */
+  --term-bg: #0c0c0c;
+  --term-bar: #292929;
+  --term-text: #d4d4d4;
+  --term-dim: #929292;
+  --term-dir: #70c6cb;
+  --term-ok: #54c56a;
+
+  --f-display: "IBM Plex Sans Condensed", "Geist", system-ui, sans-serif;
+  --f-body: "Geist", system-ui, -apple-system, sans-serif;
+  --f-mono: "Geist Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  --ease-out: cubic-bezier(.23, 1, .32, 1);
+  --ease-in-out: cubic-bezier(.77, 0, .175, 1);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 400 15px/1.5 var(--f-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: clip;
+}
+img, svg { display: block; }
+a { color: inherit; }
+button { font: inherit; color: inherit; }
+code, kbd, pre { font-family: var(--f-mono); }
+::selection { background: var(--accent); color: var(--accent-ink); }
+:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; border-radius: 6px; }
+[hidden] { display: none !important; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* the one art surface */
+.canvas {
+  background-color: var(--canvas);
+  background-image: radial-gradient(var(--dot) 1px, transparent 1.3px);
+  background-size: 16px 16px;
+  background-position: -4px -4px;
+}
+
+/* the logo: the accent tile with the ink glyph on it */
+.brand { display: inline-flex; align-items: center; gap: 10px; font: 500 15.5px/1 var(--f-body); letter-spacing: -.01em; color: var(--ink); text-decoration: none; }
+.brand__mark { position: relative; display: inline-block; flex: none; width: 22px; height: 22px; border-radius: 6px; background: var(--accent); }
+.brand__mark::before { content: ""; position: absolute; inset: 0; background: var(--accent-ink); -webkit-mask: url(mark.svg) center / 100% 100% no-repeat; mask: url(mark.svg) center / 100% 100% no-repeat; }
+
+/* buttons: pills with a top-lit gradient, as on the landing */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  height: 44px; padding: 0 22px; border-radius: 999px; border: 0;
+  font: 550 14px/1 var(--f-body); white-space: nowrap; cursor: pointer; text-decoration: none;
+  box-shadow: var(--ring, 0 0 #0000);
+  transition: filter .2s ease, background-color .2s ease, color .2s ease, box-shadow .2s ease, transform .16s var(--ease-out);
+  -webkit-tap-highlight-color: transparent;
+}
+.btn:active { transform: scale(.97); }
+.btn:focus-visible { outline: 0; box-shadow: var(--ring, 0 0 #0000), 0 0 0 2px #fff, 0 0 0 4px var(--ink); }
+.btn--primary {
+  --ring: inset 0 1px 0 rgb(255 255 255 / .75), 0 0 0 1px rgb(var(--accent-edge) / .2), 0 1px 2px rgb(var(--accent-edge) / .12), 0 8px 18px -8px rgb(0 0 0 / var(--lift, .18));
+  background: linear-gradient(var(--accent-hi) 0%, var(--accent-mid) 60%, var(--accent-lo) 100%);
+  color: var(--accent-ink);
+}
+.btn--soft {
+  --ring: 0 0 0 1px rgb(0 0 0 / .1), 0 1px 2px rgb(0 0 0 / .06), 0 4px 10px -4px rgb(0 0 0 / var(--lift, .1));
+  background: #fff; color: var(--ink);
+}
+.btn--dark { background: var(--ink); color: #fff; --ring: 0 1px 2px rgb(0 0 0 / .2), 0 8px 18px -8px rgb(0 0 0 / var(--lift, .4)); }
+.btn--sm { height: 34px; padding: 0 16px; font-size: 13px; }
+.btn--lg { height: 50px; padding: 0 28px; font-size: 15.5px; }
+@media (hover: hover) and (pointer: fine) {
+  .btn--primary:hover { filter: brightness(1.04); --lift: .24; }
+  .btn--soft:hover { background: var(--canvas); --lift: .14; }
+  .btn--dark:hover { background: #333; }
+}
+
+/* a copy button's label: "Copy" and "Copied" share one cell, but only the word
+   that shows takes up room, so the button fits it (site.js glides its width).
+   The words turn over like a counter: "Copy" leaves upward, "Copied" rises in
+   from below, and the way back reverses. Leaving is quicker than arriving, and
+   the arrival waits a beat so the two never blur into one. */
+.copy-swap { position: relative; display: inline-grid; }
+.copy-swap--center { justify-items: center; }
+.copy-swap > span {
+  grid-area: 1 / 1;
+  top: 0; left: 0;
+  white-space: nowrap;
+  transition: opacity .2s var(--ease-out) 40ms, transform .24s var(--ease-out) 40ms, filter .2s var(--ease-out) 40ms, visibility 0s 40ms;
+}
+[data-copy]:not([data-copied]) .copy-swap > span:last-child,
+[data-copy][data-copied] .copy-swap > span:first-child {
+  position: absolute;
+  pointer-events: none;
+  opacity: 0;
+  filter: blur(2px);
+  visibility: hidden;
+  transition: opacity .12s var(--ease-out), transform .16s var(--ease-out), filter .12s var(--ease-out), visibility 0s .16s;
+}
+[data-copy]:not([data-copied]) .copy-swap > span:last-child { transform: translateY(.4em) scale(.96); }
+[data-copy][data-copied] .copy-swap > span:first-child { transform: translateY(-.4em) scale(.96); }
+.copy-swap--center > span:is(:first-child, :last-child) { left: 50%; translate: -50% 0; }
+[data-copy]:not([data-copied]) .copy-swap--center > span:first-child,
+[data-copy][data-copied] .copy-swap--center > span:last-child { left: auto; translate: none; }
+[data-copy][data-morphing] { overflow: clip; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+  /* the copy label still crossfades, it just doesn't move */
+  [data-copy] .copy-swap > span { transform: none !important; filter: none !important; transition-property: opacity, visibility !important; transition-duration: .15s, 0s !important; }
+}

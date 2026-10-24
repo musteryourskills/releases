@@ -16,7 +16,6 @@
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@400;500&family=Geist:wght@300..600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/brand.css" />
   <link rel="stylesheet" href="variants/note/style.css" />
-  <link rel="stylesheet" href="variants/poster/style.css" />
   <link rel="stylesheet" href="variants/terminal/style.css" />
   <link rel="stylesheet" href="variants/steps/style.css" />
   <link rel="stylesheet" href="variants/manual/style.css" />
@@ -69,90 +68,6 @@
     </ul>
   </footer>
 </main>
-</div>
-<div class="variant" data-variant-root="poster" data-variant-label="Poster" hidden>
-<!-- Poster: the landing's hero, turned into a welcome. A huge headline with the landing's token
-     in it, the install line as the call to action, then what `muster open` shows after the first run. -->
-<header class="poster-top">
-  <div class="poster-wrap poster-top__in">
-    <span class="brand"><span class="brand__mark" aria-hidden="true"></span><span>Muster</span></span>
-    <a class="poster-link" href="https://musteryourskills.com">musteryourskills.com<svg class="poster-arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 11.5l7-7M6 4.5h5.5V10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-  </div>
-</header>
-
-<main>
-  <section class="poster-hero" aria-labelledby="poster-title">
-    <div class="poster-wrap poster-hero__copy">
-      <p class="poster-kicker"><span class="poster-works">For<span class="poster-agent"><i class="poster-claude" aria-hidden="true"></i>Claude Code</span>on your Mac</span></p>
-
-      <!-- The token plays once through what Muster finds (script.js), and a click shows the next one.
-           The first word ships here, so the headline is whole without JS. -->
-      <h1 class="poster-h" id="poster-title">You’re in.<br class="poster-br-m" /> <button class="poster-token" type="button" data-poster-token aria-label="98 skills" aria-describedby="poster-token-hint" style="--label-w:2.7em"><span class="poster-token__sizer" aria-hidden="true">&#8203;</span><span class="poster-token__icon" aria-hidden="true"><span class="poster-token__layer" data-r="-9" style="rotate:-9deg"><span class="poster-token__art"><svg viewBox="0 0 64 64"><g fill="#fff" stroke="#fff" stroke-width="7.5" stroke-linejoin="round"><rect x="5" y="16" width="26" height="32" rx="6" transform="rotate(-16 18 32)"/><rect x="24" y="5" width="26" height="32" rx="6" transform="rotate(12 37 21)"/><rect x="27" y="27" width="30" height="31" rx="6" transform="rotate(-5 42 42)"/></g><rect x="5" y="16" width="26" height="32" rx="6" transform="rotate(-16 18 32)" fill="#EFEFED"/><rect x="24" y="5" width="26" height="32" rx="6" transform="rotate(12 37 21)" fill="#DEDEDA"/><rect x="27" y="27" width="30" height="31" rx="6" transform="rotate(-5 42 42)" fill="#202020"/><rect x="33" y="35" width="14" height="5" rx="2.5" transform="rotate(-5 42 42)" fill="#F4F83B"/><rect x="33" y="44" width="18" height="3" rx="1.5" transform="rotate(-5 42 42)" fill="#6C6C6C"/></svg></span></span></span><span class="poster-token__text" aria-hidden="true"><span class="poster-token__morph">98 skills</span></span></button>.<br /> Time to muster them.</h1>
-      <p class="sr-only" id="poster-token-hint">Select it to see what Muster finds.</p>
-      <p class="sr-only" aria-live="polite" data-poster-live></p>
-
-      <p class="poster-lede">Muster organises the skills Claude Code has on your Mac.<br class="poster-br-d" /> One line installs it.</p>
-
-      <div class="poster-cmd">
-        <code class="poster-cmd__code"><span class="poster-nb">curl -fsSL</span> <span>https://muster.is/install.sh</span> <span class="poster-nb">| bash</span></code>
-        <button class="btn btn--primary poster-copy" type="button" data-copy="curl -fsSL https://muster.is/install.sh | bash" aria-label="Copy the install command">
-          <span class="poster-copy__icon" aria-hidden="true">
-            <svg class="poster-copy__svg is-copy" viewBox="0 0 16 16"><rect x="5.25" y="5.25" width="8" height="8" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10.25 3.25a1.5 1.5 0 0 0-1.5-1.25h-4.5A2 2 0 0 0 2.25 4v4.5a1.5 1.5 0 0 0 1.25 1.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-            <svg class="poster-copy__svg is-check" viewBox="0 0 16 16"><path d="M3.25 8.5l3 3 6.5-7" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </span>
-          <span class="poster-copy__label copy-swap" aria-hidden="true"><span>Copy</span><span>Copied</span></span>
-        </button>
-      </div>
-
-      <ul class="poster-facts">
-        <li>Runs on your Mac</li>
-        <li>No account</li>
-        <li>Uses your own Claude Code</li>
-        <li>Skill files never move</li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="poster-stage canvas" aria-labelledby="poster-next">
-    <div class="poster-wrap poster-stage__in">
-      <h2 class="poster-stage__h" id="poster-next">Then run <code>muster open</code>.</h2>
-      <p class="poster-stage__sub">It counts your skills, your Claude Code suggests up to eight folders, and Autosort files your skills into them in seconds.</p>
-
-      <!-- What the local page shows after the first run, drawn after the CLI's first-run sort scene -->
-      <div class="poster-win" role="img" aria-label="Muster in the browser, on 127.0.0.1, after the first run: “Your 98 skills, mustered”, in eight folders, with 2 conflicts and 6 possible duplicates to look at, and a Get started button.">
-        <div class="poster-win__bar" aria-hidden="true">
-          <span class="poster-win__lights"><i></i><i></i><i></i></span>
-          <span class="poster-win__url"><span class="poster-win__fav"></span>127.0.0.1</span>
-        </div>
-        <div class="poster-run" aria-hidden="true">
-          <p class="poster-run__title">Your 98 skills, mustered</p>
-          <p class="poster-run__line"><span><i class="poster-dot poster-dot--red"></i>2 conflicts.</span> <span><i class="poster-dot poster-dot--amber"></i>6 possible duplicates.</span></p>
-          <ul class="poster-folders">
-            <li><span class="poster-folder"><span class="poster-folder__back"></span><span class="poster-folder__paper"></span><span class="poster-folder__paper"></span><span class="poster-folder__front"><b>21</b></span></span><span class="poster-folder__name"><span class="poster-dots"><i class="poster-dot poster-dot--red"></i><i class="poster-dot poster-dot--amber"></i></span><span class="poster-folder__label">Code</span></span></li>
-            <li><span class="poster-folder"><span class="poster-folder__back"></span><span class="poster-folder__paper"></span><span class="poster-folder__paper"></span><span class="poster-folder__front"><b>14</b></span></span><span class="poster-folder__name"><span class="poster-dots"><i class="poster-dot poster-dot--red"></i></span><span class="poster-folder__label">Design</span></span></li>
-            <li><span class="poster-folder"><span class="poster-folder__back"></span><span class="poster-folder__paper"></span><span class="poster-folder__paper"></span><span class="poster-folder__front"><b>12</b></span></span><span class="poster-folder__name"><span class="poster-dots"><i class="poster-dot poster-dot--amber"></i></span><span class="poster-folder__label">Writing</span></span></li>
-            <li><span class="poster-folder"><span class="poster-folder__back"></span><span class="poster-folder__paper"></span><span class="poster-folder__paper"></span><span class="poster-folder__front"><b>9</b></span></span><span class="poster-folder__name"><span class="poster-dots"><i class="poster-dot poster-dot--amber"></i></span><span class="poster-folder__label">Review</span></span></li>
-            <li><span class="poster-folder"><span class="poster-folder__back"></span><span class="poster-folder__paper"></span><span class="poster-folder__paper"></span><span class="poster-folder__front"><b>11</b></span></span><span class="poster-folder__name"><span class="poster-dots"><i class="poster-dot poster-dot--amber"></i></span><span class="poster-folder__label">Planning</span></span></li>
-            <li><span class="poster-folder"><span class="poster-folder__back"></span><span class="poster-folder__paper"></span><span class="poster-folder__paper"></span><span class="poster-folder__front"><b>13</b></span></span><span class="poster-folder__name"><span class="poster-folder__label">Inbox</span></span></li>
-            <li><span class="poster-folder"><span class="poster-folder__back"></span><span class="poster-folder__paper"></span><span class="poster-folder__paper"></span><span class="poster-folder__front"><b>10</b></span></span><span class="poster-folder__name"><span class="poster-folder__label">Personal</span></span></li>
-            <li><span class="poster-folder"><span class="poster-folder__back"></span><span class="poster-folder__paper"></span><span class="poster-folder__paper"></span><span class="poster-folder__front"><b>8</b></span></span><span class="poster-folder__name"><span class="poster-folder__label">Admin</span></span></li>
-          </ul>
-          <span class="poster-run__btn">Get started</span>
-        </div>
-      </div>
-    </div>
-  </section>
-</main>
-
-<footer class="poster-foot">
-  <div class="poster-wrap poster-foot__in">
-    <p class="poster-foot__rel"><span class="brand__mark" aria-hidden="true"></span><span>Muster <span data-release="version">0.45.0</span>, <time data-release="date" datetime="2026-10-23">23 October 2026</time></span></p>
-    <ul class="poster-foot__links">
-      <li><a class="poster-link" data-release="url" href="https://github.com/musteryourskills/releases/releases">Release notes<svg class="poster-arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 11.5l7-7M6 4.5h5.5V10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
-      <li>Questions? Reply to your invite email.</li>
-    </ul>
-  </div>
-</footer>
 </div>
 <div class="variant" data-variant-root="terminal" data-variant-label="Terminal" hidden>
 <div class="tm">
@@ -553,7 +468,6 @@
 </div>
 <script src="assets/site.js"></script>
 <script src="variants/note/script.js"></script>
-<script src="variants/poster/script.js"></script>
 <script src="variants/terminal/script.js"></script>
 <script src="variants/steps/script.js"></script>
 <script src="variants/manual/script.js"></script>

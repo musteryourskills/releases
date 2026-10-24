@@ -10,7 +10,6 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 VARIANTS = [  # (folder, picker label), in picker order
     ("note", "Note"),
-    ("poster", "Poster"),
     ("terminal", "Terminal"),
     ("steps", "Steps"),
     ("manual", "Manual"),

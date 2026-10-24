@@ -1,6 +1,8 @@
 You’re in.
 
-One line installs Muster on your Mac. Paste this into Terminal:
+One line installs Muster on your Mac. About 23 MB, no admin password. Needs Claude Code.
+
+Paste this into Terminal:
 
 curl -fsSL https://muster.is/install.sh | bash
 
@@ -29,8 +31,6 @@ muster --help
     everything else Muster can do
 
 # Thanks for waiting.
-
-About 23 MB, no admin password. Needs macOS and Claude Code.
 
 Questions or feedback? Reply to this email.
 

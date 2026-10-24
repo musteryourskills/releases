@@ -13,21 +13,20 @@
 <noscript><xml><o:OfficeDocumentSettings><o:AllowPNG/><o:PixelsPerInch>96</o:PixelsPerInch></o:OfficeDocumentSettings></xml></noscript>
 <style>
   table, td, div, p, a, span, h1 { font-family:'Segoe UI', Arial, sans-serif !important; }
-  .f-display { font-family:'Arial Narrow', Arial, sans-serif !important; letter-spacing:-2px !important; }
+  .f-display { font-family:'Arial Narrow', Arial, sans-serif !important; }
   .f-mono, .f-mono td, .f-mono p, .f-mono span, .f-mono a { font-family:Consolas, 'Courier New', monospace !important; }
   /* Word reads none of the width queries: the desktop values again */
   .px { padding-left:40px !important; padding-right:40px !important; }
-  .stage { padding:40px !important; }
+  .px-stage { padding-left:24px !important; padding-right:24px !important; }
   .pt-brand { padding-top:32px !important; }
-  .pt-intro { padding-top:56px !important; }
-  .pt-stage { padding-top:40px !important; }
-  .pt-foot { padding-top:56px !important; }
-  .h1 { font-size:64px !important; line-height:66px !important; }
-  .lede { font-size:18px !important; line-height:28px !important; }
-  .tm-body { padding:16px 16px 20px 16px !important; }
-  .tm-t { font-size:14px !important; line-height:22px !important; }
-  .cmd { padding:16px 20px !important; font-size:16px !important; line-height:24px !important; }
-  .st-cmd { width:124px !important; padding:0 8px 0 16px !important; }
+  .pt-intro { padding-top:40px !important; }
+  .pt-block { padding-top:32px !important; }
+  .pb-foot { padding-bottom:40px !important; }
+  .h1 { font-size:44px !important; line-height:48px !important; letter-spacing:-0.9px !important; }
+  .cmd { padding:12px 16px !important; font-size:15px !important; line-height:24px !important; }
+  .tm-bar { padding:0 16px !important; }
+  .tm-body { padding:16px !important; }
+  .st-cmd { width:115px !important; padding:0 7px 0 14px !important; }
   .st-what { padding:0 !important; }
 </style>
 <![endif]-->
@@ -42,24 +41,19 @@
   /* 2 · layout: inline values are the phone; these enlarge for desktop */
   @media only screen and (min-width:600px) {
     .px { padding-left:40px !important; padding-right:40px !important; }
-    .stage { padding:40px !important; border-radius:20px !important; }
+    .px-stage { padding-left:24px !important; padding-right:24px !important; }
     .pt-brand { padding-top:32px !important; }
-    .pt-intro { padding-top:56px !important; }
-    .pt-stage { padding-top:40px !important; }
-    .pt-foot { padding-top:56px !important; }
-    .h1 { font-size:64px !important; line-height:66px !important; }
-    .lede { font-size:18px !important; line-height:28px !important; }
-    .tm-body { padding:16px 16px 20px !important; }
-    .tm-t { font-size:14px !important; line-height:22px !important; }
-    .cmd { padding:16px 20px !important; font-size:16px !important; line-height:24px !important; }
+    .pt-intro { padding-top:40px !important; }
+    .pt-block { padding-top:32px !important; }
+    .pb-foot { padding-bottom:40px !important; }
+    .h1 { font-size:44px !important; line-height:48px !important; letter-spacing:-0.9px !important; }
+    .cmd { padding:12px 16px !important; font-size:15px !important; line-height:24px !important; }
+    .stage { border-radius:28px !important; }
+    .tm-bar { padding:0 16px !important; }
+    .tm-body { padding:16px !important; }
     .st-cmd, .st-what { display:table-cell !important; }
     .st-what { padding:0 !important; }
     .phone { display:none !important; }
-  }
-  @media only screen and (max-width:359px) {
-    .px { padding-left:12px !important; padding-right:12px !important; }
-    .stage { padding-left:12px !important; padding-right:12px !important; }
-    .tm-body { padding-left:10px !important; padding-right:10px !important; }
   }
 </style>
 <style>
@@ -113,8 +107,11 @@
 <table role="presentation" class="d-bg" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#fefefe" style="width:100%;background-color:#fefefe;">
 <tr>
 <td align="center" valign="top" style="padding:0;">
-<!--[if mso]><table role="presentation" width="640" align="center" cellpadding="0" cellspacing="0" border="0"><tr><td><![endif]-->
-<table role="presentation" align="center" width="100%" cellpadding="0" cellspacing="0" border="0" style="width:100%;max-width:640px;margin:0 auto;">
+<!--[if mso]><table role="presentation" width="600" align="center" cellpadding="0" cellspacing="0" border="0"><tr><td><![endif]-->
+<table role="presentation" align="center" width="100%" cellpadding="0" cellspacing="0" border="0" style="width:100%;max-width:600px;margin:0 auto;">
+
+<!-- One edge: every text block, the command box and the terminal start at the gutter (16 phone, 40 desktop).
+     Two text colours: ink #202020, muted #6c6c6c. One line colour: #e2e2e2. Radii: box 12, terminal 12, stage 12 + 16 = 28. -->
 
 <!-- the brand -->
 <tr>
@@ -128,50 +125,56 @@
 </td>
 </tr>
 
-<!-- you're in -->
+<!-- you're in, and what it takes: the cost comes before the line, not after it -->
 <tr>
-<td class="px pt-intro" align="left" style="padding:40px 16px 0;">
-<h1 class="h1 f-display d-ink" style="margin:0;padding:0;color:#202020;font-family:'IBM Plex Sans Condensed','Arial Narrow','Roboto Condensed',sans-serif-condensed,'Helvetica Neue',Arial,sans-serif;font-size:44px;mso-line-height-rule:exactly;line-height:46px;font-weight:400;letter-spacing:-0.03em;">You’re in.</h1>
-<p class="lede d-muted" style="margin:16px 0 0;color:#6c6c6c;font-family:Geist,-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:17px;mso-line-height-rule:exactly;line-height:26px;font-weight:400;">One line installs Muster on your Mac.</p>
+<td class="px pt-intro" align="left" style="padding:32px 16px 0;">
+<h1 class="h1 f-display d-ink" style="margin:0;padding:0;color:#202020;font-family:'IBM Plex Sans Condensed','Arial Narrow','Roboto Condensed',sans-serif-condensed,'Helvetica Neue',Arial,sans-serif;font-size:36px;mso-line-height-rule:exactly;line-height:40px;font-weight:400;letter-spacing:-0.7px;">You’re in.</h1>
+<p class="d-ink" style="margin:12px 0 0;color:#202020;font-family:Geist,-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:16px;mso-line-height-rule:exactly;line-height:24px;font-weight:400;text-wrap:pretty;">One line installs Muster on your Mac.<br>About 23&nbsp;MB, no admin password. Needs Claude Code.</p>
 </td>
 </tr>
 
 <!-- the one thing to do: the line, in its own box, and how to get it into Terminal -->
 <tr>
-<td class="px" align="left" style="padding:32px 16px 0;">
+<td class="px pt-block" align="left" style="padding:24px 16px 0;">
 <p class="d-ink" style="margin:0 0 8px;color:#202020;font-family:Geist,-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:14px;mso-line-height-rule:exactly;line-height:20px;font-weight:500;">Paste this into Terminal</p>
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="width:100%;border-collapse:separate;">
 <tr>
-<td class="cmd d-box d-ink f-mono" bgcolor="#fafafa" style="padding:12px 14px;background-color:#fafafa;border:1px solid #dcdcdc;border-radius:12px;color:#202020;font-family:'Geist Mono',ui-monospace,'SF Mono',Menlo,Consolas,'Liberation Mono',monospace;font-size:14px;mso-line-height-rule:exactly;line-height:22px;font-weight:400;font-variant-ligatures:none;-webkit-user-select:all;user-select:all;"><span style="white-space:nowrap;">curl -fsSL</span> <span style="white-space:nowrap;"><a class="d-ink" href="https://muster.is/install.sh" style="color:#202020;text-decoration:none;pointer-events:none;">https://muster.is/install.sh</a></span> <span style="white-space:nowrap;">| bash</span></td>
+<td class="cmd d-box d-ink f-mono" bgcolor="#fafafa" style="padding:12px;background-color:#fafafa;border:1px solid #e2e2e2;border-radius:12px;color:#202020;font-family:'Geist Mono',ui-monospace,'SF Mono',Menlo,Consolas,'Liberation Mono',monospace;font-size:14px;mso-line-height-rule:exactly;line-height:22px;font-weight:400;font-variant-ligatures:none;-webkit-user-select:all;user-select:all;"><span style="white-space:nowrap;">curl -fsSL</span> <span style="white-space:nowrap;"><a class="d-ink" href="https://muster.is/install.sh" style="color:#202020;text-decoration:none;pointer-events:none;">https://muster.is/install.sh</a></span> <span style="white-space:nowrap;">| bash</span></td>
 </tr>
 </table>
-<p class="d-muted" style="margin:12px 0 0;color:#6c6c6c;font-family:Geist,-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:14px;mso-line-height-rule:exactly;line-height:20px;">Triple-click the line to select it and copy it with ⌘C. In Terminal, paste it with ⌘V and press Return.</p>
-<!--[if !mso]><!--><p class="phone d-muted" style="margin:8px 0 0;color:#6c6c6c;font-family:Geist,-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:14px;mso-line-height-rule:exactly;line-height:20px;">On your phone? Open this email on your Mac to copy the line.</p><!--<![endif]-->
+<p class="d-muted" style="margin:12px 0 0;color:#6c6c6c;font-family:Geist,-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:14px;mso-line-height-rule:exactly;line-height:20px;text-wrap:pretty;">Triple-click the line and press ⌘C. In Terminal, press ⌘V, then Return.</p>
+<!--[if !mso]><!--><p class="phone d-muted" style="margin:8px 0 0;color:#6c6c6c;font-family:Geist,-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:14px;mso-line-height-rule:exactly;line-height:20px;text-wrap:pretty;">On your phone? Open this email on your Mac to copy the line.</p><!--<![endif]-->
 </td>
 </tr>
 
-<!-- the terminal, on the one dotted surface: a band on phones (so the terminal keeps the full width), a
-     panel from 600px, whose padding is the text's gutter, so text and terminal share an edge -->
+<!-- what you'll see: labelled like the line above it -->
 <tr>
-<td class="pt-stage" align="left" style="padding:32px 0 0;">
+<td class="px pt-block" align="left" style="padding:24px 16px 0;">
+<p class="d-ink" style="margin:0;color:#202020;font-family:Geist,-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:14px;mso-line-height-rule:exactly;line-height:20px;font-weight:500;">What you’ll see</p>
+</td>
+</tr>
+
+<!-- the terminal on the dotted stage. The stage pads it by 16 and reaches 16 into the gutter, so the terminal keeps
+     the text's edge: a full-width band on phones (gutter 16), a panel outset by 16 from 600px (gutter 40). -->
+<tr>
+<td class="px-stage" align="left" style="padding:8px 0 0;">
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="width:100%;border-collapse:separate;">
 <tr>
-<td class="stage d-stage d-dots" bgcolor="#f5f5f5" style="padding:24px 16px;background-color:#f5f5f5;background-image:url(https://muster.is/assets/email/dots.png);background-size:16px 16px;background-position:-4px -4px;">
-<p class="d-muted" style="margin:0 0 12px;color:#6c6c6c;font-family:Geist,-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:14px;mso-line-height-rule:exactly;line-height:20px;font-weight:500;">What you’ll see</p>
-<table role="presentation" class="tm" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#0c0c0c" style="width:100%;border-collapse:separate;border:1px solid #2e2e2e;border-radius:12px;background-color:#0c0c0c;box-shadow:0 24px 48px -24px rgba(0,0,0,0.38),0 8px 24px -8px rgba(0,0,0,0.2);">
+<td class="stage d-stage d-dots" bgcolor="#f5f5f5" style="padding:16px;background-color:#f5f5f5;background-image:url(https://muster.is/assets/email/dots.png);background-size:16px 16px;background-position:6px 6px;">
+<table role="presentation" class="tm" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#0c0c0c" style="width:100%;border-collapse:separate;border:1px solid #2e2e2e;border-radius:12px;background-color:#0c0c0c;box-shadow:0 1px 2px rgba(0,0,0,0.12),0 8px 16px -8px rgba(0,0,0,0.28);">
 <tr>
-<td class="tm-bar" bgcolor="#292929" height="40" style="height:40px;padding:0 14px;background-color:#292929;border-bottom:1px solid #121212;border-radius:11px 11px 0 0;">
+<td class="tm-bar" bgcolor="#292929" height="32" style="height:32px;padding:0 12px;background-color:#292929;border-bottom:1px solid #121212;border-radius:11px 11px 0 0;">
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
 <tr>
 <td width="52" valign="middle" style="width:52px;padding:0;font-size:1px;mso-line-height-rule:exactly;line-height:1px;"><img src="https://muster.is/assets/email/term-lights.png" width="52" height="12" alt="" style="display:block;width:52px;height:12px;border:0;outline:none;"></td>
-<td class="c-dim" align="center" valign="middle" aria-hidden="true" style="padding:0;color:#929292;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:12.5px;mso-line-height-rule:exactly;line-height:40px;font-weight:500;letter-spacing:0.12px;">zsh</td>
+<td class="c-dim" align="center" valign="middle" aria-hidden="true" style="padding:0;color:#929292;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:13px;mso-line-height-rule:exactly;line-height:32px;font-weight:500;">zsh</td>
 <td width="52" style="width:52px;padding:0;font-size:1px;mso-line-height-rule:exactly;line-height:1px;">&nbsp;</td>
 </tr>
 </table>
 </td>
 </tr>
 <tr>
-<td class="tm-body f-mono" bgcolor="#0c0c0c" style="padding:14px 12px 16px;background-color:#0c0c0c;border-radius:0 0 11px 11px;">
+<td class="tm-body f-mono" bgcolor="#0c0c0c" style="padding:12px;background-color:#0c0c0c;border-radius:0 0 11px 11px;">
 <!-- the prompt has its own cell: the command wraps under itself, and a click or triple-click takes only the command -->
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
 <tr>
@@ -187,7 +190,7 @@
 <p class="tm-t" style="margin:0;font-size:13px;mso-line-height-rule:exactly;line-height:20px;">&nbsp;</p>
 <p class="tm-t c-text" style="margin:0;color:#d4d4d4;font-family:'Geist Mono',ui-monospace,'SF Mono',Menlo,Consolas,'Liberation Mono',monospace;font-size:13px;mso-line-height-rule:exactly;line-height:20px;">Start here:</p>
 <!-- the installer pads these to 16 columns after a 2-column indent. In em, for any 0.6em mono: 1.2em = 2ch,
-     9.6em = 16ch, 0.6em = the space. Stacked on phones (description indented beneath), side by side from 600px. -->
+     9.6em = 16ch, 0.6em = the space. Stacked on phones (description indented beneath), side by side from 600px, where 60ch at 13px fits the terminal's 486px. -->
 <table role="presentation" cellpadding="0" cellspacing="0" border="0">
 <tr>
 <td class="tm-t st-cmd c-run" valign="top" nowrap style="display:block;width:9.6em;padding:0 0.6em 0 1.2em;white-space:nowrap;color:#f4f83b;font-family:'Geist Mono',ui-monospace,'SF Mono',Menlo,Consolas,'Liberation Mono',monospace;font-size:13px;mso-line-height-rule:exactly;line-height:20px;">muster open</td>
@@ -218,22 +221,14 @@
 </td>
 </tr>
 
-<!-- what it costs, in one line. The email is the whole install: no button to a page, no checklist (the
-     transcript already says nothing leaves your Mac) -->
-<tr>
-<td class="px" align="left" style="padding:24px 16px 0;">
-<p class="d-muted" style="margin:0;color:#6c6c6c;font-family:Geist,-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:14px;mso-line-height-rule:exactly;line-height:20px;">About 23&nbsp;MB, no admin password. Needs macOS and Claude Code.</p>
-</td>
-</tr>
-
 <!-- the footer -->
 <tr>
-<td class="px pt-foot" align="left" style="padding:48px 16px 40px;">
+<td class="px pb-foot" align="left" style="padding:40px 16px 32px;">
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
 <tr>
-<td class="d-rule" style="padding:24px 0 0;border-top:1px solid #e6e6e6;">
-<p class="d-ink" style="margin:0;color:#202020;font-family:Geist,-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:14px;mso-line-height-rule:exactly;line-height:20px;">Questions or feedback? Reply to this email.</p>
-<p class="d-muted" style="margin:8px 0 0;color:#6c6c6c;font-family:Geist,-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:14px;mso-line-height-rule:exactly;line-height:20px;">You joined the Muster waitlist at <a class="d-muted" href="https://musteryourskills.com" style="color:#6c6c6c;text-decoration:none;">musteryourskills.com</a>.</p>
+<td class="d-rule" style="padding:16px 0 0;border-top:1px solid #e2e2e2;">
+<p class="d-muted" style="margin:0;color:#6c6c6c;font-family:Geist,-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:14px;mso-line-height-rule:exactly;line-height:20px;">Questions or feedback? Reply to this email.</p>
+<p class="d-muted" style="margin:0;color:#6c6c6c;font-family:Geist,-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:14px;mso-line-height-rule:exactly;line-height:20px;">You joined the Muster waitlist at <a class="d-muted" href="https://musteryourskills.com" style="color:#6c6c6c;text-decoration:none;">musteryourskills.com</a>.</p>
 </td>
 </tr>
 </table>

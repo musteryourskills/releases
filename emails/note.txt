@@ -11,24 +11,19 @@ We’d like to hear how it goes. Reply to this email.
 
 - - - - - - - - - - - - - - - - - - - - - - -
 
-Paste this into Terminal on your Mac:
+Install it on your Mac
+
+It’s one line in Terminal. The install guide has it ready to copy, then shows you what to run first:
+
+https://muster.is/?variant=manual
+
+Or paste this into Terminal yourself:
 
 curl -fsSL https://muster.is/install.sh | bash
-
-Copy it on muster.is: https://muster.is/?variant=note
-
-About 23 MB. No admin password. It puts muster in ~/.local/bin.
-
-When the install finishes, run the first command it shows to see your skills on a page in your browser:
-
-muster open
 
 On your phone? Open this email again on your Mac.
 
 - - - - - - - - - - - - - - - - - - - - - - -
 
-
-Release notes: https://github.com/musteryourskills/releases/releases
-Website: https://musteryourskills.com
 
 You joined the Muster waitlist at musteryourskills.com.

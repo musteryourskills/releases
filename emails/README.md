@@ -1,15 +1,19 @@
 # Invitation emails
 
-The email sent when someone is let in off the waitlist, in the same four directions as the muster.is page:
-Note, Terminal, Steps, Manual. Each is a standalone, send-ready pair:
+The email sent when someone is let in off the waitlist. Two options, one to pick:
+
+- **Terminal** does it all in the email. The install line is drawn already selected, in the brand's yellow, inside
+  a terminal that shows what the installer prints and what to run next. People copy it straight from the email.
+- **Note** is a letter. Its button opens the Manual page (`https://muster.is/?variant=manual`), where the copy
+  button and the rest of the guide are. The line is in the email too, for anyone who'd rather copy it there.
+
+Each is a standalone, send-ready pair:
 
 - `<name>.html`: the HTML part. The subject is its `<title>`, the preheader its hidden `[data-preheader]` element.
 - `<name>.txt`: the plain-text part.
 
-Images load from `https://muster.is/assets/email/`, so they show once this repository is deployed. Every email
-reads fine with images off. Each links to its page on muster.is (`?variant=<name>`), where the copy button works.
-
-There's no name or merge tag: the waitlist only collected an email address.
+Images load from `https://muster.is/assets/email/`, so they show once this repository is deployed. Both read fine
+with images off. There's no name or merge tag: the waitlist only collected an email address.
 
 ## Preview
 
@@ -43,9 +47,10 @@ and Outlook.com in dark mode.
   sed -i '' -E "s/Muster [0-9]+\.[0-9]+\.[0-9]+/Muster $v/g" emails/terminal.html emails/terminal.txt
   ```
 
-  The other emails carry no version or date, so they stay true for as long as they sit in an inbox.
+  Note carries no version or date, so it stays true for as long as it sits in an inbox.
 - **Deliverability:** a send to the whole waitlist looks like bulk mail to Gmail and Yahoo. Align SPF, DKIM and
   DMARC for the sending domain, and add a `List-Unsubscribe: <mailto:…>` header (plus
   `List-Unsubscribe-Post: List-Unsubscribe=One-Click` if there's an https endpoint). Neither needs a visible link.
 
-Once one direction is picked, keep its two files and delete the rest, with `index.html` here.
+Once one is picked, keep its two files and delete the other, with `index.html` here. If Note is picked,
+the Manual page has to stay on muster.is.

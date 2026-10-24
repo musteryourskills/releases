@@ -1,14 +1,14 @@
 You’re in.
 
-One line installs Muster. Paste it into Terminal on your Mac:
+One line installs Muster. Copy it into Terminal on your Mac:
 
 curl -fsSL https://muster.is/install.sh | bash
 
 Terminal answers:
 
-Downloading Muster 0.51.0 for arm64 Macs…
+Downloading Muster 0.53.0 for arm64 Macs…
 
-Muster 0.51.0 is installed.
+Muster 0.53.0 is installed.
 
 Muster finds the skills Claude Code has on this Mac, shows them in one place,
 and checks them for duplicates and conflicts. Nothing leaves your Mac.
@@ -28,7 +28,7 @@ muster --help
 
 About 23 MB, no admin password. Needs macOS and Claude Code.
 
-On your phone? Open this email on your Mac to paste the line.
+On your phone? Open this email on your Mac to copy the line.
 
 Questions or feedback? Reply to this email.
 

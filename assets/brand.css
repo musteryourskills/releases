@@ -79,7 +79,9 @@ code, kbd, pre { font-family: var(--f-mono); }
 
 /* the logo: the accent tile with the ink glyph on it */
 .brand { display: inline-flex; align-items: center; gap: 10px; font: 500 15.5px/1 var(--f-body); letter-spacing: -.01em; color: var(--ink); text-decoration: none; }
-.brand__mark { position: relative; display: inline-block; flex: none; width: 22px; height: 22px; border-radius: 6px; background: var(--accent); }
+.brand__mark { position: relative; display: inline-block; flex: none; width: 22px; height: 22px; border-radius: 6px;
+  background: linear-gradient(var(--accent-hi) 0%, var(--accent-mid) 60%, var(--accent-lo) 100%);
+  box-shadow: 0 0 0 .5px rgb(var(--accent-edge) / .18), 0 1px 2px rgb(var(--accent-edge) / .08); }
 .brand__mark::before { content: ""; position: absolute; inset: 0; background: var(--accent-ink); -webkit-mask: url(mark.svg) center / 100% 100% no-repeat; mask: url(mark.svg) center / 100% 100% no-repeat; }
 
 /* buttons: pills with a top-lit gradient, as on the landing */

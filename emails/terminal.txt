@@ -1,6 +1,8 @@
 You’re in.
 
-One line installs Muster on your Mac. About 23 MB, no admin password. Needs Claude Code.
+Thanks for waiting. We’ve let you in off the waitlist, and Muster is ready to install: one line, about 23 MB, no admin password.
+
+Muster organises the skills Claude Code has on your Mac. It finds them, shows them in one place, and checks them for duplicates and conflicts. Nothing leaves your Mac.
 
 Paste this into Terminal:
 
@@ -10,14 +12,11 @@ Copy the line, paste it into Terminal and press Return.
 
 On your phone? Open this email on your Mac to copy the line.
 
-What you’ll see:
+In Terminal:
 
 Downloading Muster 0.53.0 for arm64 Macs…
 
 Muster 0.53.0 is installed.
-
-Muster finds the skills Claude Code has on this Mac, shows them in one place,
-and checks them for duplicates and conflicts. Nothing leaves your Mac.
 
 Start here:
 
@@ -30,7 +29,9 @@ muster
 muster --help
     everything else Muster can do
 
-# Thanks for waiting.
+~ % # Thanks for waiting.
+~ % # Your skills have been waiting longer.
+~ % muster open
 
 Questions or feedback? Reply to this email.
 

@@ -130,15 +130,6 @@
     [data-ogsb] .n-br { background-image: radial-gradient(circle at 100% 0, rgba(52,52,52,0) 10.75px, #343434 11.25px, #343434 11.75px, #222222 12.25px) !important; }
   }
 </style>
-<style>
-  /* 7 · motion, Apple Mail only: the card is set down on the canvas, as on the page. The still state is the design. */
-  @keyframes n-settle { from { transform: translateY(-10px) rotate(-1.5deg) scale(1.03); } }
-  @keyframes n-fade { from { opacity: 0; } }
-  @media (prefers-reduced-motion: no-preference) {
-    .a-card { transform-origin: 50% 40%; animation: n-fade .2s ease backwards, n-settle .4s cubic-bezier(.23,1,.32,1) backwards; }
-    .a-fine { animation: n-fade .3s ease .12s backwards; }
-  }
-</style>
 </head>
 <body class="body d-canvas" style="margin:0;padding:0;width:100%;word-spacing:normal;background-color:#f5f5f5;background-image:url('https://muster.is/assets/email/dots.png');background-size:16px 16px;">
 <div data-preheader style="display:none;font-size:1px;mso-line-height-rule:exactly;line-height:1px;max-height:0;max-width:0;opacity:0;overflow:hidden;mso-hide:all;">It organises your Claude Code skills. The install guide has the one line you need.&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;</div>
@@ -153,7 +144,7 @@
 <div style="max-width:600px;margin:0 auto;">
 
 <!-- The card: a letter, a tear line with a hole punched at each end, a stub -->
-<table role="presentation" class="a-card d-card l-card" width="100%" cellpadding="0" cellspacing="0" border="0" style="width:100%;border-collapse:separate;border-spacing:0;border-radius:20px;box-shadow:0 24px 32px -12px rgba(0,0,0,.12);">
+<table role="presentation" class="d-card l-card" width="100%" cellpadding="0" cellspacing="0" border="0" style="width:100%;border-collapse:separate;border-spacing:0;border-radius:20px;box-shadow:0 24px 32px -12px rgba(0,0,0,.12);">
 
 <!-- The letter -->
 <tr>
@@ -207,7 +198,7 @@
     <td valign="top" style="padding:0;">
       <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="width:100%;border-collapse:collapse;">
       <tr><td class="d-letter l-nh" height="10" bgcolor="#fefefe" style="height:10px;padding:0;background-color:#fefefe;font-size:1px;mso-line-height-rule:exactly;line-height:1px;">&nbsp;</td></tr>
-      <tr><td class="d-stub" bgcolor="#fafafa" style="padding:0 10px;background-color:#fafafa;">
+      <tr><td class="d-stub" bgcolor="#fafafa" style="padding:0 4px;background-color:#fafafa;">
         <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="width:100%;border-collapse:collapse;"><tr><td class="d-perf" height="4" style="height:4px;padding:0;background-image:url('https://muster.is/assets/email/perf.png');background-size:8px 4px;background-repeat:repeat-x;background-position:center top;font-size:1px;mso-line-height-rule:exactly;line-height:1px;">&nbsp;</td></tr></table>
       </td></tr>
       <tr><td class="d-stub l-ns" height="6" bgcolor="#fafafa" style="height:6px;padding:0;background-color:#fafafa;font-size:1px;mso-line-height-rule:exactly;line-height:1px;">&nbsp;</td></tr>
@@ -259,7 +250,7 @@
 </table>
 
 <!-- Under the card: why this came -->
-<table role="presentation" class="a-fine" width="100%" cellpadding="0" cellspacing="0" border="0" style="width:100%;border-collapse:collapse;">
+<table role="presentation" class="" width="100%" cellpadding="0" cellspacing="0" border="0" style="width:100%;border-collapse:collapse;">
 <tr>
   <td class="d-muted l-fine" align="center" style="padding:24px 16px 0;font-family:Geist,-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:14px;mso-line-height-rule:exactly;line-height:20px;color:#6c6c6c;text-align:center;">You joined the Muster waitlist at <a href="https://musteryourskills.com" style="color:#6c6c6c;text-decoration:underline;text-decoration-color:#c4c4c4;text-underline-offset:3px;">musteryourskills.com</a>.</td>
 </tr>

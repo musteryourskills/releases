@@ -71,6 +71,7 @@
     .d-dots { background-image:url(https://muster.is/assets/email/dots-dark.png) !important; }
     .d-ink { color:#ededed !important; }
     .d-muted { color:#a3a3a3 !important; }
+    .d-body { color:#c4c4c4 !important; }
     .d-rule { border-top-color:#343434 !important; }
     .d-box { background-color:#222222 !important; border-color:#343434 !important; }
   }
@@ -81,6 +82,7 @@
   [data-ogsb] .d-stage { background-color:#1c1c1c !important; background-image:none !important; }
   [data-ogsc] .d-ink { color:#ededed !important; }
   [data-ogsc] .d-muted { color:#a3a3a3 !important; }
+  [data-ogsc] .d-body { color:#c4c4c4 !important; }
   [data-ogsb] .d-rule { border-top-color:#343434 !important; }
   [data-ogsb] .d-box { background-color:#222222 !important; border-color:#343434 !important; }
   [data-ogsb] .tm { background-color:#0c0c0c !important; border-color:#2e2e2e !important; }
@@ -125,11 +127,13 @@
 </td>
 </tr>
 
-<!-- you're in, and what it takes: the cost comes before the line, not after it -->
+<!-- you're in, and what Muster is, in the email's voice (people read this; few read a transcript). The cost comes
+     before the line, not after it -->
 <tr>
 <td class="px pt-intro" align="left" style="padding:32px 16px 0;">
 <h1 class="h1 f-display d-ink" style="margin:0;padding:0;color:#202020;font-family:'IBM Plex Sans Condensed','Arial Narrow','Roboto Condensed',sans-serif-condensed,'Helvetica Neue',Arial,sans-serif;font-size:36px;mso-line-height-rule:exactly;line-height:40px;font-weight:400;letter-spacing:-0.7px;">You’re in.</h1>
-<p class="d-ink" style="margin:12px 0 0;color:#202020;font-family:Geist,-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:16px;mso-line-height-rule:exactly;line-height:24px;font-weight:400;text-wrap:pretty;">One line installs Muster on your Mac.<br>About 23&nbsp;MB, no admin password. Needs Claude Code.</p>
+<p class="d-body" style="margin:12px 0 0;color:#4a4a4a;font-family:Geist,-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:16px;mso-line-height-rule:exactly;line-height:24px;font-weight:400;text-wrap:pretty;">Thanks for waiting. We’ve let you in off the waitlist, and Muster is ready to install: one line, about 23&nbsp;MB, no admin password.</p>
+<p class="d-body" style="margin:12px 0 0;color:#4a4a4a;font-family:Geist,-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:16px;mso-line-height-rule:exactly;line-height:24px;font-weight:400;text-wrap:pretty;">Muster organises the skills Claude Code has on your Mac. It finds them, shows them in one place, and checks them for duplicates and conflicts. Nothing leaves your Mac.</p>
 </td>
 </tr>
 
@@ -147,10 +151,10 @@
 </td>
 </tr>
 
-<!-- what you'll see: labelled like the line above it -->
+<!-- the stage's label, like the line's label above it -->
 <tr>
 <td class="px pt-block" align="left" style="padding:24px 16px 0;">
-<p class="d-ink" style="margin:0;color:#202020;font-family:Geist,-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:14px;mso-line-height-rule:exactly;line-height:20px;font-weight:500;">What you’ll see</p>
+<p class="d-ink" style="margin:0;color:#202020;font-family:Geist,-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:14px;mso-line-height-rule:exactly;line-height:20px;font-weight:500;">In Terminal</p>
 </td>
 </tr>
 
@@ -186,8 +190,6 @@
 <p class="tm-t" style="margin:0;font-size:13px;mso-line-height-rule:exactly;line-height:20px;">&nbsp;</p>
 <p class="tm-t c-strong" style="margin:0;color:#fafafa;font-family:'Geist Mono',ui-monospace,'SF Mono',Menlo,Consolas,'Liberation Mono',monospace;font-size:13px;mso-line-height-rule:exactly;line-height:20px;">Muster 0.53.0 is installed.</p>
 <p class="tm-t" style="margin:0;font-size:13px;mso-line-height-rule:exactly;line-height:20px;">&nbsp;</p>
-<p class="tm-t c-text" style="margin:0;color:#d4d4d4;font-family:'Geist Mono',ui-monospace,'SF Mono',Menlo,Consolas,'Liberation Mono',monospace;font-size:13px;mso-line-height-rule:exactly;line-height:20px;">Muster finds the skills Claude Code has on this Mac, shows them in one place, and checks them for duplicates and conflicts. Nothing leaves your Mac.</p>
-<p class="tm-t" style="margin:0;font-size:13px;mso-line-height-rule:exactly;line-height:20px;">&nbsp;</p>
 <p class="tm-t c-text" style="margin:0;color:#d4d4d4;font-family:'Geist Mono',ui-monospace,'SF Mono',Menlo,Consolas,'Liberation Mono',monospace;font-size:13px;mso-line-height-rule:exactly;line-height:20px;">Start here:</p>
 <!-- the installer pads these to 16 columns after a 2-column indent. In em, for any 0.6em mono: 1.2em = 2ch,
      9.6em = 16ch, 0.6em = the space. Stacked on phones (description indented beneath), side by side from 600px, where 60ch at 13px fits the terminal's 486px. -->
@@ -205,11 +207,19 @@
 <td class="tm-t st-what c-dim" valign="top" style="display:block;padding:0 0 0 2.4em;color:#929292;font-family:'Geist Mono',ui-monospace,'SF Mono',Menlo,Consolas,'Liberation Mono',monospace;font-size:13px;mso-line-height-rule:exactly;line-height:20px;">everything else Muster can do</td>
 </tr>
 </table>
-<!-- the session waits: a note typed at the prompt, not yet run -->
-<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+<!-- the session ends with us: two comments typed at the prompt, then the next command, typed and waiting -->
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:12px 0 0;">
 <tr>
 <td class="tm-t" valign="top" width="1" nowrap aria-hidden="true" style="width:1px;padding:0 8px 0 0;white-space:nowrap;font-family:'Geist Mono',ui-monospace,'SF Mono',Menlo,Consolas,'Liberation Mono',monospace;font-size:13px;mso-line-height-rule:exactly;line-height:20px;"><span class="c-dir" style="color:#70c6cb;">~</span> <span class="c-dim" style="color:#929292;">%</span></td>
-<td class="tm-t c-dim" valign="top" style="padding:0;color:#929292;font-family:'Geist Mono',ui-monospace,'SF Mono',Menlo,Consolas,'Liberation Mono',monospace;font-size:13px;mso-line-height-rule:exactly;line-height:20px;"># Thanks for waiting.<span class="c-cursor" aria-hidden="true" style="color:#d4d4d4;">█</span></td>
+<td class="tm-t c-dim" valign="top" style="padding:0;color:#929292;font-family:'Geist Mono',ui-monospace,'SF Mono',Menlo,Consolas,'Liberation Mono',monospace;font-size:13px;mso-line-height-rule:exactly;line-height:20px;"># Thanks for waiting.</td>
+</tr>
+<tr>
+<td class="tm-t" valign="top" width="1" nowrap aria-hidden="true" style="width:1px;padding:0 8px 0 0;white-space:nowrap;font-family:'Geist Mono',ui-monospace,'SF Mono',Menlo,Consolas,'Liberation Mono',monospace;font-size:13px;mso-line-height-rule:exactly;line-height:20px;"><span class="c-dir" style="color:#70c6cb;">~</span> <span class="c-dim" style="color:#929292;">%</span></td>
+<td class="tm-t c-dim" valign="top" style="padding:0;color:#929292;font-family:'Geist Mono',ui-monospace,'SF Mono',Menlo,Consolas,'Liberation Mono',monospace;font-size:13px;mso-line-height-rule:exactly;line-height:20px;"># Your skills have been waiting longer.</td>
+</tr>
+<tr>
+<td class="tm-t" valign="top" width="1" nowrap aria-hidden="true" style="width:1px;padding:0 8px 0 0;white-space:nowrap;font-family:'Geist Mono',ui-monospace,'SF Mono',Menlo,Consolas,'Liberation Mono',monospace;font-size:13px;mso-line-height-rule:exactly;line-height:20px;"><span class="c-dir" style="color:#70c6cb;">~</span> <span class="c-dim" style="color:#929292;">%</span></td>
+<td class="tm-t c-strong" valign="top" style="padding:0;color:#fafafa;font-family:'Geist Mono',ui-monospace,'SF Mono',Menlo,Consolas,'Liberation Mono',monospace;font-size:13px;mso-line-height-rule:exactly;line-height:20px;">muster open<span class="c-cursor" aria-hidden="true" style="color:#d4d4d4;">█</span></td>
 </tr>
 </table>
 </td>

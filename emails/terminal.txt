@@ -1,10 +1,14 @@
 You’re in.
 
-One line installs Muster. Copy it into Terminal on your Mac:
+One line installs Muster on your Mac. Paste this into Terminal:
 
 curl -fsSL https://muster.is/install.sh | bash
 
-Terminal answers:
+Copy the line, paste it into Terminal and press Return.
+
+On your phone? Open this email on your Mac to copy the line.
+
+What you’ll see:
 
 Downloading Muster 0.53.0 for arm64 Macs…
 
@@ -27,8 +31,6 @@ muster --help
 # Thanks for waiting.
 
 About 23 MB, no admin password. Needs macOS and Claude Code.
-
-On your phone? Open this email on your Mac to copy the line.
 
 Questions or feedback? Reply to this email.
 

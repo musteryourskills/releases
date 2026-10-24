@@ -47,14 +47,7 @@
     .l-h1 { font-size: 76px !important; line-height: 76px !important; letter-spacing: -3.4px !important; margin-bottom: 24px !important; }
     .l-sign { margin-top: 32px !important; }
     .l-code { padding: 12px 16px !important; }
-    .l-n { width: 12px !important; }
-    .l-nq { width: 11px !important; height: 11px !important; }
-    .l-tr { border-top-right-radius: 12px !important; }
-    .l-br { border-bottom-right-radius: 12px !important; }
-    .l-tl { border-top-left-radius: 12px !important; }
-    .l-bl { border-bottom-left-radius: 12px !important; }
-    .l-nh { height: 12px !important; }
-    .l-ns { height: 8px !important; }
+    .l-pf { padding: 0 48px !important; }
     .l-phone { display: none !important; }
     .l-fine { padding-top: 28px !important; }
   }
@@ -76,7 +69,6 @@
     .d-card { box-shadow: 0 1px 2px rgba(0,0,0,.5), 0 24px 32px -12px rgba(0,0,0,.6) !important; }
     .d-letter { background-color: #2a2a2a !important; border-color: #343434 !important; }
     .d-stub { background-color: #222222 !important; border-color: #343434 !important; }
-    .d-notch { background-color: #1c1c1c !important; border-color: #343434 !important; }
     .d-perf { background-image: url("https://muster.is/assets/email/perf-dark.png") !important; }
     .d-code { background-color: #1c1c1c !important; border-color: #343434 !important; }
     .b-fill { border-color: #edf12f !important; }
@@ -91,7 +83,6 @@
   [data-ogsb] .d-canvas { background-color: #1c1c1c !important; }
   [data-ogsb] .d-letter { background-color: #2a2a2a !important; border-color: #343434 !important; }
   [data-ogsb] .d-stub { background-color: #222222 !important; border-color: #343434 !important; }
-  [data-ogsb] .d-notch { background-color: #1c1c1c !important; border-color: #343434 !important; }
   [data-ogsb] .d-perf { background-image: url("https://muster.is/assets/email/perf-dark.png") !important; }
   [data-ogsb] .d-code { background-color: #1c1c1c !important; border-color: #343434 !important; }
   [data-ogsb] .b-fill { background-color: #edf12f !important; border-color: #edf12f !important; }
@@ -167,30 +158,11 @@
 </tr>
 <![endif]-->
 <!--[if !mso]><!-->
-<!-- The tear line: a punched notch at each edge, the canvas's own dots between -->
+<!-- The tear line: the canvas's own dots, where the letter meets the stub. No punched notches: email can't
+     cut through the card, so they read as bumps on its edge -->
 <tr aria-hidden="true">
-<td style="padding:0;font-size:1px;mso-line-height-rule:exactly;line-height:1px;">
-  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="width:100%;border-collapse:separate;border-spacing:0;">
-  <tr>
-    <td class="l-n" width="10" valign="top" style="width:10px;padding:0;">
-      <table role="presentation" class="d-letter" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#fefefe" style="width:100%;border-collapse:separate;border-spacing:0;background-color:#fefefe;"><tr><td class="d-notch l-nq l-tr" width="9" height="9" bgcolor="#f5f5f5" style="width:9px;height:9px;padding:0;background-color:#f5f5f5;border-top:1px solid #e2e2e2;border-right:1px solid #e2e2e2;border-top-right-radius:10px;font-size:1px;mso-line-height-rule:exactly;line-height:1px;">&nbsp;</td></tr></table>
-      <table role="presentation" class="d-stub" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#fafafa" style="width:100%;border-collapse:separate;border-spacing:0;background-color:#fafafa;"><tr><td class="d-notch l-nq l-br" width="9" height="9" bgcolor="#f5f5f5" style="width:9px;height:9px;padding:0;background-color:#f5f5f5;border-bottom:1px solid #e2e2e2;border-right:1px solid #e2e2e2;border-bottom-right-radius:10px;font-size:1px;mso-line-height-rule:exactly;line-height:1px;">&nbsp;</td></tr></table>
-    </td>
-    <td valign="top" style="padding:0;">
-      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="width:100%;border-collapse:collapse;">
-      <tr><td class="d-letter l-nh" height="10" bgcolor="#fefefe" style="height:10px;padding:0;background-color:#fefefe;font-size:1px;mso-line-height-rule:exactly;line-height:1px;">&nbsp;</td></tr>
-      <tr><td class="d-stub" bgcolor="#fafafa" style="padding:0 10px;background-color:#fafafa;">
-        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="width:100%;border-collapse:collapse;"><tr><td class="d-perf" height="4" style="height:4px;padding:0;background-image:url('https://muster.is/assets/email/perf.png');background-size:8px 4px;background-repeat:repeat-x;background-position:center top;font-size:1px;mso-line-height-rule:exactly;line-height:1px;">&nbsp;</td></tr></table>
-      </td></tr>
-      <tr><td class="d-stub l-ns" height="6" bgcolor="#fafafa" style="height:6px;padding:0;background-color:#fafafa;font-size:1px;mso-line-height-rule:exactly;line-height:1px;">&nbsp;</td></tr>
-      </table>
-    </td>
-    <td class="l-n" width="10" valign="top" style="width:10px;padding:0;">
-      <table role="presentation" class="d-letter" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#fefefe" style="width:100%;border-collapse:separate;border-spacing:0;background-color:#fefefe;"><tr><td class="d-notch l-nq l-tl" width="9" height="9" bgcolor="#f5f5f5" style="width:9px;height:9px;padding:0;background-color:#f5f5f5;border-top:1px solid #e2e2e2;border-left:1px solid #e2e2e2;border-top-left-radius:10px;font-size:1px;mso-line-height-rule:exactly;line-height:1px;">&nbsp;</td></tr></table>
-      <table role="presentation" class="d-stub" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#fafafa" style="width:100%;border-collapse:separate;border-spacing:0;background-color:#fafafa;"><tr><td class="d-notch l-nq l-bl" width="9" height="9" bgcolor="#f5f5f5" style="width:9px;height:9px;padding:0;background-color:#f5f5f5;border-bottom:1px solid #e2e2e2;border-left:1px solid #e2e2e2;border-bottom-left-radius:10px;font-size:1px;mso-line-height-rule:exactly;line-height:1px;">&nbsp;</td></tr></table>
-    </td>
-  </tr>
-  </table>
+<td class="d-stub l-pf" bgcolor="#fafafa" style="padding:0 20px;background-color:#fafafa;border-left:1px solid #e2e2e2;border-right:1px solid #e2e2e2;font-size:1px;mso-line-height-rule:exactly;line-height:1px;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="width:100%;border-collapse:collapse;"><tr><td class="d-perf" height="4" style="height:4px;padding:0;background-image:url('https://muster.is/assets/email/perf.png');background-size:8px 4px;background-repeat:repeat-x;background-position:center top;font-size:1px;mso-line-height-rule:exactly;line-height:1px;">&nbsp;</td></tr></table>
 </td>
 </tr>
 <!--<![endif]-->

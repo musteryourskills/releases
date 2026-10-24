@@ -26,6 +26,7 @@
   .lede { font-size:18px !important; line-height:28px !important; }
   .tm-body { padding:16px 16px 20px 16px !important; }
   .tm-t { font-size:14px !important; line-height:22px !important; }
+  .cmd { padding:16px 20px !important; font-size:16px !important; line-height:24px !important; }
   .st-cmd { width:124px !important; padding:0 8px 0 16px !important; }
   .st-what { padding:0 !important; }
 </style>
@@ -50,6 +51,7 @@
     .lede { font-size:18px !important; line-height:28px !important; }
     .tm-body { padding:16px 16px 20px !important; }
     .tm-t { font-size:14px !important; line-height:22px !important; }
+    .cmd { padding:16px 20px !important; font-size:16px !important; line-height:24px !important; }
     .st-cmd, .st-what { display:table-cell !important; }
     .st-what { padding:0 !important; }
     .phone { display:none !important; }
@@ -65,8 +67,7 @@
   :root { color-scheme:light dark; supported-color-schemes:light dark; }
   a[x-apple-data-detectors] { color:inherit !important; text-decoration:none !important; font-size:inherit !important; font-family:inherit !important; font-weight:inherit !important; line-height:inherit !important; }
   #MessageViewBody a { color:inherit; text-decoration:none; font-size:inherit; font-family:inherit; font-weight:inherit; line-height:inherit; }
-  /* a click answers: the drawn highlight deepens to the real selection */
-  .tm ::selection, .tm::selection { background:#e0e709; color:#202020; }
+  .cmd ::selection, .tm ::selection { background:#f4f83b; color:#202020; }
 </style>
 <style>
   /* 4 · dark: Apple Mail, iOS Mail, Outlook for Mac, Hey. The page goes dark, the stage a step lighter; the terminal is already. */
@@ -77,6 +78,7 @@
     .d-ink { color:#ededed !important; }
     .d-muted { color:#a3a3a3 !important; }
     .d-rule { border-top-color:#343434 !important; }
+    .d-box { background-color:#222222 !important; border-color:#343434 !important; }
   }
 </style>
 <style>
@@ -86,6 +88,7 @@
   [data-ogsc] .d-ink { color:#ededed !important; }
   [data-ogsc] .d-muted { color:#a3a3a3 !important; }
   [data-ogsb] .d-rule { border-top-color:#343434 !important; }
+  [data-ogsb] .d-box { background-color:#222222 !important; border-color:#343434 !important; }
   [data-ogsb] .tm { background-color:#0c0c0c !important; border-color:#2e2e2e !important; }
   [data-ogsb] .tm-bar { background-color:#292929 !important; }
   [data-ogsb] .tm-body { background-color:#0c0c0c !important; }
@@ -95,8 +98,6 @@
   [data-ogsc] .c-dir { color:#70c6cb !important; }
   [data-ogsc] .c-run { color:#f4f83b !important; }
   [data-ogsc] .c-cursor { color:#d4d4d4 !important; }
-  [data-ogsb] .c-sel { background-color:#f4f83b !important; }
-  [data-ogsc] .c-sel, [data-ogsc] .c-sel a { color:#202020 !important; }
 </style>
 <style>
   /* 6 · the cursor blinks where the client allows it, never with reduced motion */
@@ -131,7 +132,21 @@
 <tr>
 <td class="px pt-intro" align="left" style="padding:40px 16px 0;">
 <h1 class="h1 f-display d-ink" style="margin:0;padding:0;color:#202020;font-family:'IBM Plex Sans Condensed','Arial Narrow','Roboto Condensed',sans-serif-condensed,'Helvetica Neue',Arial,sans-serif;font-size:44px;mso-line-height-rule:exactly;line-height:46px;font-weight:400;letter-spacing:-0.03em;">You’re in.</h1>
-<p class="lede d-muted" style="margin:16px 0 0;color:#6c6c6c;font-family:Geist,-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:17px;mso-line-height-rule:exactly;line-height:26px;font-weight:400;">One line installs Muster. Copy the highlighted line into Terminal on your Mac.</p>
+<p class="lede d-muted" style="margin:16px 0 0;color:#6c6c6c;font-family:Geist,-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:17px;mso-line-height-rule:exactly;line-height:26px;font-weight:400;">One line installs Muster on your Mac.</p>
+</td>
+</tr>
+
+<!-- the one thing to do: the line, in its own box, and how to get it into Terminal -->
+<tr>
+<td class="px" align="left" style="padding:32px 16px 0;">
+<p class="d-ink" style="margin:0 0 8px;color:#202020;font-family:Geist,-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:14px;mso-line-height-rule:exactly;line-height:20px;font-weight:500;">Paste this into Terminal</p>
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="width:100%;border-collapse:separate;">
+<tr>
+<td class="cmd d-box d-ink f-mono" bgcolor="#fafafa" style="padding:12px 14px;background-color:#fafafa;border:1px solid #dcdcdc;border-radius:12px;color:#202020;font-family:'Geist Mono',ui-monospace,'SF Mono',Menlo,Consolas,'Liberation Mono',monospace;font-size:14px;mso-line-height-rule:exactly;line-height:22px;font-weight:400;font-variant-ligatures:none;-webkit-user-select:all;user-select:all;"><span style="white-space:nowrap;">curl -fsSL</span> <span style="white-space:nowrap;"><a class="d-ink" href="https://muster.is/install.sh" style="color:#202020;text-decoration:none;pointer-events:none;">https://muster.is/install.sh</a></span> <span style="white-space:nowrap;">| bash</span></td>
+</tr>
+</table>
+<p class="d-muted" style="margin:12px 0 0;color:#6c6c6c;font-family:Geist,-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:14px;mso-line-height-rule:exactly;line-height:20px;">Triple-click the line to select it and copy it with ⌘C. In Terminal, paste it with ⌘V and press Return.</p>
+<!--[if !mso]><!--><p class="phone d-muted" style="margin:8px 0 0;color:#6c6c6c;font-family:Geist,-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:14px;mso-line-height-rule:exactly;line-height:20px;">On your phone? Open this email on your Mac to copy the line.</p><!--<![endif]-->
 </td>
 </tr>
 
@@ -142,6 +157,7 @@
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="width:100%;border-collapse:separate;">
 <tr>
 <td class="stage d-stage d-dots" bgcolor="#f5f5f5" style="padding:24px 16px;background-color:#f5f5f5;background-image:url(https://muster.is/assets/email/dots.png);background-size:16px 16px;background-position:-4px -4px;">
+<p class="d-muted" style="margin:0 0 12px;color:#6c6c6c;font-family:Geist,-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:14px;mso-line-height-rule:exactly;line-height:20px;font-weight:500;">What you’ll see</p>
 <table role="presentation" class="tm" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#0c0c0c" style="width:100%;border-collapse:separate;border:1px solid #2e2e2e;border-radius:12px;background-color:#0c0c0c;box-shadow:0 24px 48px -24px rgba(0,0,0,0.38),0 8px 24px -8px rgba(0,0,0,0.2);">
 <tr>
 <td class="tm-bar" bgcolor="#292929" height="40" style="height:40px;padding:0 14px;background-color:#292929;border-bottom:1px solid #121212;border-radius:11px 11px 0 0;">
@@ -160,7 +176,7 @@
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
 <tr>
 <td class="tm-t" valign="top" width="1" nowrap aria-hidden="true" style="width:1px;padding:0 8px 0 0;white-space:nowrap;font-family:'Geist Mono',ui-monospace,'SF Mono',Menlo,Consolas,'Liberation Mono',monospace;font-size:13px;mso-line-height-rule:exactly;line-height:20px;"><span class="c-dir" style="color:#70c6cb;">~</span> <span class="c-dim" style="color:#929292;">%</span></td>
-<td class="tm-t" valign="top" style="padding:0;font-family:'Geist Mono',ui-monospace,'SF Mono',Menlo,Consolas,'Liberation Mono',monospace;font-size:13px;mso-line-height-rule:exactly;line-height:20px;font-variant-ligatures:none;-webkit-user-select:all;user-select:all;"><span class="c-sel" style="background-color:#f4f83b;color:#202020;padding:1px 0;-webkit-box-decoration-break:clone;box-decoration-break:clone;"><span style="white-space:nowrap;">curl -fsSL</span> <span style="white-space:nowrap;"><a class="c-sel" href="https://muster.is/install.sh" style="color:#202020;text-decoration:none;pointer-events:none;">https://muster.is/install.sh</a></span> <span style="white-space:nowrap;">| bash</span></span></td>
+<td class="tm-t c-strong" valign="top" style="padding:0;color:#fafafa;font-family:'Geist Mono',ui-monospace,'SF Mono',Menlo,Consolas,'Liberation Mono',monospace;font-size:13px;mso-line-height-rule:exactly;line-height:20px;font-variant-ligatures:none;-webkit-user-select:all;user-select:all;"><span style="white-space:nowrap;">curl -fsSL</span> <span style="white-space:nowrap;"><a class="c-strong" href="https://muster.is/install.sh" style="color:#fafafa;text-decoration:none;pointer-events:none;">https://muster.is/install.sh</a></span> <span style="white-space:nowrap;">| bash</span></td>
 </tr>
 </table>
 <p class="tm-t c-text" style="margin:0;color:#d4d4d4;font-family:'Geist Mono',ui-monospace,'SF Mono',Menlo,Consolas,'Liberation Mono',monospace;font-size:13px;mso-line-height-rule:exactly;line-height:20px;">Downloading Muster 0.53.0 for arm64 Macs…</p>
@@ -202,12 +218,11 @@
 </td>
 </tr>
 
-<!-- what to expect, in one line, and a word for phone readers. The email is the whole install: no button
-     to a page, no checklist (the transcript already says nothing leaves your Mac) -->
+<!-- what it costs, in one line. The email is the whole install: no button to a page, no checklist (the
+     transcript already says nothing leaves your Mac) -->
 <tr>
 <td class="px" align="left" style="padding:24px 16px 0;">
 <p class="d-muted" style="margin:0;color:#6c6c6c;font-family:Geist,-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:14px;mso-line-height-rule:exactly;line-height:20px;">About 23&nbsp;MB, no admin password. Needs macOS and Claude Code.</p>
-<!--[if !mso]><!--><p class="phone d-muted" style="margin:8px 0 0;color:#6c6c6c;font-family:Geist,-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:14px;mso-line-height-rule:exactly;line-height:20px;">On your phone? Open this email on your Mac to copy the line.</p><!--<![endif]-->
 </td>
 </tr>
 

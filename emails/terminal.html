@@ -19,16 +19,15 @@
   .px { padding-left:40px !important; padding-right:40px !important; }
   .stage { padding:40px !important; }
   .pt-brand { padding-top:32px !important; }
-  .pt-intro { padding-top:64px !important; }
+  .pt-intro { padding-top:56px !important; }
   .pt-stage { padding-top:40px !important; }
-  .pt-foot { padding-top:64px !important; }
+  .pt-foot { padding-top:56px !important; }
   .h1 { font-size:64px !important; line-height:66px !important; }
   .lede { font-size:18px !important; line-height:28px !important; }
   .tm-body { padding:16px 16px 20px 16px !important; }
   .tm-t { font-size:14px !important; line-height:22px !important; }
   .st-cmd { width:124px !important; padding:0 8px 0 16px !important; }
   .st-what { padding:0 !important; }
-  .note { margin:0 !important; text-align:left !important; }
 </style>
 <![endif]-->
 <!--[if !mso]><!--><link href="https://fonts.googleapis.com/css2?family=Geist:wght@400..600&amp;family=Geist+Mono:wght@400&amp;family=IBM+Plex+Sans+Condensed:wght@400&amp;display=swap" rel="stylesheet"><!--<![endif]-->
@@ -44,18 +43,15 @@
     .px { padding-left:40px !important; padding-right:40px !important; }
     .stage { padding:40px !important; border-radius:20px !important; }
     .pt-brand { padding-top:32px !important; }
-    .pt-intro { padding-top:64px !important; }
+    .pt-intro { padding-top:56px !important; }
     .pt-stage { padding-top:40px !important; }
-    .pt-foot { padding-top:64px !important; }
+    .pt-foot { padding-top:56px !important; }
     .h1 { font-size:64px !important; line-height:66px !important; }
     .lede { font-size:18px !important; line-height:28px !important; }
     .tm-body { padding:16px 16px 20px !important; }
     .tm-t { font-size:14px !important; line-height:22px !important; }
     .st-cmd, .st-what { display:table-cell !important; }
     .st-what { padding:0 !important; }
-    .cta-wrap { display:inline-block !important; margin:0 20px 0 0 !important; }
-    .cta { width:auto !important; }
-    .note { display:inline-block !important; margin:0 !important; text-align:left !important; }
     .phone { display:none !important; }
   }
   @media only screen and (max-width:359px) {
@@ -70,12 +66,6 @@
   a[x-apple-data-detectors] { color:inherit !important; text-decoration:none !important; font-size:inherit !important; font-family:inherit !important; font-weight:inherit !important; line-height:inherit !important; }
   #MessageViewBody a { color:inherit; text-decoration:none; font-size:inherit; font-family:inherit; font-weight:inherit; line-height:inherit; }
   .tm ::selection { background:#f4f83b; color:#202020; }
-  /* the button's top-lit gradient, only where the client also reads colour schemes (not Gmail, whose apps
-     would darken the colour under it but not the gradient), and never in Gmail */
-  @media (prefers-color-scheme: light), (prefers-color-scheme: dark) {
-    .cta-fill { background-image:linear-gradient(#f3f76f 0%, #edf12f 60%, #e7ec24 100%) !important; }
-  }
-  u + .body .cta-fill { background-image:none !important; }
 </style>
 <style>
   /* 4 · dark: Apple Mail, iOS Mail, Outlook for Mac, Hey. The page goes dark, the stage a step lighter; the terminal is already. */
@@ -86,7 +76,6 @@
     .d-ink { color:#ededed !important; }
     .d-muted { color:#a3a3a3 !important; }
     .d-rule { border-top-color:#343434 !important; }
-    .d-lnk { text-decoration-color:#4a4a4a !important; }
   }
 </style>
 <style>
@@ -105,9 +94,6 @@
   [data-ogsc] .c-dir { color:#70c6cb !important; }
   [data-ogsc] .c-run { color:#f4f83b !important; }
   [data-ogsc] .c-cursor { color:#d4d4d4 !important; }
-  [data-ogsb] .chip { background-color:#f4f83b !important; }
-  [data-ogsb] .cta-fill { background-color:#edf12f !important; border-color:#d4d626 !important; }
-  [data-ogsc] .c-on-yellow { color:#202020 !important; }
 </style>
 <style>
   /* 6 · Apple Mail plays the install once, as the page does: the pasted line, then the output lands in
@@ -146,13 +132,8 @@
 
 <!-- you're in -->
 <tr>
-<td class="px pt-intro" align="left" style="padding:48px 16px 0;">
-<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:separate;">
-<tr>
-<td class="chip c-on-yellow" bgcolor="#f4f83b" style="background-color:#f4f83b;border-radius:5px;padding:4px 8px;color:#202020;font-family:Geist,-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:13px;mso-line-height-rule:exactly;line-height:14px;font-weight:500;">Early access</td>
-</tr>
-</table>
-<h1 class="h1 f-display d-ink" style="margin:16px 0 0;padding:0;color:#202020;font-family:'IBM Plex Sans Condensed','Arial Narrow','Roboto Condensed',sans-serif-condensed,'Helvetica Neue',Arial,sans-serif;font-size:44px;mso-line-height-rule:exactly;line-height:46px;font-weight:400;letter-spacing:-0.03em;">You’re in.</h1>
+<td class="px pt-intro" align="left" style="padding:40px 16px 0;">
+<h1 class="h1 f-display d-ink" style="margin:0;padding:0;color:#202020;font-family:'IBM Plex Sans Condensed','Arial Narrow','Roboto Condensed',sans-serif-condensed,'Helvetica Neue',Arial,sans-serif;font-size:44px;mso-line-height-rule:exactly;line-height:46px;font-weight:400;letter-spacing:-0.03em;">You’re in.</h1>
 <p class="lede d-muted" style="margin:16px 0 0;color:#6c6c6c;font-family:Geist,-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:17px;mso-line-height-rule:exactly;line-height:26px;font-weight:400;">One line installs Muster. Paste it into Terminal on your Mac.</p>
 </td>
 </tr>
@@ -182,7 +163,7 @@
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
 <tr>
 <td class="tm-t" valign="top" width="1" nowrap aria-hidden="true" style="width:1px;padding:0 8px 0 0;white-space:nowrap;font-family:'Geist Mono',ui-monospace,'SF Mono',Menlo,Consolas,'Liberation Mono',monospace;font-size:13px;mso-line-height-rule:exactly;line-height:20px;"><span class="c-dir" style="color:#70c6cb;">~</span> <span class="c-dim" style="color:#929292;">%</span></td>
-<td class="tm-t c-strong" valign="top" style="padding:0;color:#fafafa;font-family:'Geist Mono',ui-monospace,'SF Mono',Menlo,Consolas,'Liberation Mono',monospace;font-size:13px;mso-line-height-rule:exactly;line-height:20px;font-variant-ligatures:none;-webkit-user-select:all;user-select:all;"><span style="white-space:nowrap;">curl -fsSL</span> <span style="white-space:nowrap;"><a class="c-strong" href="https://muster.is/install.sh" style="color:#fafafa;text-decoration:none;">https://muster.is/install.sh</a></span> <span style="white-space:nowrap;">| bash</span></td>
+<td class="tm-t c-strong" valign="top" style="padding:0;color:#fafafa;font-family:'Geist Mono',ui-monospace,'SF Mono',Menlo,Consolas,'Liberation Mono',monospace;font-size:13px;mso-line-height-rule:exactly;line-height:20px;font-variant-ligatures:none;-webkit-user-select:all;user-select:all;"><span style="white-space:nowrap;">curl -fsSL</span> <span style="white-space:nowrap;"><a class="c-strong" href="https://muster.is/install.sh" style="color:#fafafa;text-decoration:none;pointer-events:none;">https://muster.is/install.sh</a></span> <span style="white-space:nowrap;">| bash</span></td>
 </tr>
 </table>
 <p class="tm-t tm-a1 c-text" style="margin:0;color:#d4d4d4;font-family:'Geist Mono',ui-monospace,'SF Mono',Menlo,Consolas,'Liberation Mono',monospace;font-size:13px;mso-line-height-rule:exactly;line-height:20px;">Downloading Muster 0.51.0 for arm64 Macs…</p>
@@ -224,65 +205,23 @@
 </td>
 </tr>
 
-<!-- the button: a link, because email can't copy and the page can. Then the size, and a word for phone readers -->
+<!-- what to expect, in one line, and a word for phone readers. The email is the whole install: no button
+     to a page, no checklist (the transcript already says nothing leaves your Mac) -->
 <tr>
-<td class="px" align="left" style="padding:32px 16px 0;">
-<!--[if mso]><table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr><td valign="middle" style="padding:0 20px 0 0;"><![endif]--><div class="cta-wrap" style="display:block;vertical-align:middle;margin:0;">
-<!--[if mso]>
-<v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://muster.is/?variant=terminal" style="height:50px;v-text-anchor:middle;width:264px;" arcsize="50%" strokecolor="#d4d626" strokeweight="1px" fillcolor="#edf12f">
-<w:anchorlock/>
-<center style="color:#202020;font-family:'Segoe UI',Arial,sans-serif;font-size:16px;font-weight:600;">Copy the line on muster.is</center>
-</v:roundrect>
-<![endif]-->
-<!--[if !mso]><!-->
-<table role="presentation" class="cta" width="100%" cellpadding="0" cellspacing="0" border="0" style="width:100%;border-collapse:separate;">
-<tr>
-<td class="cta-fill" align="center" bgcolor="#edf12f" style="background-color:#edf12f;border:1px solid #d4d626;border-radius:25px;box-shadow:inset 0 1px 0 rgba(255,255,255,0.75),0 8px 18px -8px rgba(0,0,0,0.18);">
-<a class="c-on-yellow" href="https://muster.is/?variant=terminal" style="display:block;padding:14px 28px;border-radius:25px;color:#202020;text-align:center;text-decoration:none;white-space:nowrap;font-family:Geist,-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:15.5px;mso-line-height-rule:exactly;line-height:20px;font-weight:550;">Copy the line on muster.is</a>
-</td>
-</tr>
-</table>
-<!--<![endif]-->
-</div><!--[if mso]></td><td valign="middle"><![endif]--><div class="note d-muted" style="display:block;vertical-align:middle;margin:12px 0 0;text-align:center;color:#6c6c6c;font-family:Geist,-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:14px;mso-line-height-rule:exactly;line-height:20px;">About 23&nbsp;MB. No admin password.</div><!--[if mso]></td></tr></table><![endif]-->
-<!--[if !mso]><!--><p class="phone d-muted" style="margin:4px 0 0;text-align:center;color:#6c6c6c;font-family:Geist,-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:14px;mso-line-height-rule:exactly;line-height:20px;">On your phone? Open this email on your Mac to paste the line.</p><!--<![endif]-->
-</td>
-</tr>
-
-<!-- the facts -->
-<tr>
-<td class="px" align="left" style="padding:32px 16px 0;">
-<table role="presentation" cellpadding="0" cellspacing="0" border="0">
-<tr>
-<td valign="top" width="16" style="width:16px;padding:2px 8px 0 0;"><img src="https://muster.is/assets/email/term-check.png" width="16" height="16" alt="" style="display:block;width:16px;height:16px;border:0;outline:none;"></td>
-<td class="d-muted" valign="top" style="padding:0;color:#6c6c6c;font-family:Geist,-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:14px;mso-line-height-rule:exactly;line-height:20px;">macOS, Apple silicon or Intel</td>
-</tr>
-<tr>
-<td valign="top" width="16" style="width:16px;padding:10px 8px 0 0;"><img src="https://muster.is/assets/email/term-check.png" width="16" height="16" alt="" style="display:block;width:16px;height:16px;border:0;outline:none;"></td>
-<td class="d-muted" valign="top" style="padding:8px 0 0;color:#6c6c6c;font-family:Geist,-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:14px;mso-line-height-rule:exactly;line-height:20px;">Uses your own Claude Code</td>
-</tr>
-<tr>
-<td valign="top" width="16" style="width:16px;padding:10px 8px 0 0;"><img src="https://muster.is/assets/email/term-check.png" width="16" height="16" alt="" style="display:block;width:16px;height:16px;border:0;outline:none;"></td>
-<td class="d-muted" valign="top" style="padding:8px 0 0;color:#6c6c6c;font-family:Geist,-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:14px;mso-line-height-rule:exactly;line-height:20px;">Nothing leaves your Mac</td>
-</tr>
-</table>
-<p class="d-muted" style="margin:16px 0 0;color:#6c6c6c;font-family:Geist,-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:14px;mso-line-height-rule:exactly;line-height:20px;">If Terminal can’t find <span class="f-mono" style="font-family:'Geist Mono',ui-monospace,'SF Mono',Menlo,Consolas,'Liberation Mono',monospace;font-size:13px;">muster</span>, open a new window.</p>
+<td class="px" align="left" style="padding:24px 16px 0;">
+<p class="d-muted" style="margin:0;color:#6c6c6c;font-family:Geist,-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:14px;mso-line-height-rule:exactly;line-height:20px;">About 23&nbsp;MB, no admin password. Needs macOS and Claude Code.</p>
+<!--[if !mso]><!--><p class="phone d-muted" style="margin:8px 0 0;color:#6c6c6c;font-family:Geist,-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:14px;mso-line-height-rule:exactly;line-height:20px;">On your phone? Open this email on your Mac to paste the line.</p><!--<![endif]-->
 </td>
 </tr>
 
 <!-- the footer -->
 <tr>
-<td class="px pt-foot" align="left" style="padding:56px 16px 48px;">
+<td class="px pt-foot" align="left" style="padding:48px 16px 40px;">
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
 <tr>
 <td class="d-rule" style="padding:24px 0 0;border-top:1px solid #e6e6e6;">
 <p class="d-ink" style="margin:0;color:#202020;font-family:Geist,-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:14px;mso-line-height-rule:exactly;line-height:20px;">Questions or feedback? Reply to this email.</p>
-<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin:8px 0 0;">
-<tr>
-<td style="padding:0 20px 0 0;"><a class="d-muted d-lnk" href="https://github.com/musteryourskills/releases/releases" style="display:inline-block;padding:12px 0;margin:-12px 0;color:#6c6c6c;text-decoration:underline;text-decoration-color:#c4c4c4;text-underline-offset:3px;font-family:Geist,-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:14px;mso-line-height-rule:exactly;line-height:20px;">Release notes</a></td>
-<td style="padding:0;"><a class="d-muted d-lnk" href="https://musteryourskills.com" style="display:inline-block;padding:12px 0;margin:-12px 0;color:#6c6c6c;text-decoration:underline;text-decoration-color:#c4c4c4;text-underline-offset:3px;font-family:Geist,-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:14px;mso-line-height-rule:exactly;line-height:20px;">musteryourskills.com</a></td>
-</tr>
-</table>
-<p class="d-muted" style="margin:16px 0 0;color:#6c6c6c;font-family:Geist,-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:14px;mso-line-height-rule:exactly;line-height:20px;">You joined the Muster waitlist at <a class="d-muted" href="https://musteryourskills.com" style="color:#6c6c6c;text-decoration:none;">musteryourskills.com</a>.</p>
+<p class="d-muted" style="margin:8px 0 0;color:#6c6c6c;font-family:Geist,-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:14px;mso-line-height-rule:exactly;line-height:20px;">You joined the Muster waitlist at <a class="d-muted" href="https://musteryourskills.com" style="color:#6c6c6c;text-decoration:none;">musteryourskills.com</a>.</p>
 </td>
 </tr>
 </table>

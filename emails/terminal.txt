@@ -1,5 +1,3 @@
-Muster · Early access
-
 You’re in.
 
 One line installs Muster. Paste it into Terminal on your Mac:
@@ -28,22 +26,10 @@ muster --help
 
 # Thanks for waiting.
 
-Copy the line on muster.is:
-https://muster.is/?variant=terminal
-
-About 23 MB. No admin password.
+About 23 MB, no admin password. Needs macOS and Claude Code.
 
 On your phone? Open this email on your Mac to paste the line.
 
-- macOS, Apple silicon or Intel
-- Uses your own Claude Code
-- Nothing leaves your Mac
-
-If Terminal can’t find muster, open a new window.
-
 Questions or feedback? Reply to this email.
-
-Release notes: https://github.com/musteryourskills/releases/releases
-Website: https://musteryourskills.com
 
 You joined the Muster waitlist at musteryourskills.com.

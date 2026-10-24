@@ -98,8 +98,9 @@
       if (strip === 'styles') html = html.replace(/<style\b[\s\S]*?<\/style>/gi, '').replace(/<link\b[^>]*>/gi, '')
       if (strip === 'fonts') html = html.replace(/<link\b[^>]*fonts\.googleapis[^>]*>/gi, '')
       if (strip === 'images') html = html.replace(/(<img\b[^>]*?\s)src="[^"]*"/gi, '$1src=""').replace(/url\([^)]*\)/gi, 'none').replace(/\sbackground="[^"]*"/gi, '')
-      // added last, so "No styles" keeps the pinned scheme too
-      return html.replace(/<\/head>/i, `<style>:root{color-scheme:${dark ? 'dark' : 'light'} only !important}</style></head>`)
+      // added last, so "No styles" keeps them too: the pinned scheme, and links that open in a new tab as a
+      // mail client opens them in the browser (not inside the email, where the page would replace it)
+      return html.replace(/<\/head>/i, `<base target="_blank"><style>:root{color-scheme:${dark ? 'dark' : 'light'} only !important}</style></head>`)
     }
 
     let renderId = 0

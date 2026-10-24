@@ -1,0 +1,165 @@
+<!doctype html>
+<!-- The email preview (harness only; delete with the losers). Each email is a standalone,
+     send-ready file beside this one: <name>.html and its plain-text part <name>.txt.
+     ?email=<name>&width=desktop|mobile|small&scheme=light|dark|outlook&part=html|text&strip=none|styles|fonts|images
+     ← → step through the emails, 1–9 jump to one, M width, D appearance, T text, S what's stripped. -->
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex" />
+  <title>Muster: invitation emails</title>
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
+  <style>
+    /* Deliberately outside the design system, like variants/picker.css: a neutral mail client. */
+    :root { color-scheme: light dark; --bg: #ececec; --pane: #fff; --ink: #1d1d1f; --dim: #86868b; --line: rgb(0 0 0 / .1); --chip: rgb(0 0 0 / .06); --on: #1d1d1f; --on-ink: #fff; }
+    html[data-scheme="dark"], html[data-scheme="outlook"] { --bg: #161616; --pane: #1e1e1e; --ink: #f5f5f7; --dim: #98989d; --line: rgb(255 255 255 / .1); --chip: rgb(255 255 255 / .08); --on: #f5f5f7; --on-ink: #1d1d1f; }
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100vh; background: var(--bg); color: var(--ink); font: 13px/1.4 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; -webkit-font-smoothing: antialiased; }
+    .bar { position: sticky; top: 0; z-index: 2; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 8px 16px; padding: 12px 16px; background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+    .seg { display: flex; gap: 2px; padding: 3px; border-radius: 999px; background: var(--chip); }
+    .seg button { padding: 6px 12px; border: 0; border-radius: 999px; background: none; color: var(--dim); font: inherit; cursor: pointer; }
+    .seg button:hover { color: var(--ink); }
+    .seg button[aria-pressed="true"] { background: var(--on); color: var(--on-ink); }
+    .seg button:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+    .keys { color: var(--dim); font-size: 12px; }
+    .keys kbd { font: inherit; padding: 1px 5px; border-radius: 4px; background: var(--chip); }
+    .stage { display: flex; justify-content: center; padding: 24px 16px 64px; }
+    .client { width: 100%; max-width: 760px; border-radius: 12px; background: var(--pane); box-shadow: 0 0 0 1px var(--line), 0 12px 40px -12px rgb(0 0 0 / .25); overflow: hidden; transition: max-width .3s cubic-bezier(.23, 1, .32, 1); }
+    html[data-width="mobile"] .client { max-width: 375px; border-radius: 28px; }
+    html[data-width="small"] .client { max-width: 320px; border-radius: 24px; }
+    .head { padding: 18px 20px 16px; border-bottom: 1px solid var(--line); }
+    .row { display: flex; align-items: baseline; gap: 12px; }
+    .from { font-weight: 600; font-size: 14px; }
+    .addr { color: var(--dim); }
+    .when { margin-left: auto; color: var(--dim); white-space: nowrap; }
+    .subject { margin: 6px 0 2px; font-size: 17px; font-weight: 600; letter-spacing: -.01em; }
+    .pre { margin: 0; color: var(--dim); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .pre b { color: var(--ink); font-weight: 400; }
+    .pre .cut { opacity: .45; }
+    iframe { display: block; width: 100%; height: 600px; border: 0; background: var(--pane); }
+    pre.text { margin: 0; padding: 24px 20px 32px; font: 13px/1.6 ui-monospace, "SF Mono", Menlo, monospace; white-space: pre-wrap; overflow-wrap: anywhere; }
+    .meta { margin: 0; padding: 10px 20px; border-top: 1px solid var(--line); color: var(--dim); font-size: 12px; }
+  </style>
+</head>
+<body>
+  <nav class="bar" aria-label="Preview">
+    <div class="seg" data-group="email" role="group" aria-label="Email"></div>
+    <div class="seg" data-group="width" role="group" aria-label="Width"><button type="button" data-value="desktop">Desktop</button><button type="button" data-value="mobile">375</button><button type="button" data-value="small">320</button></div>
+    <div class="seg" data-group="scheme" role="group" aria-label="Appearance"><button type="button" data-value="light">Light</button><button type="button" data-value="dark">Dark</button><button type="button" data-value="outlook" title="Outlook.com dark: the [data-ogsc]/[data-ogsb] rules, without prefers-color-scheme">Outlook.com dark</button></div>
+    <div class="seg" data-group="strip" role="group" aria-label="Strip"><button type="button" data-value="none">All</button><button type="button" data-value="styles" title="No style blocks or links: the Gmail app with non-Google accounts, forwards">No styles</button><button type="button" data-value="fonts" title="No web fonts: Gmail, Outlook">No fonts</button><button type="button" data-value="images" title="Images off">No images</button></div>
+    <div class="seg" data-group="part" role="group" aria-label="Part"><button type="button" data-value="html">HTML</button><button type="button" data-value="text">Text</button></div>
+    <span class="keys"><kbd>←</kbd> <kbd>→</kbd> <kbd>M</kbd> <kbd>D</kbd> <kbd>T</kbd> <kbd>S</kbd></span>
+  </nav>
+
+  <main class="stage">
+    <article class="client" aria-live="polite">
+      <header class="head">
+        <div class="row"><span class="from">Muster</span><span class="addr" data-from></span><span class="when" data-when></span></div>
+        <h1 class="subject" data-subject></h1>
+        <p class="pre"><b>To: you</b> · <span data-preheader></span></p>
+      </header>
+      <iframe title="The email" data-frame></iframe>
+      <pre class="text" data-text hidden></pre>
+      <p class="meta" data-meta></p>
+    </article>
+  </main>
+
+  <script>
+    // The emails, in picker order. Keep in step with the files in this folder.
+    const EMAILS = [['terminal', 'Terminal'], ['note', 'Note']]
+    const FROM = 'hello@muster.is'
+    const GROUPS = { email: EMAILS.map(([n]) => n), width: ['desktop', 'mobile', 'small'], scheme: ['light', 'dark', 'outlook'], part: ['html', 'text'], strip: ['none', 'styles', 'fonts', 'images'] }
+    const $ = (s) => document.querySelector(s)
+    const frame = $('[data-frame]'), text = $('[data-text]')
+    const cache = new Map()
+
+    $('[data-group="email"]').innerHTML = EMAILS.map(([n, l]) => `<button type="button" data-value="${n}">${l}</button>`).join('')
+    const params = new URLSearchParams(location.search)
+    const state = Object.fromEntries(Object.entries(GROUPS).map(([k, v]) => [k, v.includes(params.get(k)) ? params.get(k) : v[0]]))
+    $('[data-when]').textContent = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+    $('[data-from]').textContent = `<${FROM}>`
+
+    const get = (url) => cache.get(url) || cache.set(url, fetch(url, { cache: 'no-store' }).then((r) => (r.ok ? r.text() : ''))).get(url)
+
+    // The emails point at https://muster.is/assets/… so they work once sent. Here they load from this
+    // checkout instead, so a local preview shows images before they're deployed.
+    // Dark previews as Apple Mail does it: the email's prefers-color-scheme rules apply, and the frame's own
+    // colour scheme is pinned so the browser's defaults follow the toggle, not the OS. Outlook.com dark puts
+    // data-ogsc/data-ogsb on <html> and leaves prefers-color-scheme off, as Outlook.com does. Gmail's forced
+    // inversion can't be shown here; it needs a real send.
+    const prepare = (html, scheme, strip) => {
+      const bust = Date.now() // a changed image shows on reload, not the browser's old copy
+      html = html.replace(/https:\/\/muster\.is\/assets\/([^"')\s]+)/g, (_, file) => `${new URL('../assets/', location.href).href}${file}?v=${bust}`)
+      const dark = scheme === 'dark'
+      html = html
+        .replace(/\(\s*prefers-color-scheme\s*:\s*dark\s*\)/g, dark ? '(min-width:0px)' : '(max-width:0px)')
+        .replace(/\(\s*prefers-color-scheme\s*:\s*light\s*\)/g, dark ? '(max-width:0px)' : '(min-width:0px)')
+      if (scheme === 'outlook') html = html.replace(/<html\b/i, '<html data-ogsc data-ogsb')
+      if (strip === 'styles') html = html.replace(/<style\b[\s\S]*?<\/style>/gi, '').replace(/<link\b[^>]*>/gi, '')
+      if (strip === 'fonts') html = html.replace(/<link\b[^>]*fonts\.googleapis[^>]*>/gi, '')
+      if (strip === 'images') html = html.replace(/(<img\b[^>]*?\s)src="[^"]*"/gi, '$1src=""').replace(/url\([^)]*\)/gi, 'none').replace(/\sbackground="[^"]*"/gi, '')
+      // added last, so "No styles" keeps them too: the pinned scheme, and links that open in a new tab as a
+      // mail client opens them in the browser (not inside the email, where the page would replace it)
+      return html.replace(/<\/head>/i, `<base target="_blank"><style>:root{color-scheme:${dark ? 'dark' : 'light'} only !important}</style></head>`)
+    }
+
+    let renderId = 0
+    async function render() {
+      const id = ++renderId
+      document.documentElement.dataset.width = state.width
+      document.documentElement.dataset.scheme = state.scheme
+      document.querySelectorAll('.seg').forEach((seg) => seg.querySelectorAll('button').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.value === state[seg.dataset.group]))))
+      const url = new URL(location.href)
+      Object.entries(state).forEach(([k, v]) => url.searchParams.set(k, v))
+      history.replaceState(null, '', url)
+
+      const [html, txt] = await Promise.all([get(`${state.email}.html`), get(`${state.email}.txt`)])
+      if (id !== renderId) return
+      const doc = new DOMParser().parseFromString(html, 'text/html')
+      $('[data-subject]').textContent = doc.title || '(no subject)'
+      // phones show about 90 characters of preview: the rest is dimmed
+      const pre = (doc.querySelector('[data-preheader]')?.textContent || '').replace(/[\u034f\u200c\u2007\u00ad\ufeff\s]+/g, ' ').trim()
+      const preEl = $('[data-preheader]')
+      preEl.textContent = pre.slice(0, 90)
+      if (pre.length > 90) preEl.append(Object.assign(document.createElement('span'), { className: 'cut', textContent: pre.slice(90) }))
+      const kb = new Blob([html]).size / 1024
+      $('[data-meta]').textContent = `${state.email}.html · ${kb.toFixed(1)} KB${kb > 102 ? ' · over Gmail’s 102 KB clip' : kb > 75 ? ' · near Gmail’s clip once an ESP rewrites links' : ''} · subject ${doc.title.length} characters · preheader ${pre.length}`
+
+      text.hidden = state.part !== 'text'
+      frame.hidden = state.part !== 'html'
+      if (state.part === 'text') { text.textContent = txt || '(no plain-text part yet)'; return }
+      frame.srcdoc = prepare(html, state.scheme, state.strip)
+    }
+
+    // The iframe takes the email's height, so the page scrolls like a mail client does
+    const fit = () => { try { frame.style.height = `${frame.contentDocument.documentElement.scrollHeight}px` } catch {} }
+    let watching = null
+    frame.addEventListener('load', () => {
+      fit()
+      frame.contentDocument?.fonts?.ready.then(fit)
+      watching?.disconnect()
+      watching = new ResizeObserver(fit)
+      if (frame.contentDocument?.body) watching.observe(frame.contentDocument.body)
+    })
+
+    document.querySelectorAll('.seg').forEach((seg) => seg.addEventListener('click', (e) => {
+      const b = e.target.closest('button'); if (!b) return
+      state[seg.dataset.group] = b.dataset.value; render()
+    }))
+    const flip = (k) => { const v = GROUPS[k]; state[k] = v[(v.indexOf(state[k]) + 1) % v.length]; render() }
+    document.addEventListener('keydown', (e) => {
+      if (e.metaKey || e.ctrlKey || e.altKey) return
+      const v = GROUPS.email, at = v.indexOf(state.email)
+      if (e.key === 'ArrowRight') { state.email = v[(at + 1) % v.length]; render() }
+      else if (e.key === 'ArrowLeft') { state.email = v[(at - 1 + v.length) % v.length]; render() }
+      else if (/^[1-9]$/.test(e.key) && v[+e.key - 1]) { state.email = v[+e.key - 1]; render() }
+      else if (e.key === 'm' || e.key === 'M') flip('width')
+      else if (e.key === 'd' || e.key === 'D') flip('scheme')
+      else if (e.key === 't' || e.key === 'T') flip('part')
+      else if (e.key === 's' || e.key === 'S') flip('strip')
+    })
+    render()
+  </script>
+</body>
+</html>

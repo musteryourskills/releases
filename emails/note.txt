@@ -1,0 +1,29 @@
+You’re in.
+
+Thanks for waiting. We’ve let you in off the waitlist, and Muster is ready to install.
+
+Muster organises the skills Claude Code has on your Mac. It finds them, shows them in one place, and checks them for duplicates and conflicts. Nothing leaves your Mac.
+
+We’d like to hear how it goes. Reply to this email.
+
+— The Muster team
+
+
+- - - - - - - - - - - - - - - - - - - - - - -
+
+Install it on your Mac
+
+It’s one line in Terminal. The install guide has it ready to copy, then shows you what to run first:
+
+https://muster.is/?variant=manual
+
+Or paste this into Terminal yourself:
+
+curl -fsSL https://muster.is/install.sh | bash
+
+On your phone? Open this email again on your Mac.
+
+- - - - - - - - - - - - - - - - - - - - - - -
+
+
+You joined the Muster waitlist at musteryourskills.com.

@@ -89,7 +89,8 @@
     // data-ogsc/data-ogsb on <html> and leaves prefers-color-scheme off, as Outlook.com does. Gmail's forced
     // inversion can't be shown here; it needs a real send.
     const prepare = (html, scheme, strip) => {
-      html = html.replace(/https:\/\/muster\.is\/assets\//g, new URL('../assets/', location.href).href)
+      const bust = Date.now() // a changed image shows on reload, not the browser's old copy
+      html = html.replace(/https:\/\/muster\.is\/assets\/([^"')\s]+)/g, (_, file) => `${new URL('../assets/', location.href).href}${file}?v=${bust}`)
       const dark = scheme === 'dark'
       html = html
         .replace(/\(\s*prefers-color-scheme\s*:\s*dark\s*\)/g, dark ? '(min-width:0px)' : '(max-width:0px)')

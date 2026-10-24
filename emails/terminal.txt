@@ -4,11 +4,9 @@ Thanks for waiting. We’ve let you in off the waitlist, and Muster is ready to 
 
 Muster organises the skills Claude Code has on your Mac. It finds them, shows them in one place, and checks them for duplicates and conflicts. Nothing leaves your Mac.
 
-Paste this into Terminal:
+Copy this line into Terminal:
 
 curl -fsSL https://muster.is/install.sh | bash
-
-Copy the line, paste it into Terminal and press Return.
 
 On your phone? Open this email on your Mac to copy the line.
 

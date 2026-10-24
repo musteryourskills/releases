@@ -1,95 +1,62 @@
+Muster · Quick start
+
 You’re in
 
 Welcome to Muster.
 
-You’ve been let in off the waitlist, so Muster is yours to try. It organises the skills Claude Code has on your Mac: it finds them, shows them in one place, and checks them for duplicates and conflicts.
-
-Latest release: 0.45.0, 23 October 2026
-
-Contents
-01  Install
-02  Start here
-03  Commands
-04  What stays on your Mac
-05  Requirements (on the page)
-06  Update and remove (on the page)
-07  Help
+Muster is yours to try. It organises the skills Claude Code has on your Mac: it finds them, shows them in one place, and checks them for duplicates and conflicts.
 
 
 01  Install
------------
 
-Paste it into Terminal on your Mac. It needs macOS and Claude Code.
+Paste it into Terminal on your Mac:
 
 curl -fsSL https://muster.is/install.sh | bash
 
-Reading this on your phone? Run it on your Mac. The page has a copy button:
-https://muster.is/?variant=manual
+On your phone? Open this email on your Mac to install. Or copy the line from the page: https://muster.is/?variant=manual
 
 Downloads: Muster for your Mac’s chip, about 23 MB
-Checks: The download against its checksum
 Puts it in: ~/.local/bin/muster
-PATH: Adds ~/.local/bin to it
 Asks for: Nothing. No admin password, no Gatekeeper prompt.
 
 
+On muster.is
+
+03  Commands: https://muster.is/?variant=manual#manual-commands
+05  Requirements: https://muster.is/?variant=manual#manual-needs
+06  Update and remove: https://muster.is/?variant=manual#manual-update
+
+
 02  Start here
---------------
 
-The installer ends with these three. Run them in Terminal.
+The installer ends by showing you what to run next:
 
-muster open
-  See your skills on a page in your browser
+Start here:
+  muster open      see your skills on a page in your browser
+  muster           list them here in the terminal
+  muster --help    everything else Muster can do
 
-muster
-  List them here in the terminal
+(Fig. 1: the last lines of the install.)
 
-muster --help
-  Everything else Muster can do
+Then: muster check finds conflicts and duplicates, using your own Claude Code.
 
-Command not found? This window may not know muster yet. Use ~/.local/bin/muster open here. In new terminal windows, plain muster works too.
-
-
-03  Commands
-------------
-
-A few of the rest. muster --help lists every one.
-
-muster check
-  Check for conflicts and duplicates, found by your Claude Code
-
-muster show <skill>
-  Show one skill
-
-muster move <skill>… <folder>
-  Put skills in a folder. The files don’t move.
+Command not found: This window may not know muster yet. Use ~/.local/bin/muster open here. In new windows, plain muster works too.
 
 
 04  What stays on your Mac
---------------------------
 
 All of it. Nothing leaves your Mac.
 
 Account: None. There are no Muster servers.
 The check: Runs through your own Claude Code, claude -p, on your subscription. No API key.
-The page: muster open serves it on 127.0.0.1. It’s never online.
-Folders and labels: Muster’s own, kept in ~/.muster/
-Skill files: Never move
-
-
-05 Requirements and 06 Update and remove are in the full manual:
-https://muster.is/?variant=manual
+In your browser: muster open serves the page from 127.0.0.1. It’s never online.
 
 
 07  Help
---------
 
-Questions: Reply to this email
-The manual: https://muster.is/?variant=manual
+Questions, or something not working? Reply to this email.
+
 Release notes: https://github.com/musteryourskills/releases/releases
 Website: https://musteryourskills.com
 
-
---
-Muster
 You joined the Muster waitlist at musteryourskills.com.

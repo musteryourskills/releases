@@ -8,9 +8,9 @@ curl -fsSL https://muster.is/install.sh | bash
 
 Terminal answers:
 
-Downloading Muster 0.45.0 for arm64 Macs…
+Downloading Muster 0.51.0 for arm64 Macs…
 
-Muster 0.45.0 is installed.
+Muster 0.51.0 is installed.
 
 Muster finds the skills Claude Code has on this Mac, shows them in one place,
 and checks them for duplicates and conflicts. Nothing leaves your Mac.
@@ -26,14 +26,20 @@ muster
 muster --help
     everything else Muster can do
 
-Copy the command on muster.is:
+# Thanks for waiting.
+
+Copy the line on muster.is:
 https://muster.is/?variant=terminal
 
 About 23 MB. No admin password.
 
+On your phone? Open this email on your Mac to paste the line.
+
 - macOS, Apple silicon or Intel
 - Uses your own Claude Code
 - Nothing leaves your Mac
+
+If Terminal can’t find muster, open a new window.
 
 Questions or feedback? Reply to this email.
 

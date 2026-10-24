@@ -1,8 +1,8 @@
 <!doctype html>
 <!-- The email preview (harness only; delete with the losers). Each email is a standalone,
      send-ready file beside this one: <name>.html and its plain-text part <name>.txt.
-     ?email=<name>&width=desktop|mobile&scheme=light|dark&part=html|text
-     ← → step through the emails, 1–9 jump to one, D toggles dark, M toggles mobile, T toggles text. -->
+     ?email=<name>&width=desktop|mobile|small&scheme=light|dark|outlook&part=html|text&strip=none|styles|fonts|images
+     ← → step through the emails, 1–9 jump to one, M width, D appearance, T text, S what's stripped. -->
 <html lang="en">
 <head>
   <meta charset="utf-8" />
@@ -13,7 +13,7 @@
   <style>
     /* Deliberately outside the design system, like variants/picker.css: a neutral mail client. */
     :root { color-scheme: light dark; --bg: #ececec; --pane: #fff; --ink: #1d1d1f; --dim: #86868b; --line: rgb(0 0 0 / .1); --chip: rgb(0 0 0 / .06); --on: #1d1d1f; --on-ink: #fff; }
-    html[data-scheme="dark"] { --bg: #161616; --pane: #1e1e1e; --ink: #f5f5f7; --dim: #98989d; --line: rgb(255 255 255 / .1); --chip: rgb(255 255 255 / .08); --on: #f5f5f7; --on-ink: #1d1d1f; }
+    html[data-scheme="dark"], html[data-scheme="outlook"] { --bg: #161616; --pane: #1e1e1e; --ink: #f5f5f7; --dim: #98989d; --line: rgb(255 255 255 / .1); --chip: rgb(255 255 255 / .08); --on: #f5f5f7; --on-ink: #1d1d1f; }
     * { box-sizing: border-box; }
     body { margin: 0; min-height: 100vh; background: var(--bg); color: var(--ink); font: 13px/1.4 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; -webkit-font-smoothing: antialiased; }
     .bar { position: sticky; top: 0; z-index: 2; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 8px 16px; padding: 12px 16px; background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
@@ -27,6 +27,7 @@
     .stage { display: flex; justify-content: center; padding: 24px 16px 64px; }
     .client { width: 100%; max-width: 760px; border-radius: 12px; background: var(--pane); box-shadow: 0 0 0 1px var(--line), 0 12px 40px -12px rgb(0 0 0 / .25); overflow: hidden; transition: max-width .3s cubic-bezier(.23, 1, .32, 1); }
     html[data-width="mobile"] .client { max-width: 375px; border-radius: 28px; }
+    html[data-width="small"] .client { max-width: 320px; border-radius: 24px; }
     .head { padding: 18px 20px 16px; border-bottom: 1px solid var(--line); }
     .row { display: flex; align-items: baseline; gap: 12px; }
     .from { font-weight: 600; font-size: 14px; }
@@ -35,6 +36,7 @@
     .subject { margin: 6px 0 2px; font-size: 17px; font-weight: 600; letter-spacing: -.01em; }
     .pre { margin: 0; color: var(--dim); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     .pre b { color: var(--ink); font-weight: 400; }
+    .pre .cut { opacity: .45; }
     iframe { display: block; width: 100%; height: 600px; border: 0; background: var(--pane); }
     pre.text { margin: 0; padding: 24px 20px 32px; font: 13px/1.6 ui-monospace, "SF Mono", Menlo, monospace; white-space: pre-wrap; overflow-wrap: anywhere; }
     .meta { margin: 0; padding: 10px 20px; border-top: 1px solid var(--line); color: var(--dim); font-size: 12px; }
@@ -43,10 +45,11 @@
 <body>
   <nav class="bar" aria-label="Preview">
     <div class="seg" data-group="email" role="group" aria-label="Email"></div>
-    <div class="seg" data-group="width" role="group" aria-label="Width"><button type="button" data-value="desktop">Desktop</button><button type="button" data-value="mobile">Mobile</button></div>
-    <div class="seg" data-group="scheme" role="group" aria-label="Appearance"><button type="button" data-value="light">Light</button><button type="button" data-value="dark">Dark</button></div>
+    <div class="seg" data-group="width" role="group" aria-label="Width"><button type="button" data-value="desktop">Desktop</button><button type="button" data-value="mobile">375</button><button type="button" data-value="small">320</button></div>
+    <div class="seg" data-group="scheme" role="group" aria-label="Appearance"><button type="button" data-value="light">Light</button><button type="button" data-value="dark">Dark</button><button type="button" data-value="outlook" title="Outlook.com dark: the [data-ogsc]/[data-ogsb] rules, without prefers-color-scheme">Outlook.com dark</button></div>
+    <div class="seg" data-group="strip" role="group" aria-label="Strip"><button type="button" data-value="none">All</button><button type="button" data-value="styles" title="No style blocks or links: the Gmail app with non-Google accounts, forwards">No styles</button><button type="button" data-value="fonts" title="No web fonts: Gmail, Outlook">No fonts</button><button type="button" data-value="images" title="Images off">No images</button></div>
     <div class="seg" data-group="part" role="group" aria-label="Part"><button type="button" data-value="html">HTML</button><button type="button" data-value="text">Text</button></div>
-    <span class="keys"><kbd>←</kbd> <kbd>→</kbd> <kbd>M</kbd> <kbd>D</kbd> <kbd>T</kbd></span>
+    <span class="keys"><kbd>←</kbd> <kbd>→</kbd> <kbd>M</kbd> <kbd>D</kbd> <kbd>T</kbd> <kbd>S</kbd></span>
   </nav>
 
   <main class="stage">
@@ -66,7 +69,7 @@
     // The emails, in picker order. Keep in step with the files in this folder.
     const EMAILS = [['note', 'Note'], ['terminal', 'Terminal'], ['steps', 'Steps'], ['manual', 'Manual']]
     const FROM = 'hello@muster.is'
-    const GROUPS = { email: EMAILS.map(([n]) => n), width: ['desktop', 'mobile'], scheme: ['light', 'dark'], part: ['html', 'text'] }
+    const GROUPS = { email: EMAILS.map(([n]) => n), width: ['desktop', 'mobile', 'small'], scheme: ['light', 'dark', 'outlook'], part: ['html', 'text'], strip: ['none', 'styles', 'fonts', 'images'] }
     const $ = (s) => document.querySelector(s)
     const frame = $('[data-frame]'), text = $('[data-text]')
     const cache = new Map()
@@ -80,13 +83,23 @@
     const get = (url) => cache.get(url) || cache.set(url, fetch(url, { cache: 'no-store' }).then((r) => (r.ok ? r.text() : ''))).get(url)
 
     // The emails point at https://muster.is/assets/… so they work once sent. Here they load from this
-    // checkout instead, so a local preview shows images before they're deployed. Dark previews as Apple
-    // Mail does it: the email's own prefers-color-scheme rules apply (Gmail's forced inversion can't be shown).
-    const prepare = (html, scheme) => {
+    // checkout instead, so a local preview shows images before they're deployed.
+    // Dark previews as Apple Mail does it: the email's prefers-color-scheme rules apply, and the frame's own
+    // colour scheme is pinned so the browser's defaults follow the toggle, not the OS. Outlook.com dark puts
+    // data-ogsc/data-ogsb on <html> and leaves prefers-color-scheme off, as Outlook.com does. Gmail's forced
+    // inversion can't be shown here; it needs a real send.
+    const prepare = (html, scheme, strip) => {
       html = html.replace(/https:\/\/muster\.is\/assets\//g, new URL('../assets/', location.href).href)
-      if (scheme === 'dark') html = html.replace(/@media\s*\(\s*prefers-color-scheme\s*:\s*dark\s*\)/g, '@media all')
-      else html = html.replace(/@media\s*\(\s*prefers-color-scheme\s*:\s*dark\s*\)/g, '@media not all')
-      return html
+      const dark = scheme === 'dark'
+      html = html
+        .replace(/\(\s*prefers-color-scheme\s*:\s*dark\s*\)/g, dark ? '(min-width:0px)' : '(max-width:0px)')
+        .replace(/\(\s*prefers-color-scheme\s*:\s*light\s*\)/g, dark ? '(max-width:0px)' : '(min-width:0px)')
+      if (scheme === 'outlook') html = html.replace(/<html\b/i, '<html data-ogsc data-ogsb')
+      if (strip === 'styles') html = html.replace(/<style\b[\s\S]*?<\/style>/gi, '').replace(/<link\b[^>]*>/gi, '')
+      if (strip === 'fonts') html = html.replace(/<link\b[^>]*fonts\.googleapis[^>]*>/gi, '')
+      if (strip === 'images') html = html.replace(/(<img\b[^>]*?\s)src="[^"]*"/gi, '$1src=""').replace(/url\([^)]*\)/gi, 'none').replace(/\sbackground="[^"]*"/gi, '')
+      // added last, so "No styles" keeps the pinned scheme too
+      return html.replace(/<\/head>/i, `<style>:root{color-scheme:${dark ? 'dark' : 'light'} only !important}</style></head>`)
     }
 
     let renderId = 0
@@ -103,19 +116,30 @@
       if (id !== renderId) return
       const doc = new DOMParser().parseFromString(html, 'text/html')
       $('[data-subject]').textContent = doc.title || '(no subject)'
-      $('[data-preheader]').textContent = (doc.querySelector('[data-preheader]')?.textContent || '').replace(/[͏‌ ­﻿\s]+/g, ' ').trim()
+      // phones show about 90 characters of preview: the rest is dimmed
+      const pre = (doc.querySelector('[data-preheader]')?.textContent || '').replace(/[\u034f\u200c\u2007\u00ad\ufeff\s]+/g, ' ').trim()
+      const preEl = $('[data-preheader]')
+      preEl.textContent = pre.slice(0, 90)
+      if (pre.length > 90) preEl.append(Object.assign(document.createElement('span'), { className: 'cut', textContent: pre.slice(90) }))
       const kb = new Blob([html]).size / 1024
-      $('[data-meta]').textContent = `${state.email}.html · ${kb.toFixed(1)} KB${kb > 102 ? ' · over Gmail’s 102 KB clip' : ''}`
+      $('[data-meta]').textContent = `${state.email}.html · ${kb.toFixed(1)} KB${kb > 102 ? ' · over Gmail’s 102 KB clip' : kb > 75 ? ' · near Gmail’s clip once an ESP rewrites links' : ''} · subject ${doc.title.length} characters · preheader ${pre.length}`
 
       text.hidden = state.part !== 'text'
       frame.hidden = state.part !== 'html'
       if (state.part === 'text') { text.textContent = txt || '(no plain-text part yet)'; return }
-      frame.srcdoc = prepare(html, state.scheme)
+      frame.srcdoc = prepare(html, state.scheme, state.strip)
     }
 
     // The iframe takes the email's height, so the page scrolls like a mail client does
     const fit = () => { try { frame.style.height = `${frame.contentDocument.documentElement.scrollHeight}px` } catch {} }
-    frame.addEventListener('load', () => { fit(); frame.contentDocument?.fonts?.ready.then(fit); new ResizeObserver(fit).observe(frame.contentDocument.body) })
+    let watching = null
+    frame.addEventListener('load', () => {
+      fit()
+      frame.contentDocument?.fonts?.ready.then(fit)
+      watching?.disconnect()
+      watching = new ResizeObserver(fit)
+      if (frame.contentDocument?.body) watching.observe(frame.contentDocument.body)
+    })
 
     document.querySelectorAll('.seg').forEach((seg) => seg.addEventListener('click', (e) => {
       const b = e.target.closest('button'); if (!b) return
@@ -131,6 +155,7 @@
       else if (e.key === 'm' || e.key === 'M') flip('width')
       else if (e.key === 'd' || e.key === 'D') flip('scheme')
       else if (e.key === 't' || e.key === 'T') flip('part')
+      else if (e.key === 's' || e.key === 'S') flip('strip')
     })
     render()
   </script>

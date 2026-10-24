@@ -5,162 +5,224 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="x-apple-disable-message-reformatting">
-<meta name="format-detection" content="telephone=no, date=no, address=no, email=no, url=no">
+<meta name="format-detection" content="telephone=no, date=no, address=no, email=no">
 <meta name="color-scheme" content="light dark">
 <meta name="supported-color-schemes" content="light dark">
-<title>You’re in: Muster is ready for your Mac</title>
+<title>You’re in: Muster is ready</title>
 <!--[if mso]>
 <noscript><xml><o:OfficeDocumentSettings><o:AllowPNG/><o:PixelsPerInch>96</o:PixelsPerInch></o:OfficeDocumentSettings></xml></noscript>
 <style>
-  table, td, h1, h2, p, a, span { font-family: 'Segoe UI', Arial, sans-serif !important; }
+  table, td, div, p, a, span, h1, h2 { font-family: 'Segoe UI', Arial, sans-serif !important; }
   .f-display { font-family: 'Arial Narrow', Arial, sans-serif !important; }
-  .f-mono, .f-mono a, .f-mono span { font-family: Consolas, 'Courier New', monospace !important; }
+  .f-mono, .f-mono td, .f-mono p, .f-mono span, .f-mono a, code { font-family: Consolas, 'Courier New', monospace !important; }
+  /* Word ignores media queries: the desktop values again */
+  .l-gut { padding: 48px 24px 56px !important; }
+  .l-lt { padding: 48px 48px 28px !important; }
+  .l-st { padding: 20px 48px 40px !important; }
+  .l-brand { padding-bottom: 40px !important; }
+  .l-h1 { font-size: 76px !important; mso-line-height-rule: exactly; line-height: 76px !important; letter-spacing: -3px !important; margin-bottom: 24px !important; }
+  .l-sign { margin-top: 32px !important; }
+  .l-code { padding: 18px 18px 16px !important; font-size: 14px !important; }
+  .l-tile { background-color: transparent !important; }
 </style>
 <![endif]-->
-<!--[if !mso]><!-->
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@400&amp;family=Geist:wght@400;500;600&amp;family=Geist+Mono:wght@400&amp;display=swap" rel="stylesheet">
-<!--<![endif]-->
+<!--[if !mso]><!--><link href="https://fonts.googleapis.com/css2?family=Geist:wght@400..600&amp;family=Geist+Mono:wght@400&amp;family=IBM+Plex+Sans+Condensed:wght@400&amp;display=swap" rel="stylesheet"><!--<![endif]-->
 <style>
-  /* Client resets and the phone layout (kept free of attribute selectors so Gmail keeps it). Everything that matters is inline too. */
+  /* 1 · resets: element selectors only */
   body { margin: 0 !important; padding: 0 !important; width: 100% !important; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
   table, td { mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
   img { -ms-interpolation-mode: bicubic; }
-  @media (max-width: 520px) {
-    .m-gutter { padding: 16px 10px 32px !important; }
-    .m-pad { padding-left: 20px !important; padding-right: 20px !important; }
-    .m-letter { padding-top: 28px !important; }
-    .m-brand { padding-bottom: 32px !important; }
-    .m-title { font-size: 52px !important; line-height: 52px !important; letter-spacing: -2px !important; }
-    .m-code { padding: 16px 16px 14px !important; font-size: 13px !important; }
-    .m-fine { padding-top: 24px !important; }
-    .m-item { display: block !important; }
-    .m-sep { display: none !important; }
+</style>
+<style>
+  /* 2 · layout: inline values are the phone; these enlarge. Class selectors in width queries only. */
+  @media only screen and (min-width: 370px) {
+    .l-tail { white-space: nowrap !important; }
+  }
+  @media only screen and (min-width: 521px) {
+    .l-gut { padding: 48px 24px 56px !important; }
+    .l-card { border-radius: 24px !important; }
+    .l-lt { padding: 48px 48px 28px !important; border-radius: 24px 24px 0 0 !important; }
+    .l-st { padding: 20px 48px 40px !important; border-radius: 0 0 24px 24px !important; }
+    .l-brand { padding-bottom: 40px !important; }
+    .l-h1 { font-size: 76px !important; line-height: 76px !important; letter-spacing: -3.4px !important; margin-bottom: 24px !important; }
+    .l-sign { margin-top: 32px !important; }
+    .l-code { padding: 18px 18px 16px !important; font-size: 14px !important; }
+    .l-n { width: 12px !important; }
+    .l-nq { width: 11px !important; height: 11px !important; }
+    .l-tr { border-top-right-radius: 12px !important; }
+    .l-br { border-bottom-right-radius: 12px !important; }
+    .l-tl { border-top-left-radius: 12px !important; }
+    .l-bl { border-bottom-left-radius: 12px !important; }
+    .l-nh { height: 12px !important; }
+    .l-ns { height: 8px !important; }
+    .l-phone { display: none !important; }
+    .l-fine { padding-top: 28px !important; }
   }
 </style>
 <style>
+  /* 3 · client hooks: anything exotic lives here and only here */
   :root { color-scheme: light dark; supported-color-schemes: light dark; }
   a[x-apple-data-detectors] { color: inherit !important; text-decoration: none !important; font-size: inherit !important; font-family: inherit !important; font-weight: inherit !important; line-height: inherit !important; }
-  .cmd ::selection { background: #f4f83b; color: #202020; }
-  /* Dark: the same letter at night, not an inversion. Apple Mail, iOS, Outlook for Mac, Hey. */
+  #MessageViewBody a { color: inherit; text-decoration: none; font-size: inherit; font-family: inherit; font-weight: inherit; line-height: inherit; }
+  ::selection { background: #f4f83b; color: #202020; }
+  .d-perf { background-repeat: space no-repeat !important; }
+  .b-fill { background-image: linear-gradient(#f3f76f 0%, #edf12f 60%, #e7ec24 100%); }
+  u + .body .b-fill { background-image: none !important; }
+</style>
+<style>
+  /* 4 · dark: Apple Mail, iOS Mail, Outlook for Mac, Hey. Nothing else in this block */
   @media (prefers-color-scheme: dark) {
-    .dm-canvas { background-color: #141414 !important; background-image: url("https://muster.is/assets/email/dots-dark.png") !important; }
-    .dm-card { box-shadow: 0 1px 2px rgba(0,0,0,.5), 0 24px 32px -12px rgba(0,0,0,.6) !important; }
-    .dm-letter { background-color: #1e1e1e !important; border-color: #303030 !important; }
-    .dm-stub { background-color: #191919 !important; border-color: #303030 !important; }
-    .dm-notch { background-color: #141414 !important; border-color: #303030 !important; }
-    .dm-perf { border-top-color: #3c3c3c !important; }
-    .dm-term { box-shadow: inset 0 0 0 1px #2a2a2a !important; }
-    .dm-ink { color: #f0f0f0 !important; }
-    .dm-body { color: #c4c4c4 !important; }
-    .dm-muted, .dm-muted a { color: #9c9c9c !important; }
-    .dm-dot { color: #5e5e5e !important; }
-    .dm-chip { background-color: #262626 !important; border-color: #3a3a3a !important; color: #ececec !important; }
+    .d-canvas { background-color: #1c1c1c !important; background-image: url("https://muster.is/assets/email/dots-dark.png") !important; background-size: 16px 16px !important; }
+    .d-card { box-shadow: 0 1px 2px rgba(0,0,0,.5), 0 24px 32px -12px rgba(0,0,0,.6) !important; }
+    .d-letter { background-color: #2a2a2a !important; border-color: #343434 !important; }
+    .d-stub { background-color: #222222 !important; border-color: #343434 !important; }
+    .d-notch { background-color: #1c1c1c !important; border-color: #343434 !important; }
+    .d-perf { background-image: url("https://muster.is/assets/email/perf-dark.png") !important; }
+    .d-term { border-color: #2e2e2e !important; }
+    .d-ink { color: #ededed !important; }
+    .d-body { color: #c4c4c4 !important; }
+    .d-muted, .d-muted a { color: #a3a3a3 !important; }
+    .d-muted a { text-decoration-color: #4a4a4a !important; }
+    .d-dot { color: #6e6e6e !important; }
+    .d-chip { background-color: #2a2a2a !important; border-color: #3a3a3a !important; color: #ededed !important; }
   }
 </style>
 <style>
-  /* Outlook.com and the new Outlook in dark mode */
-  [data-ogsb] .dm-canvas { background-color: #141414 !important; }
-  [data-ogsb] .dm-letter { background-color: #1e1e1e !important; }
-  [data-ogsb] .dm-stub { background-color: #191919 !important; }
-  [data-ogsb] .dm-notch { background-color: #141414 !important; }
-  [data-ogsb] .dm-chip { background-color: #262626 !important; }
-  [data-ogsc] .dm-ink { color: #f0f0f0 !important; }
-  [data-ogsc] .dm-body { color: #c4c4c4 !important; }
-  [data-ogsc] .dm-muted, [data-ogsc] .dm-muted a { color: #9c9c9c !important; }
-  [data-ogsc] .dm-chip { color: #ececec !important; }
+  /* 5 · Outlook.com and new Outlook dark: the rules above that matter, again */
+  [data-ogsb] .d-canvas { background-color: #1c1c1c !important; }
+  [data-ogsb] .d-letter { background-color: #2a2a2a !important; border-color: #343434 !important; }
+  [data-ogsb] .d-stub { background-color: #222222 !important; border-color: #343434 !important; }
+  [data-ogsb] .d-notch { background-color: #1c1c1c !important; border-color: #343434 !important; }
+  [data-ogsb] .d-perf { background-image: url("https://muster.is/assets/email/perf-dark.png") !important; }
+  [data-ogsb] .d-term { background-color: #0c0c0c !important; border-color: #2e2e2e !important; }
+  [data-ogsb] .d-chip { background-color: #2a2a2a !important; border-color: #3a3a3a !important; }
+  [data-ogsb] .b-fill { background-color: #edf12f !important; }
+  [data-ogsc] .d-ink { color: #ededed !important; }
+  [data-ogsc] .d-body { color: #c4c4c4 !important; }
+  [data-ogsc] .d-muted, [data-ogsc] .d-muted a { color: #a3a3a3 !important; }
+  [data-ogsc] .d-dot { color: #6e6e6e !important; }
+  [data-ogsc] .d-chip { color: #ededed !important; }
+  [data-ogsc] .d-cmd, [data-ogsc] .d-cmd a { color: #d4d4d4 !important; }
+  [data-ogsc] .b-ink { color: #202020 !important; }
+</style>
+<style>
+  /* 6 · motion, Apple Mail only: the card is set down on the canvas, as on the page. The still state is the design. */
+  @keyframes n-settle { from { transform: translateY(-10px) rotate(-1.5deg) scale(1.03); } }
+  @keyframes n-fade { from { opacity: 0; } }
+  @media (prefers-reduced-motion: no-preference) {
+    .a-card { transform-origin: 50% 40%; animation: n-fade .2s ease backwards, n-settle .4s cubic-bezier(.23,1,.32,1) backwards; }
+    .a-fine { animation: n-fade .3s ease .12s backwards; }
+  }
 </style>
 </head>
-<body class="dm-canvas" style="margin:0;padding:0;width:100%;background-color:#f5f5f5;word-spacing:normal;">
-<div data-preheader style="display:none;font-size:1px;line-height:1px;max-height:0;max-width:0;opacity:0;overflow:hidden;mso-hide:all;color:#f5f5f5;">Thanks for waiting. Here’s the one line that installs it, and what to run next.&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;</div>
+<body class="body d-canvas" style="margin:0;padding:0;width:100%;word-spacing:normal;background-color:#f5f5f5;background-image:url('https://muster.is/assets/email/dots.png');background-size:16px 16px;">
+<div data-preheader style="display:none;font-size:1px;mso-line-height-rule:exactly;line-height:1px;max-height:0;max-width:0;opacity:0;overflow:hidden;mso-hide:all;">It organises your Claude Code skills, and one line in Terminal installs it.&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;</div>
+<div role="article" aria-roledescription="email" aria-label="You’re in: Muster is ready" lang="en" dir="ltr">
 
 <!-- The dotted canvas -->
-<table role="presentation" class="dm-canvas" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#f5f5f5" style="width:100%;border-collapse:collapse;background-color:#f5f5f5;background-image:url('https://muster.is/assets/email/dots.png');background-size:16px 16px;background-repeat:repeat;">
+<table role="presentation" class="d-canvas" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#f5f5f5" style="width:100%;border-collapse:collapse;background-color:#f5f5f5;background-image:url('https://muster.is/assets/email/dots.png');background-size:16px 16px;background-repeat:repeat;">
 <tr>
-<td class="m-gutter" align="center" style="padding:48px 24px 56px;">
+<td class="l-gut" align="center" style="padding:16px 8px 32px;">
 
 <!--[if mso]><table role="presentation" align="center" width="640" cellpadding="0" cellspacing="0" border="0"><tr><td><![endif]-->
 <div style="max-width:640px;margin:0 auto;">
 
 <!-- The card: a letter, a tear line, a stub -->
-<table role="presentation" class="dm-card" width="100%" cellpadding="0" cellspacing="0" border="0" style="width:100%;border-collapse:separate;border-spacing:0;border-radius:24px;box-shadow:0 1px 1.5px rgba(0,0,0,.05), 0 24px 32px -12px rgba(0,0,0,.12);">
+<table role="presentation" class="a-card d-card l-card" width="100%" cellpadding="0" cellspacing="0" border="0" style="width:100%;border-collapse:separate;border-spacing:0;border-radius:20px;box-shadow:0 1px 1.5px rgba(0,0,0,.05), 0 24px 32px -12px rgba(0,0,0,.12);">
 
 <!-- The letter -->
 <tr>
-<td class="dm-letter m-pad m-letter" bgcolor="#fefefe" style="padding:48px 48px 28px;background-color:#fefefe;border:1px solid #dadada;border-bottom:0;border-radius:24px 24px 0 0;">
+<td class="d-letter l-lt" bgcolor="#fefefe" style="padding:28px 20px 24px;background-color:#fefefe;border:1px solid #e2e2e2;border-bottom:0;border-radius:20px 20px 0 0;">
 
   <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;">
   <tr>
-    <td class="m-brand" style="padding:0 0 40px;">
+    <td class="l-brand" style="padding:0 0 32px;">
       <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;">
       <tr>
-        <td valign="middle" style="padding:0 10px 0 0;"><img src="https://muster.is/assets/email/mark.png" width="22" height="22" alt="" style="display:block;width:22px;height:22px;border:0;outline:none;text-decoration:none;border-radius:6px;"></td>
-        <td valign="middle" class="dm-ink" style="font-family:Geist,-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:16px;line-height:22px;font-weight:500;letter-spacing:-0.16px;color:#202020;mso-line-height-rule:exactly;">Muster</td>
+        <td class="l-tile" width="22" height="22" valign="middle" style="width:22px;height:22px;padding:0;border-radius:6px;background-color:#f4f83b;"><img src="https://muster.is/assets/email/mark.png" width="22" height="22" alt="" style="display:block;width:22px;height:22px;border:0;outline:none;text-decoration:none;border-radius:6px;"></td>
+        <td width="10" style="width:10px;padding:0;font-size:1px;mso-line-height-rule:exactly;line-height:1px;">&nbsp;</td>
+        <td valign="middle" class="d-ink" style="padding:0;font-family:Geist,-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:16px;mso-line-height-rule:exactly;line-height:22px;font-weight:500;letter-spacing:-0.16px;color:#202020;">Muster</td>
       </tr>
       </table>
     </td>
   </tr>
   </table>
 
-  <h1 class="f-display dm-ink m-title" style="margin:0 0 24px;font-family:'IBM Plex Sans Condensed','Arial Narrow','Helvetica Neue',Arial,sans-serif;font-size:76px;line-height:76px;font-weight:400;letter-spacing:-3px;color:#202020;mso-line-height-rule:exactly;text-wrap:balance;">You’re in.</h1>
+  <h1 class="f-display d-ink l-h1" style="margin:0 0 16px;font-family:'IBM Plex Sans Condensed','Arial Narrow','Helvetica Neue',Arial,sans-serif;font-size:52px;mso-line-height-rule:exactly;line-height:52px;font-weight:400;letter-spacing:-2.3px;color:#202020;text-wrap:balance;">You’re in.</h1>
 
-  <p class="dm-body" style="margin:0 0 12px;font-family:Geist,-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:16px;line-height:24px;color:#4a4a4a;mso-line-height-rule:exactly;text-wrap:pretty;">Thanks for waiting. We’ve let you in off the waitlist, and Muster is ready for your Mac.</p>
-  <p class="dm-body" style="margin:0;font-family:Geist,-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:16px;line-height:24px;color:#4a4a4a;mso-line-height-rule:exactly;text-wrap:pretty;">Muster organises the skills Claude Code has on your Mac. It finds them, shows them in one place, and checks them for duplicates and conflicts.</p>
+  <p class="d-body" style="margin:0 0 12px;font-family:Geist,-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:16px;mso-line-height-rule:exactly;line-height:24px;color:#4a4a4a;text-wrap:pretty;">Thanks for waiting. We’ve let you in off the waitlist, and Muster is ready to install.</p>
+  <p class="d-body" style="margin:0;font-family:Geist,-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:16px;mso-line-height-rule:exactly;line-height:24px;color:#4a4a4a;text-wrap:pretty;">Muster organises the skills Claude Code has on your Mac. It finds them, shows them in one place, and checks them for duplicates and conflicts. Nothing leaves your Mac.</p>
 
-  <p class="dm-muted" style="margin:32px 0 0;font-family:Geist,-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:15px;line-height:22px;color:#6c6c6c;mso-line-height-rule:exactly;text-wrap:pretty;">Reply to this email and tell us how it goes.</p>
-  <p class="dm-ink" style="margin:4px 0 0;font-family:Geist,-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:15px;line-height:22px;font-weight:500;color:#202020;mso-line-height-rule:exactly;">— The Muster team</p>
+  <p class="d-muted l-sign" style="margin:24px 0 0;font-family:Geist,-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:15px;mso-line-height-rule:exactly;line-height:24px;color:#6c6c6c;text-wrap:pretty;">We’d like to hear how it goes. Reply to this email.</p>
+  <p class="d-ink" style="margin:0;font-family:Geist,-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:15px;mso-line-height-rule:exactly;line-height:24px;font-weight:500;color:#202020;">— The Muster team</p>
 
 </td>
 </tr>
 
-<!-- The tear line: a punched notch at each edge, perforation between -->
+<!--[if mso]>
 <tr>
-<td style="padding:0;font-size:0;line-height:0;">
+<td style="padding:0;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;">
+  <tr><td height="12" bgcolor="#fefefe" style="height:12px;font-size:1px;mso-line-height-rule:exactly;line-height:1px;border-left:1px solid #e2e2e2;border-right:1px solid #e2e2e2;">&nbsp;</td></tr>
+  <tr><td bgcolor="#fafafa" style="padding:0 22px;border-left:1px solid #e2e2e2;border-right:1px solid #e2e2e2;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;"><tr><td height="10" style="height:10px;font-size:1px;mso-line-height-rule:exactly;line-height:1px;border-top:2px dotted #c8c8c8;">&nbsp;</td></tr></table>
+  </td></tr>
+  </table>
+</td>
+</tr>
+<![endif]-->
+<!--[if !mso]><!-->
+<!-- The tear line: a punched notch at each edge, the canvas's own dots between -->
+<tr aria-hidden="true">
+<td style="padding:0;font-size:1px;mso-line-height-rule:exactly;line-height:1px;">
   <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="width:100%;border-collapse:separate;border-spacing:0;">
   <tr>
-    <td width="12" valign="top" style="width:12px;padding:0;font-size:0;line-height:0;">
-      <table role="presentation" class="dm-letter" width="12" cellpadding="0" cellspacing="0" border="0" bgcolor="#fefefe" style="width:12px;border-collapse:separate;border-spacing:0;background-color:#fefefe;"><tr><td class="dm-notch" width="11" height="11" bgcolor="#f5f5f5" style="width:11px;height:11px;padding:0;background-color:#f5f5f5;border-top:1px solid #dadada;border-right:1px solid #dadada;border-top-right-radius:12px;font-size:11px;line-height:11px;mso-line-height-rule:exactly;">&nbsp;</td></tr></table>
-      <table role="presentation" class="dm-stub" width="12" cellpadding="0" cellspacing="0" border="0" bgcolor="#fafafa" style="width:12px;border-collapse:separate;border-spacing:0;background-color:#fafafa;"><tr><td class="dm-notch" width="11" height="11" bgcolor="#f5f5f5" style="width:11px;height:11px;padding:0;background-color:#f5f5f5;border-bottom:1px solid #dadada;border-right:1px solid #dadada;border-bottom-right-radius:12px;font-size:11px;line-height:11px;mso-line-height-rule:exactly;">&nbsp;</td></tr></table>
+    <td class="l-n" width="10" valign="top" style="width:10px;padding:0;">
+      <table role="presentation" class="d-letter" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#fefefe" style="width:100%;border-collapse:separate;border-spacing:0;background-color:#fefefe;"><tr><td class="d-notch l-nq l-tr" width="9" height="9" bgcolor="#f5f5f5" style="width:9px;height:9px;padding:0;background-color:#f5f5f5;border-top:1px solid #e2e2e2;border-right:1px solid #e2e2e2;border-top-right-radius:10px;font-size:1px;mso-line-height-rule:exactly;line-height:1px;">&nbsp;</td></tr></table>
+      <table role="presentation" class="d-stub" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#fafafa" style="width:100%;border-collapse:separate;border-spacing:0;background-color:#fafafa;"><tr><td class="d-notch l-nq l-br" width="9" height="9" bgcolor="#f5f5f5" style="width:9px;height:9px;padding:0;background-color:#f5f5f5;border-bottom:1px solid #e2e2e2;border-right:1px solid #e2e2e2;border-bottom-right-radius:10px;font-size:1px;mso-line-height-rule:exactly;line-height:1px;">&nbsp;</td></tr></table>
     </td>
-    <td valign="top" style="padding:0;font-size:0;line-height:0;">
+    <td valign="top" style="padding:0;">
       <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="width:100%;border-collapse:collapse;">
-      <tr><td class="dm-letter" height="11" bgcolor="#fefefe" style="height:11px;padding:0;background-color:#fefefe;font-size:11px;line-height:11px;mso-line-height-rule:exactly;">&nbsp;</td></tr>
-      <tr><td class="dm-stub" bgcolor="#fafafa" style="padding:0 10px;background-color:#fafafa;">
-        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="width:100%;border-collapse:collapse;"><tr><td class="dm-perf" height="11" style="height:11px;padding:0;border-top:2px dotted #c8c8c8;font-size:11px;line-height:11px;mso-line-height-rule:exactly;">&nbsp;</td></tr></table>
+      <tr><td class="d-letter l-nh" height="10" bgcolor="#fefefe" style="height:10px;padding:0;background-color:#fefefe;font-size:1px;mso-line-height-rule:exactly;line-height:1px;">&nbsp;</td></tr>
+      <tr><td class="d-stub" bgcolor="#fafafa" style="padding:0 10px;background-color:#fafafa;">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="width:100%;border-collapse:collapse;"><tr><td class="d-perf" height="4" style="height:4px;padding:0;background-image:url('https://muster.is/assets/email/perf.png');background-size:8px 4px;background-repeat:repeat-x;background-position:center top;font-size:1px;mso-line-height-rule:exactly;line-height:1px;">&nbsp;</td></tr></table>
       </td></tr>
+      <tr><td class="d-stub l-ns" height="6" bgcolor="#fafafa" style="height:6px;padding:0;background-color:#fafafa;font-size:1px;mso-line-height-rule:exactly;line-height:1px;">&nbsp;</td></tr>
       </table>
     </td>
-    <td width="12" valign="top" style="width:12px;padding:0;font-size:0;line-height:0;">
-      <table role="presentation" class="dm-letter" width="12" cellpadding="0" cellspacing="0" border="0" bgcolor="#fefefe" style="width:12px;border-collapse:separate;border-spacing:0;background-color:#fefefe;"><tr><td class="dm-notch" width="11" height="11" bgcolor="#f5f5f5" style="width:11px;height:11px;padding:0;background-color:#f5f5f5;border-top:1px solid #dadada;border-left:1px solid #dadada;border-top-left-radius:12px;font-size:11px;line-height:11px;mso-line-height-rule:exactly;">&nbsp;</td></tr></table>
-      <table role="presentation" class="dm-stub" width="12" cellpadding="0" cellspacing="0" border="0" bgcolor="#fafafa" style="width:12px;border-collapse:separate;border-spacing:0;background-color:#fafafa;"><tr><td class="dm-notch" width="11" height="11" bgcolor="#f5f5f5" style="width:11px;height:11px;padding:0;background-color:#f5f5f5;border-bottom:1px solid #dadada;border-left:1px solid #dadada;border-bottom-left-radius:12px;font-size:11px;line-height:11px;mso-line-height-rule:exactly;">&nbsp;</td></tr></table>
+    <td class="l-n" width="10" valign="top" style="width:10px;padding:0;">
+      <table role="presentation" class="d-letter" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#fefefe" style="width:100%;border-collapse:separate;border-spacing:0;background-color:#fefefe;"><tr><td class="d-notch l-nq l-tl" width="9" height="9" bgcolor="#f5f5f5" style="width:9px;height:9px;padding:0;background-color:#f5f5f5;border-top:1px solid #e2e2e2;border-left:1px solid #e2e2e2;border-top-left-radius:10px;font-size:1px;mso-line-height-rule:exactly;line-height:1px;">&nbsp;</td></tr></table>
+      <table role="presentation" class="d-stub" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#fafafa" style="width:100%;border-collapse:separate;border-spacing:0;background-color:#fafafa;"><tr><td class="d-notch l-nq l-bl" width="9" height="9" bgcolor="#f5f5f5" style="width:9px;height:9px;padding:0;background-color:#f5f5f5;border-bottom:1px solid #e2e2e2;border-left:1px solid #e2e2e2;border-bottom-left-radius:10px;font-size:1px;mso-line-height-rule:exactly;line-height:1px;">&nbsp;</td></tr></table>
     </td>
   </tr>
   </table>
 </td>
 </tr>
+<!--<![endif]-->
 
 <!-- The stub: the install ticket -->
 <tr>
-<td class="dm-stub m-pad" bgcolor="#fafafa" style="padding:20px 48px 40px;background-color:#fafafa;border:1px solid #dadada;border-top:0;border-radius:0 0 24px 24px;">
+<td class="d-stub l-st" bgcolor="#fafafa" style="padding:14px 20px 28px;background-color:#fafafa;border:1px solid #e2e2e2;border-top:0;border-radius:0 0 20px 20px;">
 
-  <h2 class="dm-ink" style="margin:0 0 12px;font-family:Geist,-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:14px;line-height:20px;font-weight:500;color:#202020;mso-line-height-rule:exactly;">Paste this into Terminal on your Mac</h2>
+  <h2 class="d-ink" style="margin:0 0 12px;font-family:Geist,-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:14px;mso-line-height-rule:exactly;line-height:20px;font-weight:500;color:#202020;">Paste this into Terminal on your Mac</h2>
 
-  <table role="presentation" class="dm-term" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#0c0c0c" style="width:100%;border-collapse:separate;border-spacing:0;background-color:#0c0c0c;border-radius:28px;box-shadow:0 1px 2px rgba(0,0,0,.16), 0 12px 24px -16px rgba(0,0,0,.45);">
+  <table role="presentation" class="d-term" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#0c0c0c" style="width:100%;border-collapse:separate;border-spacing:0;background-color:#0c0c0c;border:1px solid #0c0c0c;border-radius:28px;box-shadow:0 1px 2px rgba(0,0,0,.16), 0 12px 24px -16px rgba(0,0,0,.45);">
   <tr>
-    <td class="cmd f-mono m-code" style="padding:18px 18px 16px;font-family:'Geist Mono',ui-monospace,'SF Mono',Menlo,Consolas,'Liberation Mono',monospace;font-size:14px;line-height:22px;color:#d4d4d4;mso-line-height-rule:exactly;"><span style="-webkit-user-select:all;user-select:all;"><span style="white-space:nowrap;">curl -fsSL</span> <span style="white-space:nowrap;"><a href="https://muster.is/install.sh" style="color:#d4d4d4;text-decoration:none;">https://muster.is/install.sh</a></span> <span style="white-space:nowrap;">| bash</span></span></td>
+    <td class="cmd f-mono l-code d-cmd" style="padding:16px 12px 14px;font-family:'Geist Mono',ui-monospace,'SF Mono',Menlo,Consolas,'Liberation Mono',monospace;font-size:13px;mso-line-height-rule:exactly;line-height:24px;color:#d4d4d4;font-variant-ligatures:none;-webkit-user-select:all;user-select:all;"><span style="white-space:nowrap;">curl -fsSL</span> <span class="l-tail"><span style="white-space:nowrap;"><a href="https://muster.is/install.sh" style="color:#d4d4d4;text-decoration:none;pointer-events:none;">https://muster.is/install.sh</a></span> <span style="white-space:nowrap;">| bash</span></span></td>
   </tr>
   <tr>
     <td style="padding:0 6px 6px;">
       <!--[if mso]>
-      <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://muster.is/?variant=note" style="height:44px;v-text-anchor:middle;width:530px;" arcsize="50%" stroke="f" fillcolor="#edf12f">
+      <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://muster.is/?variant=note" style="height:44px;v-text-anchor:middle;width:528px;" arcsize="50%" stroke="f" fillcolor="#edf12f">
         <w:anchorlock/>
-        <center style="color:#202020;font-family:'Segoe UI',Arial,sans-serif;font-size:14px;font-weight:600;">Copy it on muster.is</center>
+        <center style="color:#202020;font-family:'Segoe UI',Arial,sans-serif;font-size:14px;font-weight:bold;">Copy it on muster.is</center>
       </v:roundrect>
       <![endif]-->
       <!--[if !mso]><!-->
       <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="width:100%;border-collapse:separate;border-spacing:0;">
       <tr>
-        <td align="center" bgcolor="#edf12f" style="border-radius:22px;background-color:#edf12f;background-image:linear-gradient(#f3f76f 0%,#edf12f 60%,#e7ec24 100%);box-shadow:inset 0 1px 0 rgba(255,255,255,.75);">
-          <a href="https://muster.is/?variant=note" style="display:block;padding:12px 18px;border-radius:22px;font-family:Geist,-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:14px;line-height:20px;font-weight:600;color:#202020;text-align:center;text-decoration:none;">Copy it on muster.is</a>
+        <td class="b-fill" align="center" bgcolor="#edf12f" style="border-radius:22px;background-color:#edf12f;box-shadow:inset 0 1px 0 rgba(255,255,255,.75);">
+          <a class="b-ink" href="https://muster.is/?variant=note" style="display:block;padding:12px 18px;border-radius:22px;font-family:Geist,-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:14px;mso-line-height-rule:exactly;line-height:20px;font-weight:550;color:#202020;text-align:center;text-decoration:none;">Copy it on muster.is</a>
         </td>
       </tr>
       </table>
@@ -169,23 +231,24 @@
   </tr>
   </table>
 
-  <p class="dm-muted" style="margin:16px 0 0;font-family:Geist,-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:14px;line-height:22px;color:#6c6c6c;mso-line-height-rule:exactly;text-wrap:pretty;">Then run <span class="f-mono dm-chip" style="padding:1px 6px;border:1px solid #e0e0e0;border-radius:5px;background-color:#fefefe;font-family:'Geist Mono',ui-monospace,'SF Mono',Menlo,Consolas,'Liberation Mono',monospace;font-size:13px;color:#202020;white-space:nowrap;">muster open</span> to see your skills on a page in your browser.</p>
+  <p class="d-muted" style="margin:12px 0 0;font-family:Geist,-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:14px;mso-line-height-rule:exactly;line-height:20px;color:#6c6c6c;text-wrap:pretty;">About 23 MB. No admin password. It puts <span class="f-mono" style="font-family:'Geist Mono',ui-monospace,'SF Mono',Menlo,Consolas,'Liberation Mono',monospace;font-size:13px;">muster</span> in <span class="f-mono" style="font-family:'Geist Mono',ui-monospace,'SF Mono',Menlo,Consolas,'Liberation Mono',monospace;font-size:13px;white-space:nowrap;">~/.local/bin</span>.</p>
+
+  <p class="d-body" style="margin:16px 0 0;font-family:Geist,-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:14px;mso-line-height-rule:exactly;line-height:24px;color:#4a4a4a;text-wrap:pretty;">When the install finishes, run the first command it shows, <span class="f-mono d-chip" style="padding:1px 6px;border:1px solid #e0e0e0;border-radius:5px;background-color:#fefefe;font-family:'Geist Mono',ui-monospace,'SF Mono',Menlo,Consolas,'Liberation Mono',monospace;font-size:13px;color:#202020;white-space:nowrap;">muster open</span>, to see your skills on a page in your browser.</p>
+
+  <!--[if !mso]><!-->
+  <p class="l-phone d-muted" style="margin:16px 0 0;font-family:Geist,-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:14px;mso-line-height-rule:exactly;line-height:20px;color:#6c6c6c;text-wrap:pretty;">On your phone? Open this email again on your Mac.</p>
+  <!--<![endif]-->
 
 </td>
 </tr>
 </table>
 
 <!-- Fine print, under the card -->
-<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="width:100%;border-collapse:collapse;">
+<table role="presentation" class="a-fine" width="100%" cellpadding="0" cellspacing="0" border="0" style="width:100%;border-collapse:collapse;">
 <tr>
-  <td class="dm-muted m-fine" align="center" style="padding:28px 16px 0;font-family:Geist,-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:14px;line-height:22px;color:#6c6c6c;text-align:center;font-variant-numeric:tabular-nums;mso-line-height-rule:exactly;">
-    <span class="m-item" style="white-space:nowrap;">Needs a Mac and Claude Code</span><span class="m-sep dm-dot" style="padding:0 8px;color:#969696;">·</span><span class="m-item" style="white-space:nowrap;">About 23 MB, no admin password</span><span class="m-sep dm-dot" style="padding:0 8px;color:#969696;">·</span><span class="m-item" style="white-space:nowrap;">Nothing leaves your Mac</span>
-  </td>
-</tr>
-<tr>
-  <td class="dm-muted" align="center" style="padding:12px 16px 0;font-family:Geist,-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:14px;line-height:22px;color:#6c6c6c;text-align:center;mso-line-height-rule:exactly;">
-    You joined the Muster waitlist at <a href="https://musteryourskills.com" style="color:#6c6c6c;text-decoration:underline;">musteryourskills.com</a>.<br>
-    <a href="https://github.com/musteryourskills/releases/releases" style="color:#6c6c6c;text-decoration:underline;">Release notes</a><span class="dm-dot" style="padding:0 8px;color:#969696;">·</span><a href="https://muster.is/?variant=note" style="color:#6c6c6c;text-decoration:underline;">muster.is</a>
+  <td class="d-muted l-fine" align="center" style="padding:24px 16px 0;font-family:Geist,-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:14px;mso-line-height-rule:exactly;line-height:24px;color:#6c6c6c;text-align:center;">
+    <a href="https://github.com/musteryourskills/releases/releases" style="color:#6c6c6c;text-decoration:underline;text-decoration-color:#c4c4c4;text-underline-offset:3px;">Release notes</a>&nbsp;<span class="d-dot" aria-hidden="true" style="padding:0 6px;color:#969696;">·</span> <a href="https://musteryourskills.com" style="color:#6c6c6c;text-decoration:underline;text-decoration-color:#c4c4c4;text-underline-offset:3px;">musteryourskills.com</a><br>
+    You joined the Muster waitlist at <a href="https://musteryourskills.com" style="color:#6c6c6c;text-decoration:underline;text-decoration-color:#c4c4c4;text-underline-offset:3px;">musteryourskills.com</a>.
   </td>
 </tr>
 </table>
@@ -196,5 +259,6 @@
 </td>
 </tr>
 </table>
+</div>
 </body>
 </html>

@@ -1,4 +1,5 @@
 // The variant picker (harness only). ?variant=<name> is the source of truth.
+// With a single variant there's nothing to pick: no picker, no keys, it just shows.
 // ← → step through the variants, 1–9 jump to one. Each variant may register
 // window.musterVariants[name] = { enter(root) { …; return cleanup } }.
 ;(() => {
@@ -18,7 +19,7 @@
     button.addEventListener('click', () => show(name, true))
     nav.append(button)
   })
-  document.body.append(nav)
+  if (names.length > 1) document.body.append(nav)
 
   function show(name, push) {
     if (!names.includes(name)) name = names[0]
@@ -39,7 +40,7 @@
   }
 
   document.addEventListener('keydown', (event) => {
-    if (event.metaKey || event.ctrlKey || event.altKey) return
+    if (names.length < 2 || event.metaKey || event.ctrlKey || event.altKey) return
     if (event.target.closest('input, textarea, select, [contenteditable], [data-keys]')) return
     const at = names.indexOf(document.documentElement.dataset.variant)
     if (event.key === 'ArrowRight') show(names[(at + 1) % names.length], true)
